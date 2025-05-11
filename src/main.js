@@ -1,6 +1,68 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { gsap } from "gsap";
+import GUI from "lil-gui";
+
+
+// lil-gui helper function
+function initializeGUI() {
+  // Initialize GUI
+  const gui = new GUI();
+  const logoFolder = gui.addFolder("Logo Controls");
+  // Add example controls to GUI
+  logoFolder
+    .add({ reset: () => logo.position.set(0, 0, -5) }, "reset")
+    .name("Reset Position");
+
+  // Add sliders for controlling ambient light intensity
+  const lightFolder = gui.addFolder("Lighting");
+  lightFolder
+    .add(ambientLight, "intensity", 0, 3)
+    .name("Ambient Intensity")
+    .listen();
+  lightFolder
+    .add(topLight, "intensity", 0, 3)
+    .name("Directional Intensity")
+    .listen();
+
+  // Add sliders for controlling camera position
+  const cameraFolder = gui.addFolder("Camera Controls");
+  cameraFolder.add(camera.position, "x", -50, 50).name("Camera X").listen();
+  cameraFolder.add(camera.position, "y", -50, 50).name("Camera Y").listen();
+  cameraFolder.add(camera.position, "z", -50, 50).name("Camera Z").listen();
+
+  // Add sliders for controlling logo position
+  const positionFolder = gui.addFolder("Logo Position");
+  positionFolder.add(logo.position, "x", -10, 10).name("Logo X").listen();
+  positionFolder.add(logo.position, "y", -10, 10).name("Logo Y").listen();
+  positionFolder.add(logo.position, "z", -10, 10).name("Logo Z").listen();
+
+  // Add sliders for controlling logo rotation
+  const rotationFolder = gui.addFolder("Logo Rotation");
+  rotationFolder
+    .add(logo.rotation, "x", -360, 360)
+    .name("Logo Rotation X")
+    .listen();
+  rotationFolder
+    .add(logo.rotation, "y", -Math.PI, Math.PI)
+    .name("Logo Rotation Y")
+    .listen();
+  rotationFolder
+    .add(logo.rotation, "z", -360, 360)
+    .name("Logo Rotation Z")
+    .listen();
+
+  // Add sliders for controlling logo scale
+  const scaleFolder = gui.addFolder("Logo Scale");
+  scaleFolder.add(logo.scale, "x", 0.1, 5).name("Logo Scale X").listen();
+  scaleFolder.add(logo.scale, "y", 0.1, 5).name("Logo Scale Y").listen();
+  scaleFolder.add(logo.scale, "z", 0.1, 5).name("Logo Scale Z").listen();
+
+  logoFolder.open();
+  positionFolder.open();
+  rotationFolder.open();
+  scaleFolder.open();
+}
 
 window.addEventListener("scroll", function () {
   document.querySelector(".panelCon").style.bottom = window.scrollY * -1 + "px";
@@ -25,11 +87,14 @@ loader.load(
     logo = gltf.scene;
 
     // Initial small size at bottom center
-    logo.position.set(0, 0, -5); // Start at bottom
-    logo.scale.set(0.1, 0.1, 0.1); // Start very small
-    logo.rotation.set(0, 0, 0);
+    logo.position.set(-1.25, 0, 4); // Start
+    logo.scale.set(0.4, 0.4, 0.4); // Start
+    logo.rotation.set(1.5, 0, -0.16); //Start
 
     scene.add(logo);
+
+    // 3d model positioning helper function
+    // initializeGUI();
 
     // modelMove();
     setupScrollAnimation();
@@ -124,106 +189,135 @@ reRender3D();
 //   camera.updateProjectionMatrix();
 // });
 
-
 // Scroll animation setup
 function setupScrollAnimation() {
   // Define key points for zig-zag path (normalized scroll positions 0-1)
   const pathPoints = [
     {
       scroll: 0.0,
-      pos: { x: 0, y: -1.5, z: -2 },
+      pos: { x: -1.25, y: 0, z: 4 },
       scale: 0.4,
-      rot: { x: 1.5, y: -0.1, z: 0.1 },
+      rot: { x: 1.5, y: 0, z: -0.16 },
     }, // Start
     {
-      scroll: 0.2,
-      pos: { x: -1, y: -2, z: -4 },
+      scroll: 0.24,
+      pos: { x: 2.15, y: 0.08, z: -6 },
       scale: 0.33,
-      rot: { x: 0.2, y: 0.5, z: 0 },
+      rot: { x: 1.5, y: 0, z: -12.5 },
     },
     {
-      scroll: 0.4,
-      pos: { x: 1, y: -1.5, z: -3 },
-      scale: 0.49,
-      rot: { x: 0.4, y: -0.5, z: 0.1 },
+      scroll: 0.26,
+      pos: { x: 2.15, y: 0.08, z: -6 },
+      scale: 0.33,
+      rot: { x: 1.5, y: 0, z: -12.5 },
     },
     {
-      scroll: 0.6,
-      pos: { x: -0.5, y: -1, z: -2 },
-      scale: 0.66,
-      rot: { x: 0.6, y: 0.8, z: -0.1 },
+      scroll: 0.49,
+      pos: { x: 0, y: -1, z: 0 },
+      scale: 0.15,
+      rot: { x: -11, y: 0, z: 12.5 },
     },
     {
-      scroll: 0.8,
-      pos: { x: 0.5, y: 0, z: -1 },
-      scale: 0.83,
-      rot: { x: 0.8, y: -0.8, z: 0.2 },
+      scroll: 0.51,
+      pos: { x: 0, y: -1, z: 0 },
+      scale: 0.15,
+      rot: { x: -11, y: 0, z: 12.5 },
+    },
+    {
+      scroll: 0.74,
+      pos: { x: -2, y: 0, z: -2 },
+      scale: 0.35,
+      rot: { x: -11, y: 6.28, z: 12.5 },
+    },
+    {
+      scroll: 0.76,
+      pos: { x: -2, y: 0, z: -2 },
+      scale: 0.35,
+      rot: { x: -11, y: 6.28, z: 12.5 },
     },
     {
       scroll: 1.0,
       pos: { x: -2, y: -0.45, z: 0 },
-      scale: 1.0,
-      rot: { x: 1.5, y: -0.1, z: 0.1 },
+      scale: 0.75,
+      rot: { x: -11, y: 6.28, z: -12.75 },
     }, // Final
   ];
 
   window.addEventListener("scroll", () => {
     if (!logo) return;
-    
+
     // Calculate scroll progress (0-1)
     const scrollHeight = document.body.scrollHeight - window.innerHeight;
     const scrollProgress = Math.min(window.scrollY / scrollHeight, 1);
-    
+
     // Find current segment in path
     let currentSegment = pathPoints[0];
     let nextSegment = pathPoints[1];
-    
+
     for (let i = 0; i < pathPoints.length - 1; i++) {
-      if (scrollProgress >= pathPoints[i].scroll && scrollProgress <= pathPoints[i+1].scroll) {
+      if (
+        scrollProgress >= pathPoints[i].scroll &&
+        scrollProgress <= pathPoints[i + 1].scroll
+      ) {
         currentSegment = pathPoints[i];
-        nextSegment = pathPoints[i+1];
+        nextSegment = pathPoints[i + 1];
         break;
       }
     }
-    
+
     // Calculate interpolation factor between segments
-    const segmentProgress = (scrollProgress - currentSegment.scroll) / 
-                          (nextSegment.scroll - currentSegment.scroll);
-    
+    const segmentProgress =
+      (scrollProgress - currentSegment.scroll) /
+      (nextSegment.scroll - currentSegment.scroll);
+
     // Interpolate position, scale and rotation
     const pos = {
-      x: currentSegment.pos.x + (nextSegment.pos.x - currentSegment.pos.x) * segmentProgress,
-      y: currentSegment.pos.y + (nextSegment.pos.y - currentSegment.pos.y) * segmentProgress,
-      z: currentSegment.pos.z + (nextSegment.pos.z - currentSegment.pos.z) * segmentProgress
+      x:
+        currentSegment.pos.x +
+        (nextSegment.pos.x - currentSegment.pos.x) * segmentProgress,
+      y:
+        currentSegment.pos.y +
+        (nextSegment.pos.y - currentSegment.pos.y) * segmentProgress,
+      z:
+        currentSegment.pos.z +
+        (nextSegment.pos.z - currentSegment.pos.z) * segmentProgress,
     };
-    
-    const scale = currentSegment.scale + (nextSegment.scale - currentSegment.scale) * segmentProgress;
+
+    const scale =
+      currentSegment.scale +
+      (nextSegment.scale - currentSegment.scale) * segmentProgress;
     const rot = {
-      x: currentSegment.rot.x + (nextSegment.rot.x - currentSegment.rot.x) * segmentProgress,
-      y: currentSegment.rot.y + (nextSegment.rot.y - currentSegment.rot.y) * segmentProgress,
-      z: currentSegment.rot.z + (nextSegment.rot.z - currentSegment.rot.z) * segmentProgress
+      x:
+        currentSegment.rot.x +
+        (nextSegment.rot.x - currentSegment.rot.x) * segmentProgress,
+      y:
+        currentSegment.rot.y +
+        (nextSegment.rot.y - currentSegment.rot.y) * segmentProgress,
+      z:
+        currentSegment.rot.z +
+        (nextSegment.rot.z - currentSegment.rot.z) * segmentProgress,
     };
-    
+
     // Apply with GSAP for smoothness
     gsap.to(logo.position, {
       x: pos.x,
       y: pos.y,
       z: pos.z,
-      duration: 0.1
+      duration: 0.1,
     });
-    
+
     gsap.to(logo.scale, {
       x: scale,
       y: scale,
       z: scale,
-      duration: 0.1
+      duration: 0.1,
     });
-    
+
     gsap.to(logo.rotation, {
       x: rot.x,
       y: rot.y,
       z: rot.z,
-      duration: 0.1
+      duration: 0.1,
     });
   });
 }
@@ -233,4 +327,38 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+});
+
+initializeGUI();
+
+// Add a blue color trail to the cursor
+const cursorTrail = [];
+const trailLength = 20; // Number of trail elements
+const trailColor = "rgba(0, 0, 255, 0.5)"; // Blue color with transparency
+
+// Create trail elements
+for (let i = 0; i < trailLength; i++) {
+  const trailElement = document.createElement("div");
+  trailElement.style.position = "absolute";
+  trailElement.style.width = "10px";
+  trailElement.style.height = "10px";
+  trailElement.style.borderRadius = "50%";
+  trailElement.style.backgroundColor = trailColor;
+  trailElement.style.pointerEvents = "none";
+  trailElement.style.opacity = (trailLength - i) / trailLength; // Fade effect
+  trailElement.style.transition = "transform 0.1s, opacity 0.1s";
+  document.body.appendChild(trailElement);
+  cursorTrail.push(trailElement);
+}
+
+// Update trail position on mouse move
+window.addEventListener("mousemove", (event) => {
+  const { clientX, clientY } = event;
+
+  // Update trail elements
+  cursorTrail.forEach((trailElement, index) => {
+    setTimeout(() => {
+      trailElement.style.transform = `translate(${clientX}px, ${clientY}px)`;
+    }, index * 10); // Delay for trailing effect
+  });
 });
