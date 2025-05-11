@@ -4,66 +4,6 @@ import { gsap } from "gsap";
 import GUI from "lil-gui";
 
 
-// lil-gui helper function
-function initializeGUI() {
-  // Initialize GUI
-  const gui = new GUI();
-  const logoFolder = gui.addFolder("Logo Controls");
-  // Add example controls to GUI
-  logoFolder
-    .add({ reset: () => logo.position.set(0, 0, -5) }, "reset")
-    .name("Reset Position");
-
-  // Add sliders for controlling ambient light intensity
-  const lightFolder = gui.addFolder("Lighting");
-  lightFolder
-    .add(ambientLight, "intensity", 0, 3)
-    .name("Ambient Intensity")
-    .listen();
-  lightFolder
-    .add(topLight, "intensity", 0, 3)
-    .name("Directional Intensity")
-    .listen();
-
-  // Add sliders for controlling camera position
-  const cameraFolder = gui.addFolder("Camera Controls");
-  cameraFolder.add(camera.position, "x", -50, 50).name("Camera X").listen();
-  cameraFolder.add(camera.position, "y", -50, 50).name("Camera Y").listen();
-  cameraFolder.add(camera.position, "z", -50, 50).name("Camera Z").listen();
-
-  // Add sliders for controlling logo position
-  const positionFolder = gui.addFolder("Logo Position");
-  positionFolder.add(logo.position, "x", -10, 10).name("Logo X").listen();
-  positionFolder.add(logo.position, "y", -10, 10).name("Logo Y").listen();
-  positionFolder.add(logo.position, "z", -10, 10).name("Logo Z").listen();
-
-  // Add sliders for controlling logo rotation
-  const rotationFolder = gui.addFolder("Logo Rotation");
-  rotationFolder
-    .add(logo.rotation, "x", -360, 360)
-    .name("Logo Rotation X")
-    .listen();
-  rotationFolder
-    .add(logo.rotation, "y", -Math.PI, Math.PI)
-    .name("Logo Rotation Y")
-    .listen();
-  rotationFolder
-    .add(logo.rotation, "z", -360, 360)
-    .name("Logo Rotation Z")
-    .listen();
-
-  // Add sliders for controlling logo scale
-  const scaleFolder = gui.addFolder("Logo Scale");
-  scaleFolder.add(logo.scale, "x", 0.1, 5).name("Logo Scale X").listen();
-  scaleFolder.add(logo.scale, "y", 0.1, 5).name("Logo Scale Y").listen();
-  scaleFolder.add(logo.scale, "z", 0.1, 5).name("Logo Scale Z").listen();
-
-  logoFolder.open();
-  positionFolder.open();
-  rotationFolder.open();
-  scaleFolder.open();
-}
-
 window.addEventListener("scroll", function () {
   document.querySelector(".panelCon").style.bottom = window.scrollY * -1 + "px";
 });
@@ -102,6 +42,66 @@ loader.load(
   function xhr(xhr) {},
   function (error) {}
 );
+
+// lil-gui helper function
+// function initializeGUI() {
+//   // Initialize GUI
+//   const gui = new GUI();
+//   const logoFolder = gui.addFolder("Logo Controls");
+//   // Add example controls to GUI
+//   logoFolder
+//     .add({ reset: () => logo.position.set(0, 0, -5) }, "reset")
+//     .name("Reset Position");
+
+//   // Add sliders for controlling ambient light intensity
+//   const lightFolder = gui.addFolder("Lighting");
+//   lightFolder
+//     .add(ambientLight, "intensity", 0, 3)
+//     .name("Ambient Intensity")
+//     .listen();
+//   lightFolder
+//     .add(topLight, "intensity", 0, 3)
+//     .name("Directional Intensity")
+//     .listen();
+
+//   // Add sliders for controlling camera position
+//   const cameraFolder = gui.addFolder("Camera Controls");
+//   cameraFolder.add(camera.position, "x", -50, 50).name("Camera X").listen();
+//   cameraFolder.add(camera.position, "y", -50, 50).name("Camera Y").listen();
+//   cameraFolder.add(camera.position, "z", -50, 50).name("Camera Z").listen();
+
+//   // Add sliders for controlling logo position
+//   const positionFolder = gui.addFolder("Logo Position");
+//   positionFolder.add(logo.position, "x", -10, 10).name("Logo X").listen();
+//   positionFolder.add(logo.position, "y", -10, 10).name("Logo Y").listen();
+//   positionFolder.add(logo.position, "z", -10, 10).name("Logo Z").listen();
+
+//   // Add sliders for controlling logo rotation
+//   const rotationFolder = gui.addFolder("Logo Rotation");
+//   rotationFolder
+//     .add(logo.rotation, "x", -360, 360)
+//     .name("Logo Rotation X")
+//     .listen();
+//   rotationFolder
+//     .add(logo.rotation, "y", -Math.PI, Math.PI)
+//     .name("Logo Rotation Y")
+//     .listen();
+//   rotationFolder
+//     .add(logo.rotation, "z", -360, 360)
+//     .name("Logo Rotation Z")
+//     .listen();
+
+//   // Add sliders for controlling logo scale
+//   const scaleFolder = gui.addFolder("Logo Scale");
+//   scaleFolder.add(logo.scale, "x", 0.1, 5).name("Logo Scale X").listen();
+//   scaleFolder.add(logo.scale, "y", 0.1, 5).name("Logo Scale Y").listen();
+//   scaleFolder.add(logo.scale, "z", 0.1, 5).name("Logo Scale Z").listen();
+
+//   logoFolder.open();
+//   positionFolder.open();
+//   rotationFolder.open();
+//   scaleFolder.open();
+// }
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -327,38 +327,4 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-});
-
-initializeGUI();
-
-// Add a blue color trail to the cursor
-const cursorTrail = [];
-const trailLength = 20; // Number of trail elements
-const trailColor = "rgba(0, 0, 255, 0.5)"; // Blue color with transparency
-
-// Create trail elements
-for (let i = 0; i < trailLength; i++) {
-  const trailElement = document.createElement("div");
-  trailElement.style.position = "absolute";
-  trailElement.style.width = "10px";
-  trailElement.style.height = "10px";
-  trailElement.style.borderRadius = "50%";
-  trailElement.style.backgroundColor = trailColor;
-  trailElement.style.pointerEvents = "none";
-  trailElement.style.opacity = (trailLength - i) / trailLength; // Fade effect
-  trailElement.style.transition = "transform 0.1s, opacity 0.1s";
-  document.body.appendChild(trailElement);
-  cursorTrail.push(trailElement);
-}
-
-// Update trail position on mouse move
-window.addEventListener("mousemove", (event) => {
-  const { clientX, clientY } = event;
-
-  // Update trail elements
-  cursorTrail.forEach((trailElement, index) => {
-    setTimeout(() => {
-      trailElement.style.transform = `translate(${clientX}px, ${clientY}px)`;
-    }, index * 10); // Delay for trailing effect
-  });
 });
