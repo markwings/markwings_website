@@ -1,0 +1,22 @@
+const scrollIndicator = document.getElementById("scrollIndicator");
+
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  const progress = (scrollTop / docHeight) * 100;
+
+  scrollIndicator.style.background = `linear-gradient(to bottom, darkblue ${progress}%, white ${progress}%)`;
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  
+}
+
+window.addEventListener("scroll", updateScrollProgress);
+scrollIndicator.addEventListener("click", scrollToTop);
+
+// Initialize on load
+updateScrollProgress();
