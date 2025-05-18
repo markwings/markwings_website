@@ -201,13 +201,13 @@ function setupScrollAnimation() {
     }, // Start
     {
       scroll: 0.24,
-      pos: { x: 2.15, y: 0.08, z: -6 },
+      pos: { x: 1.5, y: 0.08, z: 4 },
       scale: 0.33,
       rot: { x: 1.5, y: 0, z: -12.5 },
     },
     {
       scroll: 0.26,
-      pos: { x: 2.15, y: 0.08, z: -6 },
+      pos: { x: 1.5, y: 0.08, z: 4 },
       scale: 0.33,
       rot: { x: 1.5, y: 0, z: -12.5 },
     },

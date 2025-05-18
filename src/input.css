@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer utilities{
+  .clip-left-head{
+    clip-path: polygon(55% 23%, 55% 0, 100% 0, 100% 100%, 0 100%, 0 23%);
+  }
+}

@@ -14,8 +14,8 @@ const trailPoints = [];
 const trailLength = 20; // Number of trail points
 
 document.addEventListener("mousemove", (event) => {
-  // Add the current mouse position to the trail
-  trailPoints.push({ x: event.pageX, y: event.pageY });
+  // Use clientX/clientY for fixed canvas positioning
+  trailPoints.push({ x: event.clientX, y: event.clientY });
 
   // Remove excess points
   if (trailPoints.length > trailLength) {
@@ -25,42 +25,26 @@ document.addEventListener("mousemove", (event) => {
   // Clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw the trail
+  // Draw the trail with even smoother curves using Catmull-Rom to Bezier conversion
   if (trailPoints.length > 1) {
     ctx.beginPath();
     ctx.moveTo(trailPoints[0].x, trailPoints[0].y);
 
-    for (let i = 1; i < trailPoints.length; i++) {
-      const point = trailPoints[i];
-      ctx.lineTo(point.x, point.y);
+    for (let i = 0; i < trailPoints.length - 1; i++) {
+      const p0 = trailPoints[i - 1] || trailPoints[i];
+      const p1 = trailPoints[i];
+      const p2 = trailPoints[i + 1];
+      const p3 = trailPoints[i + 2] || p2;
+
+      // Catmull-Rom to Bezier conversion
+      const cp1x = p1.x + (p2.x - p0.x) / 6;
+      const cp1y = p1.y + (p2.y - p0.y) / 6;
+      const cp2x = p2.x - (p3.x - p1.x) / 6;
+      const cp2y = p2.y - (p3.y - p1.y) / 6;
+
+      ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p2.x, p2.y);
     }
-
-    ctx.strokeStyle = "rgba(0, 0, 255, 0.5)"; // Blue color with transparency
-    ctx.lineWidth = 5;
-    ctx.lineCap = "round";
-    ctx.stroke();
   }
-});
-
-// Handle window resize
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}); // Close the resize event listener
-
-document.addEventListener("mousemove", (event) => {
-  // Add the current mouse position to the trail
-  trailPoints.push({ x: event.pageX, y: event.pageY });
-
-  // Remove excess points
-  if (trailPoints.length > trailLength) {
-    trailPoints.shift();
-  }
-
-  // Clear the canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Draw the trail
   if (trailPoints.length > 1) {
     ctx.beginPath();
     ctx.moveTo(trailPoints[0].x, trailPoints[0].y);
@@ -122,6 +106,12 @@ document.addEventListener("mousemove", (event) => {
     }
   }, 20); // Adjust interval duration for smoother fading
 });
+
+// Handle window resize
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}); // Close the resize event listener
 
 // Interval to handle trail disappearance when mouse stops moving
 let trailFadeInterval;
