@@ -20,6 +20,7 @@
     "tailwindcss": "^4.1.4"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@types/three": "^0.175.0",
     "gsap": "^3.12.7",
     "lil-gui": "^0.20.0",

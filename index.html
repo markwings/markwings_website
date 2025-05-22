@@ -10,9 +10,11 @@
 
   <body class="h-[500vh]">
     <header class="fixed -top-16 left-0 w-full z-[100] shadow-xl">
-      <nav class="flex justify-between items-center py-3.5 px-16 backdrop-blur-md shadow-md">
+      <nav
+        class="flex justify-between items-center py-3.5 px-16 backdrop-blur-md shadow-md"
+      >
         <div class="text-2xl font-bold text-blue-800">MarkWings</div>
-        <ul class="flex space-x-4 ">
+        <ul class="flex space-x-4">
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#description">Description</a></li>
@@ -20,7 +22,6 @@
           <li><a href="#banner">Banner</a></li>
         </ul>
       </nav>
-
     </header>
     <main class="panelCon fixed bottom-0 left-0 w-full z-[90]">
       <section
@@ -30,54 +31,206 @@
       <section
         id="contact"
         class="w-full h-screen flex items-center justify-center uppercase grid-bg relative"
-      ></section>
+      >
+        <div
+          id="contact-left"
+          class="p-2 right-52 fade-in bg-white text-center drop-shadow-2xl rounded-4xl absolute"
+        >
+          <div id="contact-us" class="text-4xl font-semibold text-blue-900">
+            <h1 class="underline">Get in Touch</h1>
+          </div>
+          <form
+            id="con-form"
+            class="h-fit w-md flex flex-col space-y-4 px-8 py-4 mt-8"
+          >
+            <div class="w-full flex space-x-1">
+              <div class="relative w-1/2">
+                <input
+                  name="fname"
+                  type="text"
+                  id="fname"
+                  placeholder="First Name"
+                  class="border-2 rounded-2xl px-4 py-1 w-full placeholder:text-sm"
+                />
+                <label
+                  for="fname"
+                  class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                  >First Name</label
+                >
+              </div>
+              <div class="relative w-1/2">
+                <input
+                  name="lname"
+                  type="text"
+                  id="lname"
+                  placeholder="Last Name"
+                  class="border-2 rounded-2xl px-4 py-1 w-full placeholder:text-sm"
+                />
+                <label
+                  for="lname"
+                  class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                  >Last Name</label
+                >
+              </div>
+            </div>
+            <div class="relative">
+              <input
+                name="email"
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                class="border-2 rounded-2xl px-4 py-1 w-full placeholder:text-sm"
+              />
+              <label
+                for="email"
+                class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                >email</label
+              >
+            </div>
+            <div class="relative">
+              <input
+                name="phone"
+                type="text"
+                id="phone"
+                placeholder="Mobile number"
+                class="border-2 rounded-2xl px-4 py-1 w-full placeholder:text-sm"
+              />
+              <label
+                for="phone"
+                class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                >Mobile Number</label
+              >
+            </div>
+            <div class="relative">
+              <input
+                name="comp"
+                type="text"
+                id="comp"
+                placeholder="Organization"
+                class="border-2 rounded-2xl px-4 py-1 w-full placeholder:text-sm"
+              />
+              <label
+                for="comp"
+                class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                >Organization</label
+              >
+            </div>
+            <div class="relative">
+              <select
+                name="sub"
+                id="sub"
+                class="border-2 rounded-2xl px-4 py-1 w-full placeholder:text-sm"
+              >
+                <option value="" selected>Select Subject</option>
+                <option value="dev">Development</option>
+                <option value="graphics">Graphics Design</option>
+                <option value="dm">Digital Marketing</option>
+                <option value="video">Video Editing</option>
+                <option value="smm">Social Media Marketing</option>
+                <option value="other">Other</option>
+              </select>
+              <label
+                for="sub"
+                class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                >Subject</label
+              >
+            </div>
+            <div class="relative">
+              <textarea
+                name="msg"
+                id="message"
+                cols="30"
+                rows="7"
+                class="border-2 rounded-2xl px-4 py-1 w-full"
+                placeholder="Message"
+              ></textarea>
+              <label
+                for="msg"
+                class="absolute text-xs bg-white rounded-2xl px-1 left-2 -top-1.5"
+                >Message</label
+              >
+            </div>
+
+            <div class="flex space-x-1 font-semibold text-nowrap text-xl">
+              <button
+                id="sub-form"
+                type="submit"
+                class="px-5 py-2 rounded-2xl border-2 bg-blue-100 hover:bg-blue-800 hover:text-white"
+              >
+                Get a call back
+              </button>
+              <button
+                id="sub-wp"
+                class="px-5 py-2 rounded-2xl border-2 bg-blue-100 hover:bg-blue-800 hover:text-white"
+              >
+                Send on Whatsapp
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
       <section
         id="description"
         class="w-full h-screen flex justify-center items-start uppercase p-16 dotted-grid relative shadow-2xl"
       >
-      <svg class="absolute h-screen w-screen -z-10">
-        <line id="dev-line" stroke="black" stroke-width="1"/>
-      </svg>     
-      <svg class="absolute h-screen w-screen -z-10">
-        <line id="graphics-line" stroke="black" stroke-width="1"/>
-      </svg>
-      <svg class="absolute h-screen w-screen -z-10">
-        <line id="dm-line" stroke="black" stroke-width="1"/>
-      </svg>
-      <svg class="absolute h-screen w-screen -z-10">
-        <line id="video-line" stroke="black" stroke-width="1"/>
-      </svg>
-      <svg class="absolute h-screen w-screen -z-10">
-        <line id="smm-line" stroke="black" stroke-width="1"/>
-      </svg>
+        <svg class="absolute h-screen w-screen -z-10">
+          <line id="dev-line" stroke="black" stroke-width="1" />
+        </svg>
+        <svg class="absolute h-screen w-screen -z-10">
+          <line id="graphics-line" stroke="black" stroke-width="1" />
+        </svg>
+        <svg class="absolute h-screen w-screen -z-10">
+          <line id="dm-line" stroke="black" stroke-width="1" />
+        </svg>
+        <svg class="absolute h-screen w-screen -z-10">
+          <line id="video-line" stroke="black" stroke-width="1" />
+        </svg>
+        <svg class="absolute h-screen w-screen -z-10">
+          <line id="smm-line" stroke="black" stroke-width="1" />
+        </svg>
         <div class="h-full w-full flex space-x-1 text-white">
           <div class="h-full w-1/3">
             <div class="h-1/2 w-full flex justify-end items-start px-6">
-              <div id="desc-dev" class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in">
+              <div
+                id="desc-dev"
+                class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in"
+              >
                 Development
               </div>
             </div>
             <div class="h-1/2 w-full flex justify-start items-start px-6">
-              <div id="desc-graphics" class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in">
+              <div
+                id="desc-graphics"
+                class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in"
+              >
                 Graphics
               </div>
             </div>
           </div>
           <div class="h-full w-1/3">
             <div class="h-1/2 w-full flex justify-center items-start px-6">
-              <div id="desc-dm" class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in">
+              <div
+                id="desc-dm"
+                class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in"
+              >
                 Digital Marketing
               </div>
             </div>
           </div>
           <div class="h-full w-1/3">
             <div class="h-1/2 w-full flex justify-star items-start px-6">
-              <div id="desc-video" class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in">
+              <div
+                id="desc-video"
+                class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in"
+              >
                 Video Editing
               </div>
             </div>
             <div class="h-1/2 w-full flex justify-end items-start px-6">
-              <div id="desc-smm" class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in">
+              <div
+                id="desc-smm"
+                class="h-3/4 w-1/2 rounded-full bg-blue-900 p-12 fade-in"
+              >
                 SMM
               </div>
             </div>
@@ -229,6 +382,7 @@
     <script type="module" src="./src/script/fadeInAnimation.js"></script>
     <script type="module" src="./src/script/description.js"></script>
     <script type="module" src="./src/script/header.js"></script>
+    <script type="module" src="./src/script/contact.js"></script>
 
     <div
       id="container3D"
