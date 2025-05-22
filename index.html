@@ -9,6 +9,19 @@
   </head>
 
   <body class="h-[500vh]">
+    <header class="fixed -top-16 left-0 w-full z-[100] shadow-xl">
+      <nav class="flex justify-between items-center py-3.5 px-16 backdrop-blur-md shadow-md">
+        <div class="text-2xl font-bold text-blue-800">MarkWings</div>
+        <ul class="flex space-x-4 ">
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#description">Description</a></li>
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#banner">Banner</a></li>
+        </ul>
+      </nav>
+
+    </header>
     <main class="panelCon fixed bottom-0 left-0 w-full z-[90]">
       <section
         id="about"
@@ -20,7 +33,7 @@
       ></section>
       <section
         id="description"
-        class="w-full h-screen flex justify-center items-start uppercase p-16 dotted-grid relative"
+        class="w-full h-screen flex justify-center items-start uppercase p-16 dotted-grid relative shadow-2xl"
       >
       <svg class="absolute h-screen w-screen -z-10">
         <line id="dev-line" stroke="black" stroke-width="1"/>
@@ -119,7 +132,7 @@
       </section>
       <section
         id="intro"
-        class="w-full h-screen flex items-center uppercase grid-bg relative"
+        class="w-full h-screen flex items-center uppercase grid-bg relative shadow-2xl"
       >
         <div id="intro-left" class="h-fit w-fit p-2 left-52 fade-in absolute">
           <div class="h-fit w-fit relative">
@@ -215,6 +228,7 @@
     <script type="module" src="./src/script/scroller.js"></script>
     <script type="module" src="./src/script/fadeInAnimation.js"></script>
     <script type="module" src="./src/script/description.js"></script>
+    <script type="module" src="./src/script/header.js"></script>
 
     <div
       id="container3D"
