@@ -9,6 +9,7 @@ canvas.style.left = "0";
 canvas.style.pointerEvents = "none";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+canvas.style.zIndex = "9999"; 
 
 const trailPoints = [];
 const trailLength = 20; // Number of trail points

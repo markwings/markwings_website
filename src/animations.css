@@ -1,3 +1,6 @@
+/* Import should go at the very top if needed */
+@import "https://codepen.io/cbolson/pen/rNEdgKo.css" layer(template);
+
 @keyframes rotateDot {
   0% {
     -webkit-transform: rotate(0deg);
@@ -11,6 +14,17 @@
     -moz-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
   }
 }
 
@@ -42,4 +56,11 @@
 .fade-in.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
