@@ -79,7 +79,6 @@ if (isMobileOrVerticalTablet()) {
 
   // Scroll animation setup
   function setupScrollAnimation() {
-    // Define key points for zig-zag path (normalized scroll positions 0-1)
     const pathPoints = [
       {
         scroll: 0.0,
@@ -138,7 +137,6 @@ if (isMobileOrVerticalTablet()) {
       const scrollHeight = document.body.scrollHeight - window.innerHeight;
       const scrollProgress = Math.min(window.scrollY / scrollHeight, 1);
 
-      // Find current segment in path
       let currentSegment = pathPoints[0];
       let nextSegment = pathPoints[1];
 
