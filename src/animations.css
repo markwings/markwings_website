@@ -1,6 +1,3 @@
-/* Import should go at the very top if needed */
-@import "https://codepen.io/cbolson/pen/rNEdgKo.css" layer(template);
-
 @keyframes rotateDot {
   0% {
     -webkit-transform: rotate(0deg);
@@ -41,7 +38,7 @@
 .dotted-grid {
   background-image: radial-gradient(
     circle,
-    rgba(0, 0, 0, 0.2) 3px,
+    rgba(0, 0, 0, 0.2) 2px,
     transparent 2px
   );
   background-size: 50px 50px;

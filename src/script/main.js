@@ -35,6 +35,7 @@ if (isMobileOrVerticalTablet()) {
   camera.position.z = 15;
 
   const scene = new THREE.Scene();
+  scene.add(camera);
   let logo;
   const loader = new GLTFLoader();
 
@@ -42,6 +43,7 @@ if (isMobileOrVerticalTablet()) {
     "/logo.glb",
     function (gltf) {
       logo = gltf.scene;
+      console.log(logo);
 
       // Initial small size at bottom center
       logo.position.set(-1.25, 0, 4); // Start
@@ -208,14 +210,21 @@ if (isMobileOrVerticalTablet()) {
     });
   }
 
+  let width = window.innerWidth;
+  let height = window.innerHeight;
   // Handle resize
   window.addEventListener("resize", () => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    if (width != window.innerWidth) {
+      logo.scale.x = window.innerWidth / window.innerHeight / 5;
+      logo.scale.y = window.innerWidth / window.innerHeight / 5;
+      logo.scale.z = window.innerWidth / window.innerHeight / 5;
+    } else {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
   });
 }
-
 // function handleOrientationChange() {
 //   if (isMobileOrVerticalTablet()) {
 //     if (renderer) {
@@ -306,7 +315,6 @@ if (isMobileOrVerticalTablet()) {
 //   camera.aspect = window.innerWidth / window.innerHeight;
 //   camera.updateProjectionMatrix();
 // });
-
 
 // lil-gui helper function
 // function initializeGUI() {
