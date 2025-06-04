@@ -43,7 +43,6 @@ if (isMobileOrVerticalTablet()) {
     "/logo.glb",
     function (gltf) {
       logo = gltf.scene;
-      console.log(logo);
 
       // Initial small size at bottom center
       logo.position.set(-1.25, 0, 4); // Start
@@ -85,57 +84,59 @@ if (isMobileOrVerticalTablet()) {
       {
         scroll: 0.0,
         pos: { x: -1.25, y: 0, z: 4 },
-        scale: 0.4,
+        scale: window.innerWidth / window.innerHeight / 4,
         rot: { x: 1.5, y: 0, z: -0.16 },
       }, // Start
       {
         scroll: 0.24,
         pos: { x: 1.5, y: 0.08, z: 4 },
-        scale: 0.33,
+        scale: window.innerWidth / window.innerHeight / 5,
         rot: { x: 1.5, y: 0, z: -12.5 },
       },
       {
         scroll: 0.26,
         pos: { x: 1.5, y: 0.08, z: 4 },
-        scale: 0.33,
+        scale: window.innerWidth / window.innerHeight / 5,
         rot: { x: 1.5, y: 0, z: -12.5 },
       },
       {
         scroll: 0.49,
         pos: { x: -0.038, y: -1, z: 0 },
-        scale: 0.15,
+        scale: window.innerWidth / window.innerHeight / 10.5,
         rot: { x: -11, y: 0, z: 12.5 },
       },
       {
         scroll: 0.51,
         pos: { x: -0.038, y: -1, z: 0 },
-        scale: 0.15,
+        scale: window.innerWidth / window.innerHeight / 10.5,
         rot: { x: -11, y: 0, z: 12.5 },
       },
       {
         scroll: 0.74,
         pos: { x: -2, y: 0, z: -2 },
-        scale: 0.35,
+        scale: window.innerWidth / window.innerHeight / 4.5,
         rot: { x: -11, y: 6.28, z: 12.5 },
       },
       {
         scroll: 0.76,
         pos: { x: -2, y: 0, z: -2 },
-        scale: 0.35,
+        scale: window.innerWidth / window.innerHeight / 4.5,
         rot: { x: -11, y: 6.28, z: 12.5 },
       },
       {
         scroll: 1.0,
         pos: { x: -2, y: -0.45, z: 0 },
-        scale: 0.75,
+        scale: window.innerWidth / window.innerHeight / 2.132,
         rot: { x: -11, y: 6.28, z: -12.75 },
       }, // Final
     ];
-
+    updateLogoPosition();
     window.addEventListener("scroll", () => {
       if (!logo) return;
+      updateLogoPosition();
+    });
 
-      // Calculate scroll progress (0-1)
+    function updateLogoPosition() {
       const scrollHeight = document.body.scrollHeight - window.innerHeight;
       const scrollProgress = Math.min(window.scrollY / scrollHeight, 1);
 
@@ -207,22 +208,15 @@ if (isMobileOrVerticalTablet()) {
         z: rot.z,
         duration: 0.1,
       });
-    });
+    }
   }
 
-  let width = window.innerWidth;
-  let height = window.innerHeight;
   // Handle resize
   window.addEventListener("resize", () => {
-    if (width != window.innerWidth) {
-      logo.scale.x = window.innerWidth / window.innerHeight / 5;
-      logo.scale.y = window.innerWidth / window.innerHeight / 5;
-      logo.scale.z = window.innerWidth / window.innerHeight / 5;
-    } else {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    setupScrollAnimation();
   });
 }
 // function handleOrientationChange() {
