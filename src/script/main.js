@@ -215,8 +215,6 @@ function setupScrollAnimation() {
   });
 }
 
-canvas.ontimeupdate("resize");
-
 // Handle resize
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
