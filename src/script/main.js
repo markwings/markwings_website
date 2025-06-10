@@ -24,201 +24,206 @@ window.addEventListener("scroll", function () {
 
 if (isMobileOrVerticalTablet()) {
   document.getElementById("container3D").style.display = "none";
-} else {
-  const camera = new THREE.PerspectiveCamera(
-    15,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
+}
+const pathPoints = [
+  {
+    scroll: 0.0,
+    pos: { x: -1.25, y: 0, z: 4 },
+    scale: 0.4,
+    rot: { x: 1.5, y: 0, z: -0.16 },
+  }, // Start
+  {
+    scroll: 0.24,
+    pos: { x: 1.5, y: 0.08, z: 4 },
+    scale: 0.33,
+    rot: { x: 1.5, y: 0, z: -12.5 },
+  },
+  {
+    scroll: 0.26,
+    pos: { x: 1.5, y: 0.08, z: 4 },
+    scale: 0.33,
+    rot: { x: 1.5, y: 0, z: -12.5 },
+  },
+  {
+    scroll: 0.49,
+    pos: { x: -0.038, y: -1, z: 0 },
+    scale: 0.15,
+    rot: { x: -11, y: 0, z: 12.5 },
+  },
+  {
+    scroll: 0.51,
+    pos: { x: -0.038, y: -1, z: 0 },
+    scale: 0.15,
+    rot: { x: -11, y: 0, z: 12.5 },
+  },
+  {
+    scroll: 0.74,
+    pos: { x: -2, y: 0, z: -2 },
+    scale: 0.35,
+    rot: { x: -11, y: 6.28, z: 12.5 },
+  },
+  {
+    scroll: 0.76,
+    pos: { x: -2, y: 0, z: -2 },
+    scale: 0.35,
+    rot: { x: -11, y: 6.28, z: 12.5 },
+  },
+  {
+    scroll: 1.0,
+    pos: { x: -2, y: -0.45, z: 0 },
+    scale: 0.7,
+    rot: { x: -11, y: 6.28, z: -12.75 },
+  }, // Final
+];
+const camera = new THREE.PerspectiveCamera(
+  15,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  200
+);
 
-  camera.position.z = 15;
+camera.position.z = 15;
 
-  const scene = new THREE.Scene();
-  scene.add(camera);
-  let logo;
-  const loader = new GLTFLoader();
+const scene = new THREE.Scene();
+scene.add(camera);
+let logo;
+const loader = new GLTFLoader();
 
-  loader.load(
-    "/logo.glb",
-    function (gltf) {
-      logo = gltf.scene;
+loader.load(
+  "/logo.glb",
+  function (gltf) {
+    logo = gltf.scene;
 
-      // Initial small size at bottom center
-      logo.position.set(-1.25, 0, 4); // Start
-      logo.scale.set(0.4, 0.4, 0.4); // Start
-      logo.rotation.set(1.5, 0, -0.16); //Start
+    // Initial small size at bottom center
+    logo.position.set(-1.25, 0, 4); // Start
+    logo.scale.set(0.4, 0.4, 0.4); // Start
+    logo.rotation.set(1.5, 0, -0.16); //Start
+    logo.matrixWorldNeedsUpdate = true;
+    scene.add(logo);
 
-      scene.add(logo);
+    // 3d model positioning helper function
+    // initializeGUI();
 
-      // 3d model positioning helper function
-      // initializeGUI();
+    // modelMove();
+    setupScrollAnimation();
+  },
+  function xhr(xhr) {},
+  function (error) {}
+);
 
-      // modelMove();
-      setupScrollAnimation();
-    },
-    function xhr(xhr) {},
-    function (error) {}
-  );
+const canvas = document.getElementById("3dCanvas");
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  antialias: true,
+  alpha: true,
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-  const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.getElementById("container3D").appendChild(renderer.domElement);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+scene.add(ambientLight);
+const topLight = new THREE.DirectionalLight(0xffffff, 1.5);
+topLight.position.set(500, 500, 500);
+scene.add(topLight);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-  scene.add(ambientLight);
-  const topLight = new THREE.DirectionalLight(0xffffff, 1.5);
-  topLight.position.set(500, 500, 500);
-  scene.add(topLight);
+const reRender3D = () => {
+  requestAnimationFrame(reRender3D);
+  renderer.render(scene, camera);
+};
 
-  const reRender3D = () => {
-    requestAnimationFrame(reRender3D);
-    renderer.render(scene, camera);
-  };
+reRender3D();
 
-  reRender3D();
+// Scroll animation setup
+function setupScrollAnimation() {
+  window.addEventListener("scroll", () => {
+    if (!logo) return;
 
-  // Scroll animation setup
-  function setupScrollAnimation() {
-    const pathPoints = [
-      {
-        scroll: 0.0,
-        pos: { x: -1.25, y: 0, z: 4 },
-        scale: window.innerWidth / window.innerHeight / 4,
-        rot: { x: 1.5, y: 0, z: -0.16 },
-      }, // Start
-      {
-        scroll: 0.24,
-        pos: { x: 1.5, y: 0.08, z: 4 },
-        scale: window.innerWidth / window.innerHeight / 5,
-        rot: { x: 1.5, y: 0, z: -12.5 },
-      },
-      {
-        scroll: 0.26,
-        pos: { x: 1.5, y: 0.08, z: 4 },
-        scale: window.innerWidth / window.innerHeight / 5,
-        rot: { x: 1.5, y: 0, z: -12.5 },
-      },
-      {
-        scroll: 0.49,
-        pos: { x: -0.038, y: -1, z: 0 },
-        scale: window.innerWidth / window.innerHeight / 10.5,
-        rot: { x: -11, y: 0, z: 12.5 },
-      },
-      {
-        scroll: 0.51,
-        pos: { x: -0.038, y: -1, z: 0 },
-        scale: window.innerWidth / window.innerHeight / 10.5,
-        rot: { x: -11, y: 0, z: 12.5 },
-      },
-      {
-        scroll: 0.74,
-        pos: { x: -2, y: 0, z: -2 },
-        scale: window.innerWidth / window.innerHeight / 4.5,
-        rot: { x: -11, y: 6.28, z: 12.5 },
-      },
-      {
-        scroll: 0.76,
-        pos: { x: -2, y: 0, z: -2 },
-        scale: window.innerWidth / window.innerHeight / 4.5,
-        rot: { x: -11, y: 6.28, z: 12.5 },
-      },
-      {
-        scroll: 1.0,
-        pos: { x: -2, y: -0.45, z: 0 },
-        scale: window.innerWidth / window.innerHeight / 2.132,
-        rot: { x: -11, y: 6.28, z: -12.75 },
-      }, // Final
-    ];
-    updateLogoPosition();
-    window.addEventListener("scroll", () => {
-      if (!logo) return;
-      updateLogoPosition();
+    const scrollHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollProgress = Math.min(window.scrollY / scrollHeight, 1);
+
+    let currentSegment = pathPoints[0];
+    let nextSegment = pathPoints[1];
+
+    for (let i = 0; i < pathPoints.length - 1; i++) {
+      if (
+        scrollProgress >= pathPoints[i].scroll &&
+        scrollProgress <= pathPoints[i + 1].scroll
+      ) {
+        currentSegment = pathPoints[i];
+        nextSegment = pathPoints[i + 1];
+        break;
+      }
+    }
+    // Calculate interpolation factor between segments
+    const segmentProgress =
+      (scrollProgress - currentSegment.scroll) /
+      (nextSegment.scroll - currentSegment.scroll);
+
+    const scalingFactor = Math.min(Math.max(window.innerWidth / 1300, 0.5), 1);
+
+    // Interpolate position, scale and rotation
+    const pos = {
+      x:
+        currentSegment.pos.x +
+        (nextSegment.pos.x - currentSegment.pos.x) * segmentProgress,
+      y:
+        currentSegment.pos.y +
+        (nextSegment.pos.y - currentSegment.pos.y) * segmentProgress,
+      z:
+        currentSegment.pos.z +
+        (nextSegment.pos.z - currentSegment.pos.z) * segmentProgress,
+    };
+
+    const scale = Math.abs(
+        currentSegment.scale +
+          (nextSegment.scale - currentSegment.scale) * segmentProgress
+    )*scalingFactor;
+    console.log(scale);
+
+    const rot = {
+      x:
+        currentSegment.rot.x +
+        (nextSegment.rot.x - currentSegment.rot.x) * segmentProgress,
+      y:
+        currentSegment.rot.y +
+        (nextSegment.rot.y - currentSegment.rot.y) * segmentProgress,
+      z:
+        currentSegment.rot.z +
+        (nextSegment.rot.z - currentSegment.rot.z) * segmentProgress,
+    };
+
+    // Apply with GSAP for smoothness
+    gsap.to(logo.position, {
+      x: pos.x,
+      y: pos.y - 0.1,
+      z: pos.z,
+      duration: 0.1,
     });
 
-    function updateLogoPosition() {
-      const scrollHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollProgress = Math.min(window.scrollY / scrollHeight, 1);
+    gsap.to(logo.scale, {
+      x: scale,
+      y: scale,
+      z: scale,
+      duration: 0.1,
+    });
 
-      let currentSegment = pathPoints[0];
-      let nextSegment = pathPoints[1];
-
-      for (let i = 0; i < pathPoints.length - 1; i++) {
-        if (
-          scrollProgress >= pathPoints[i].scroll &&
-          scrollProgress <= pathPoints[i + 1].scroll
-        ) {
-          currentSegment = pathPoints[i];
-          nextSegment = pathPoints[i + 1];
-          break;
-        }
-      }
-
-      // Calculate interpolation factor between segments
-      const segmentProgress =
-        (scrollProgress - currentSegment.scroll) /
-        (nextSegment.scroll - currentSegment.scroll);
-
-      // Interpolate position, scale and rotation
-      const pos = {
-        x:
-          currentSegment.pos.x +
-          (nextSegment.pos.x - currentSegment.pos.x) * segmentProgress,
-        y:
-          currentSegment.pos.y +
-          (nextSegment.pos.y - currentSegment.pos.y) * segmentProgress,
-        z:
-          currentSegment.pos.z +
-          (nextSegment.pos.z - currentSegment.pos.z) * segmentProgress,
-      };
-
-      const scale =
-        currentSegment.scale +
-        (nextSegment.scale - currentSegment.scale) * segmentProgress;
-      const rot = {
-        x:
-          currentSegment.rot.x +
-          (nextSegment.rot.x - currentSegment.rot.x) * segmentProgress,
-        y:
-          currentSegment.rot.y +
-          (nextSegment.rot.y - currentSegment.rot.y) * segmentProgress,
-        z:
-          currentSegment.rot.z +
-          (nextSegment.rot.z - currentSegment.rot.z) * segmentProgress,
-      };
-
-      // Apply with GSAP for smoothness
-      gsap.to(logo.position, {
-        x: pos.x,
-        y: pos.y - 0.1,
-        z: pos.z,
-        duration: 0.1,
-      });
-
-      gsap.to(logo.scale, {
-        x: scale,
-        y: scale,
-        z: scale,
-        duration: 0.1,
-      });
-
-      gsap.to(logo.rotation, {
-        x: rot.x,
-        y: rot.y,
-        z: rot.z,
-        duration: 0.1,
-      });
-    }
-  }
-
-  // Handle resize
-  window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    setupScrollAnimation();
+    gsap.to(logo.rotation, {
+      x: rot.x,
+      y: rot.y,
+      z: rot.z,
+      duration: 0.1,
+    });
   });
 }
+
+canvas.ontimeupdate("resize");
+
+// Handle resize
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  // setupScrollAnimation();
+});
 // function handleOrientationChange() {
 //   if (isMobileOrVerticalTablet()) {
 //     if (renderer) {
