@@ -13,7 +13,7 @@
 </head>
 
 <body class="h-[500vh] inter-font select-none dotted-grid">
-  <header class="fixed top-0 left-0 w-full z-[100] shadow-xl bg-white/80 backdrop-blur-md">
+  <header class="fixed top-0 left-0 w-full z-[100] shadow-xl bg-white/80 backdrop-blur-xs">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
       <!-- Logo -->
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
@@ -297,7 +297,7 @@
       <!-- Bottom Circular Element with Curved Text -->
       <div id="desc-bottom" class="w-full flex justify-center absolute left-0 right-0 bottom-10 fade-in z-10">
         <div
-          class="relative w-40 h-40 md:w-60 md:h-60 rounded-full flex items-center justify-center bg-white border-4 border-red-500">
+          class="relative w-40 h-40 md:w-60 md:h-60 rounded-full flex items-center justify-center bg-white border-4 border-blue-800">
           <!-- SVG for circular text -->
           <svg class="w-full h-full" viewBox="0 0 100 100">
             <!-- Top Curved Text Path -->
@@ -320,14 +320,20 @@
     </section>
 
 
-    <section id="intro" class="w-full h-screen flex items-center p-60 uppercase">
-      <div id="intro-left" class="h-fit w-fit p-2 left-52 fade-in">
+    <section id="intro" class="w-full h-screen justify-center flex items-center uppercase sm:justify-start sm:p-16 md:p-20 lg:p-32 xl:p-52 2xl:p-72">
+      <div id="intro-left" class="h-fit w-fit p-2 fade-in transition-[padding] duration-500 ease-in-out">
         <div class="h-fit w-fit relative">
-          <div class="absolute max-w-75 text-5xl text-blue-800 font-black z-1">
-            <h1 class="text-wrap">What is Markwings?</h1>
+          <div class="absolute w-40 -left-2 -rotate-8 text-xl text-blue-800 font-black z-1 xs:text-2xl 2xl:text-3xl">
+            <h1 class="text-wrap"><span class="text-xs xs:text-sm 2xl:text-base">What is</span> Markwings?</h1>
           </div>
           <div class="drop-shadow-[0px_0px_16px_rgba(0,0,0,0.2)]">
-            <div class="h-100 w-160 bg-white rounded-4xl -rotate-3 clip-left-head"></div>
+            <div class="h-fit w-70 bg-white clip-left-head text-xs -rotate-3 px-2 pt-20 pb-6 xs:w-xs md:w-md 2xl:w-xl 2xl:text-base">
+              <p class="italic text-gray-700"> "We're not just a digital agency — <span class="underline">we're your creative growth partners</span>.Based in India and trusted globally, Markwings blends strategy, storytelling, and design to turn ideas into digital success. From high-quality <span class="font-extrabold not-italic">graphic design, video editing, and website development to SEO, branding, and social media marketing</span> — we do it all with precision and passion. <br> Our name says it all:
+              “Mark” for market impact, and “Wings” for the unstoppable growth we bring to your brand.
+              
+              💡 Whether you're a startup looking for visibility or a business aiming for the next level —
+              Markwings is here to help you fly higher."</p>
+            </div>
           </div>
         </div>
       </div>
@@ -378,7 +384,7 @@
   <script type="module" src="./src/script/header.js"></script>
   <script type="module" src="./src/script/contact.js"></script>
 
-  <div id="container3D" class="">
+  <div id="container3D" class="pointer-events-none">
     <canvas id="3dCanvas" class="fixed top-0 z-[100] bg-transparent! left-0"></canvas>
   </div>
 </body>
