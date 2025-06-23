@@ -177,7 +177,6 @@ function setupScrollAnimation() {
         currentSegment.scale +
           (nextSegment.scale - currentSegment.scale) * segmentProgress
     )*scalingFactor;
-    console.log(scale);
 
     const rot = {
       x:

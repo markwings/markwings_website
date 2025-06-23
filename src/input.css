@@ -30,7 +30,25 @@
       );
     }
   }
+
+  .carousal{
+    animation: carousal-anim 1s linear;
+    transform: rotate(30/var(--i));
+  }
 }
+
+
 @theme {
   --breakpoint-xs : 24rem;
+  @keyframes carousal-anim {
+    from {
+      opacity: 0.5;
+      transform: translateX(-100%);
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
 }

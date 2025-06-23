@@ -17,7 +17,7 @@
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
       <!-- Logo -->
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
-  
+
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex space-x-6 lg:space-x-8">
         <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">About</a></li>
@@ -26,7 +26,7 @@
         <li><a href="#intro" class="text-gray-700 hover:text-blue-600 transition-colors">Intro</a></li>
         <li><a href="#banner" class="text-gray-700 hover:text-blue-600 transition-colors">Banner</a></li>
       </ul>
-  
+
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,12 +34,13 @@
         </svg>
       </button>
     </nav>
-  
+
     <!-- Mobile Menu (Hidden by default) -->
     <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
       <ul class="flex flex-col space-y-3">
         <li><a href="#about"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">About</a></li>
+            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">About</a>
+        </li>
         <li><a href="#contact"
             class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Contact</a>
         </li>
@@ -47,11 +48,12 @@
             class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Description</a>
         </li>
         <li><a href="#intro"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Intro</a></li>
+            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Intro</a>
+        </li>
         <li><a href="#banner" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Banner</a></li>
       </ul>
     </div>
-    </header>
+  </header>
 
   <main class="panelCon fixed bottom-0 left-0 w-full z-[90]">
 
@@ -62,7 +64,8 @@
         <div id="about-us"
           class="w-full h-fit bg-white text-center p-4 rounded-2xl fade-in drop-shadow-2xl md:-rotate-[3deg]">
           <h1 class="text-xl md:text-4xl text-blue-800 font-black">Our Story</h1>
-          <p class="p-4 text-sm md:text-md">Markwings is family of creative young minds from the year 2023 to provide a one stop
+          <p class="p-4 text-sm md:text-md">Markwings is family of creative young minds from the year 2023 to provide a
+            one stop
             digital solution for companies, agencies and everyone. The company has one and only one vision, that is to
             provide the best quality of work as a proud Indian organization. We solely focus on the quality of work we
             provide to help you and satisfy our minds that are greedy for creativity. With our slogal, GET SET GROW, Let
@@ -230,8 +233,24 @@
       </div>
     </section>
 
-    <section id="description" class="w-full min-h-screen pt-5 px-4 md:px-16 relative overflow-hidden">
-      <!-- SVG lines container -->
+    <section id="description" class="w-full min-h-screen relative py-36 px-28 overflow-hidden">
+      <!-- Fortune Wheel Section -->
+       <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
+        <div class="w-full h-full flex items-center justify-center p-12 bg-white relative">
+            <div class="p-2 rounded-l-2xl border-4 border-blue-800 border-r-0 shadow-[5px_1px_10px_-5px_rgb(0,0,200)] z-10 relative">
+              <div class="flex items-center relative rounded-2xl">
+                <div class="absolute w-1/2 h-full bg-gray-100 z-10 shadow-2xl blur-[1px] opacity-90 rounded-l-2xl flex flex-col justify-center">
+                  <video id="descAnim" src="./Animation.webm" autoplay muted loop
+                    class="w-full -rotate-[27deg] ml-4.5"></video>
+                </div>
+                <canvas id="fortuneWheel" width="500" height="500" class="rotate-[75deg] object-contain"></canvas>
+              </div>
+            </div>
+          <div id="fortuneResult" class="p-12 text-xl font-semibold text-blue-900 h-full w-full flex justify-center items-center space-x-4 relative">
+            </div>
+          </div>
+        </div>
+      <!--
       <svg class="absolute h-full w-full top-0 left-0 pointer-events-none z-0" id="lines-container">
         <line id="dev-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
         <line id="graphics-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
@@ -240,11 +259,9 @@
         <line id="smm-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
       </svg>
 
-      <!-- Services Grid -->
       <div
         class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-white relative z-10 place-items-center items-start">
 
-        <!-- Left Column -->
         <div class="flex flex-col gap-8 md:gap-4">
           <div class="flex justify-center md:justify-end w-60 h-60">
 
@@ -266,7 +283,6 @@
 
         </div>
 
-        <!-- Center Column -->
         <div class="flex justify-center w-60 h-60">
           <div id="desc-dm"
             class="group service-card bg-blue-800 hover:bg-blue-900 w-full h-full flex flex-col justify-center items-center text-center p-4 rounded-full">
@@ -275,7 +291,6 @@
           </div>
         </div>
 
-        <!-- Right Column -->
         <div class="flex flex-col gap-8 md:gap-4">
           <div class="flex justify-center md:justify-start w-60 h-60">
             <div id="desc-video"
@@ -294,57 +309,65 @@
         </div>
       </div>
 
-      <!-- Bottom Circular Element with Curved Text -->
       <div id="desc-bottom" class="w-full flex justify-center absolute left-0 right-0 bottom-10 fade-in z-10">
         <div
           class="relative w-40 h-40 md:w-60 md:h-60 rounded-full flex items-center justify-center bg-white border-4 border-blue-800">
-          <!-- SVG for circular text -->
           <svg class="w-full h-full" viewBox="0 0 100 100">
-            <!-- Top Curved Text Path -->
             <path id="circlePathTop" d="M10,50 a40,40 0 1,1 80,0" fill="none" />
             <text font-size="5" fill="#1e40af" text-anchor="middle" font-weight="bold">
               <textPath href="#circlePathTop" startOffset="50%">One Stop Solution for your Business</textPath>
             </text>
 
-            <!-- Bottom Curved Text Path -->
             <path id="circlePathBottom" d="M90,50 a40,40 0 1,1 -80,0" fill="none" />
             <text font-size="5" fill="#1e40af" text-anchor="middle" font-weight="bold">
               <textPath href="#circlePathBottom" startOffset="50%">Let's Build Something Amazing</textPath>
             </text>
 
-            <!-- Transparent Center Circle -->
             <circle cx="50" cy="50" r="25" fill="transparent" />
           </svg>
         </div>
-      </div>
+      </div> -->
     </section>
 
 
-    <section id="intro" class="w-full h-screen justify-center flex items-center uppercase sm:justify-start sm:p-16 md:p-20 lg:p-32 xl:p-52 2xl:p-72">
+    <section id="intro"
+      class="w-full h-screen justify-center flex items-center uppercase sm:justify-start sm:p-16 md:p-20 lg:p-32 xl:p-52 2xl:p-72">
       <div id="intro-left" class="h-fit w-fit p-2 fade-in transition-[padding] duration-500 ease-in-out">
         <div class="h-fit w-fit relative">
           <div class="absolute w-40 -left-2 -rotate-8 text-xl text-blue-800 font-black z-1 xs:text-2xl 2xl:text-3xl">
             <h1 class="text-wrap"><span class="text-xs xs:text-sm 2xl:text-base">What is</span> Markwings?</h1>
           </div>
           <div class="drop-shadow-[0px_0px_16px_rgba(0,0,0,0.2)]">
-            <div class="h-fit w-70 bg-white clip-left-head text-xs -rotate-3 px-2 pt-20 pb-6 xs:w-xs md:w-md 2xl:w-xl 2xl:text-base">
-              <p class="italic text-gray-700"> "We're not just a digital agency — <span class="underline">we're your creative growth partners</span>.Based in India and trusted globally, Markwings blends strategy, storytelling, and design to turn ideas into digital success. From high-quality <span class="font-extrabold not-italic">graphic design, video editing, and website development to SEO, branding, and social media marketing</span> — we do it all with precision and passion. <br> Our name says it all:
-              “Mark” for market impact, and “Wings” for the unstoppable growth we bring to your brand.
-              
-              💡 Whether you're a startup looking for visibility or a business aiming for the next level —
-              Markwings is here to help you fly higher."</p>
+            <div
+              class="h-fit w-70 bg-white clip-left-head text-xs -rotate-3 px-2 pt-20 pb-6 xs:w-xs md:w-md 2xl:w-xl 2xl:text-base">
+              <p class="italic text-gray-700"> "We're not just a digital agency — <span class="underline">we're your
+                  creative growth partners</span>.Based in India and trusted globally, Markwings blends strategy,
+                storytelling, and design to turn ideas into digital success. From high-quality <span
+                  class="font-extrabold not-italic">graphic design, video editing, and website development to SEO,
+                  branding, and social media marketing</span> — we do it all with precision and passion. <br> Our name
+                says it all:
+                “Mark” for market impact, and “Wings” for the unstoppable growth we bring to your brand.
+
+                💡 Whether you're a startup looking for visibility or a business aiming for the next level —
+                Markwings is here to help you fly higher."</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="banner" class="w-full h-screen flex items-end px-4 pb-12 justify-center md:items-center md:justify-end xl:pr-10 uppercase">
+    <section id="banner"
+      class="w-full h-screen flex items-end px-4 pb-12 justify-center md:items-center md:justify-end xl:pr-10 uppercase">
       <div id="banner-right" class="h-fit w-fit ">
-        <div class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-4xl 2xl:text-6xl">
-          <h1 class="text-blue-800 font-light">Your <span class="font-bold lg:font-semibold">Brand</span> Deserves <br class="xl:hidden"> More Than <span class="font-bold lg:font-semibold">Average</span>!</h1>
-          <h1 class="font-light text-blue-800">Let's Give <span class="font-bold lg:font-semibold">Your</span> Brand <br class="xl:hidden"> the <span class="font-bold lg:font-semibold">Wingsss</span> It Needs!</h1>
-          <h2 class="text-xs text-gray-800 italic mt-2">"Markwings is your all-in-one digital marketing partner. <br class="hidden lg:inline">We craft stunning designs, develop smart apps, <br class="hidden lg:inline">and create impactful content to help your brand soar."</h2>
+        <div
+          class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-4xl 2xl:text-6xl">
+          <h1 class="text-blue-800 font-light">Your <span class="font-bold lg:font-semibold">Brand</span> Deserves <br
+              class="xl:hidden"> More Than <span class="font-bold lg:font-semibold">Average</span>!</h1>
+          <h1 class="font-light text-blue-800">Let's Give <span class="font-bold lg:font-semibold">Your</span> Brand <br
+              class="xl:hidden"> the <span class="font-bold lg:font-semibold">Wingsss</span> It Needs!</h1>
+          <h2 class="text-xs text-gray-800 italic mt-2">"Markwings is your all-in-one digital marketing partner. <br
+              class="hidden lg:inline">We craft stunning designs, develop smart apps, <br class="hidden lg:inline">and
+            create impactful content to help your brand soar."</h2>
         </div>
       </div>
     </section>
