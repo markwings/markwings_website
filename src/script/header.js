@@ -98,3 +98,17 @@ window.addEventListener("resize", function () {
     });
   }
 });
+
+document.querySelectorAll(".con-btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    const contactSection = document.querySelector("#intro");
+    console.log("clicked");
+
+    if (contactSection) {
+      window.scrollTo({
+        top: contactSection.offsetTop - 50,
+        behavior: "smooth",
+      });
+    }
+  });
+});

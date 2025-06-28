@@ -12,19 +12,22 @@
   </style>
 </head>
 
-<body class="h-[500vh] inter-font select-none dotted-grid">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/80 backdrop-blur-md">
+<body class="h-[500vh] inter-font select-none bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
       <!-- Logo -->
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
 
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex space-x-6 lg:space-x-8">
-        <li><a href="./skills/marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a></li>
-        <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a></li>
-        <li><a href="#description" class="text-gray-700 hover:text-blue-600 transition-colors">Description</a></li>
+        <li><a href="./skills/marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Digital
+            Marketing</a></li>
+        <li><a href="./skills/development.html"
+            class="text-gray-700 hover:text-blue-600 transition-colors">Development</a></li>
+        <li><a href="./skills/Graphics.html" class="text-gray-700 hover:text-blue-600 transition-colors">Graphic
+            Designing</a></li>
         <li><a href="#intro" class="text-gray-700 hover:text-blue-600 transition-colors">Intro</a></li>
-        <li><a href="#banner" class="text-gray-700 hover:text-blue-600 transition-colors">Banner</a></li>
+        <li><a id="con-btn" class="con-btn text-gray-700 hover:text-blue-600 transition-colors">Connect Now</a></li>
       </ul>
 
       <!-- Mobile Menu Button -->
@@ -38,18 +41,21 @@
     <!-- Mobile Menu (Hidden by default) -->
     <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
       <ul class="flex flex-col space-y-3">
-        <li><a href="/marketing"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">About</a></li>
+        <li><a href="./skills/marketing.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Digital
+            Marketing</a></li>
+        <li><a href="./skills/development.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Development</a>
+        </li>
+        <li><a href="./skills/Graphics.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Graphic
+            Designing</a>
+        </li>
         <li><a href="#contact"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Contact</a>
-        </li>
-        <li><a href="#description"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Description</a>
-        </li>
-        <li><a href="#intro"
             class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Intro</a>
         </li>
-        <li><a href="#banner" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Banner</a></li>
+        <li><a href="#contact-left" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Connect
+            Now</a></li>
       </ul>
     </div>
   </header>
@@ -134,7 +140,6 @@
     </section>
 
     <section id="contact" class="w-full h-screen flex items-center justify-end py-4 px-28">
-
       <div id="contact-left"
         class="p-4 w-5/12 h-fit fade-in bg-white text-center rounded-2xl shadow-xl border border-gray-300">
 
@@ -234,22 +239,25 @@
 
     <section id="description" class="w-full min-h-screen relative py-36 px-28 overflow-hidden">
       <!-- Fortune Wheel Section -->
-       <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
+      <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
         <div class="w-full h-full flex items-center justify-center p-12 bg-white relative">
-            <div class="p-2 rounded-l-2xl border-4 border-blue-800 border-r-0 shadow-[5px_1px_10px_-5px_rgb(0,0,200)] z-10 relative">
-              <div class="flex items-center relative rounded-2xl">
-                <div class="absolute w-1/2 h-full bg-gray-100 z-10 shadow-2xl blur-[1px] opacity-90 rounded-l-2xl flex flex-col justify-center">
-                  <video id="descAnim" src="./Animation.webm" autoplay muted loop
-                    class="w-full -rotate-[27deg] ml-4.5"></video>
-                </div>
-                <canvas id="fortuneWheel" width="500" height="500" class="rotate-[75deg] object-contain"></canvas>
+          <div
+            class="p-2 rounded-l-2xl border-4 border-blue-800 border-r-0 shadow-[5px_1px_10px_-5px_rgb(0,0,200)] z-10 relative">
+            <div class="flex items-center relative rounded-2xl">
+              <div
+                class="absolute w-1/2 h-full bg-gray-100 z-10 shadow-2xl blur-[1px] opacity-90 rounded-l-2xl flex flex-col justify-center">
+                <video id="descAnim" src="./Animation.webm" autoplay muted loop
+                  class="w-full -rotate-[27deg] ml-4.5"></video>
               </div>
-            </div>
-          <div id="fortuneResult" class="p-12 text-xl font-semibold text-blue-900 h-full w-full flex justify-center items-center space-x-4 relative">
+              <canvas id="fortuneWheel" width="500" height="500" class="rotate-[75deg] object-contain"></canvas>
             </div>
           </div>
+          <div id="fortuneResult"
+            class="p-12 text-xl font-semibold text-blue-900 h-full w-full flex justify-center items-center space-x-4 relative">
+          </div>
         </div>
-      <!--
+      </div>
+      <!--   
       <svg class="absolute h-full w-full top-0 left-0 pointer-events-none z-0" id="lines-container">
         <line id="dev-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
         <line id="graphics-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
@@ -355,24 +363,46 @@
       </div>
     </section>
 
-    <section id="banner"
-      class="w-full h-screen flex items-end px-4 pb-12 justify-center md:items-center md:justify-end xl:pr-10 uppercase">
-      <div id="banner-right" class="h-fit w-fit ">
-        <div
-          class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-4xl 2xl:text-6xl">
-          <h1 class="text-blue-800 font-light">Your <span class="font-bold lg:font-semibold">Brand</span> Deserves <br
-              class="xl:hidden"> More Than <span class="font-bold lg:font-semibold">Average</span>!</h1>
-          <h1 class="font-light text-blue-800">Let's Give <span class="font-bold lg:font-semibold">Your</span> Brand <br
-              class="xl:hidden"> the <span class="font-bold lg:font-semibold">Wingsss</span> It Needs!</h1>
-          <h2 class="text-xs text-gray-800 italic mt-2">"Markwings is your all-in-one digital marketing partner. <br
-              class="hidden lg:inline">We craft stunning designs, develop smart apps, <br class="hidden lg:inline">and
-            create impactful content to help your brand soar."</h2>
-        </div>
+    <section id="banner" class="w-full h-screen flex items-center justify-center relative">
+      <div class="absolute w-full h-full flex py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white">
+        <h1 class="ml-36 text-blue-200">Growth</h1>
+        <h1 class="ml-36 text-blue-300">Gr<span class="text-black">o</span>wth</h1>
+        <h1 class="ml-36 text-blue-400">Growth</h1>
+        <h1 class="ml-36 text-blue-500 border-4 border-black">Growth</h1>
+        <h1 class="ml-36 text-blue-600">Growth</h1>
+        <h1 class="ml-36 text-blue-700"><span class="italic">G</span>rowth</h1>
+        <h1 class="ml-36 text-blue-800">Growt<span class="italic">h</span></h1>
+        <h1 class="ml-36 text-blue-900">G<span class="text-transparent">r</span>owth</h1>
+        <h1 class="ml-36 text-blue-950">Growth</h1>
       </div>
+      <div
+        class="h-4/5 w-4/5 z-10 bg-white/30 backdrop-blur-md flex items-end px-4 pb-12 justify-center md:items-center md:justify-between xl:p-16 uppercase shadow-2xl drop-shadow-2xl relative rounded-tr-4xl">
+        <div id="container3D" class="relative h-full">
+          <canvas id="3dCanvas" class="absolute -left-64 top-8"></canvas>
+        </div>
+        <div id="banner-right" class="h-fit w-fit">
+          <div
+            class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl">
+            <h1 class="text-blue-800 font-light text-shadow-lg">Your <span
+                class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Deserves <br class="xl:hidden">More Than
+              <span class="font-bold lg:font-semibold text-shadow-lg">Average</span>!</h1>
+            <h1 class="font-light text-blue-800 text-shadow-lg">Let's Give <span
+                class="font-bold lg:font-semibold text-shadow-lg">Your</span> Brand <br class="xl:hidden"> the <span
+                class="font-bold lg:font-semibold text-shadow-lg">Wingsss</span> It Needs!</h1>
+            <h2 class="text-xs text-gray-800 italic mt-2 text-shadow-lg">"Markwings is your all-in-one digital marketing
+              partner. <br class="hidden lg:inline">We craft stunning designs, develop smart apps, <br
+                class="hidden lg:inline">and
+              create impactful content to help your brand soar."</h2>
+              <button class="con-btn text-xl mt-12 bg-blue-600 px-4 py-2 rounded-3xl text-white hover:bg-blue-800 transition-all duration-75 active:scale-95"> Get in Touch</button>
+          </div>
+        </div>
     </section>
-
+    </div>
   </main>
-
+  <!-- Date Time Div -->
+  <div id="dateTime"
+    class="fixed rotate-90 -right-8 top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[100]">
+  </div>
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"
     class="fixed right-5 bottom-5 z-50 flex aspect-square w-10 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110">
@@ -399,16 +429,13 @@
 
 
   <script type="module" src="./src/script/main.js"></script>
+  <script type="module" src="./src/script/banner.js"></script>
   <script type="module" src="./src/script/mouseTrail.js"></script>
   <script type="module" src="./src/script/scroller.js"></script>
   <script type="module" src="./src/script/fadeInAnimation.js"></script>
   <script type="module" src="./src/script/description.js"></script>
   <script type="module" src="./src/script/header.js"></script>
   <script type="module" src="./src/script/contact.js"></script>
-
-  <div id="container3D" class="pointer-events-none">
-    <canvas id="3dCanvas" class="fixed top-0 z-[100] bg-transparent! left-0"></canvas>
-  </div>
 </body>
 
 </html>

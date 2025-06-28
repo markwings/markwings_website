@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'PixPixls';
+  src: url("../fonts/PixPixls-Regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Icecreamer';
+  src: url("../fonts/Icecreamer.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Icecreamer';
+  src: url("../fonts/Icecreamer-Italic.ttf") format('truetype');
+  font-style: italic;
+}
+
 @layer utilities{
   /* .clip-left-head{
     clip-path: path("M 0 15 L 5 17 L 55 17 L 57 19 L 57 0 L 98 0 L 100 2 L 100 98 L 98 100 L 2 100 L 0 98 Z");  
