@@ -1,7 +1,7 @@
 // Reverse Scroll
-window.addEventListener("scroll", function () {
-    document.querySelector(".panelCon").style.bottom = window.scrollY * -1 + "px";
-  });
+// window.addEventListener("scroll", function () {
+//     document.querySelector(".panelCon").style.bottom = window.scrollY * -1 + "px";
+//   });
 
 // Date and Time Display
 let dateTimeContainer = document.getElementById("dateTime");
