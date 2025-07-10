@@ -16,11 +16,9 @@
   <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
-
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
 
       <!-- Desktop Navigation -->
-      <ul class="hidden lg:flex space-x-6 lg:space-x-8">
       <ul class="hidden lg:flex space-x-6 lg:space-x-8">
         <li><a href="./skills/marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Digital
             Marketing</a></li>
@@ -34,7 +32,6 @@
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
-      <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -42,7 +39,6 @@
     </nav>
 
     <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
     <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
       <ul class="flex flex-col space-y-3">
         <li><a href="./skills/marketing.html"
@@ -64,8 +60,8 @@
     </div>
   </header>
 
-  <main class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden space-y-52">
-
+  <main
+    class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden space-y-52">
 
     <section id="banner" class="w-full h-screen flex items-center justify-center relative">
       <div
@@ -84,25 +80,37 @@
 
         <div class="h-full md:w-2/3 flex z-[10] items-center justify-center p-4">
           <div
-            class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl">
-            <h1 class="text-blue-800 font-light text-shadow-lg">Your <span
+            class="text-wrap text-xl text-center xs:text-[1.7rem] sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl">
+            <h1 class="md:block hidden text-blue-800 font-light text-shadow-lg">Your <span
                 class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Deserves <br class="xl:hidden">More Than
               <span class="font-bold lg:font-semibold text-shadow-lg">Average</span>!
             </h1>
-            <h1 class="font-light text-blue-800 text-shadow-lg">Let's Give <span
+            <h1 class="md:block hidden font-light text-blue-800 text-shadow-lg">Let's Give <span
                 class="font-bold lg:font-semibold text-shadow-lg">Your</span> Brand <br class="xl:hidden"> the <span
                 class="font-bold lg:font-semibold text-shadow-lg">Wingsss</span> It Needs!</h1>
+
+            <h1 class="md:hidden text-blue-800 font-medium text-shadow-lg">
+              Time to <span class="font-bold lg:font-semibold text-shadow-lg">Rise Above!</span>
+            </h1>
+            <h1 class="md:hidden text-blue-800 font-medium text-shadow-lg">
+              Your <span class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Needs <span
+                class="font-bold lg:font-semibold text-shadow-lg">Wingss</span><br class="xl:hidden"> — <br
+                class="xl:hidden"> Let's <span class="font-bold lg:font-semibold text-shadow-lg">Fly!</span>
+            </h1>
+
             <h2 class="text-xs text-gray-800 italic mt-2 text-shadow-lg">"Markwings is your all-in-one digital marketing
               partner. <br class="hidden lg:inline">We craft stunning designs, develop smart apps, <br
                 class="hidden lg:inline">and
               create impactful content to help your brand soar."</h2>
             <button
-              class="con-btn text-xl mt-12 bg-blue-600 px-4 py-2 rounded-3xl text-white hover:bg-blue-800 transition-all duration-75 active:scale-95">
-              Get in Touch</button>
+              class="con-btn text-lg sm:text-xl mt-10 sm:mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-indigo-700 transition-transform duration-200 ease-in-out active:scale-95">
+              Get in Touch
+            </button>
+
           </div>
         </div>
 
-        <canvas id="3dCanvas" class="absolute opacity-60 lg:opacity-100 lg:relative lg:ml-12 h-full w-1/2 "></canvas>
+        <canvas id="3dCanvas" class="absolute opacity-60 lg:opacity-100 lg:relative lg:ml-12 h-full"></canvas>
 
       </div>
 
@@ -183,11 +191,13 @@
 
     <section class="w-full h-screen left-0 top-0 bg-white">
       <div class="w-full h-full flex items-center justify-center transform-3d perspective-distant">
-        <div class="w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 rounded-sm">
-          <h1 class="text-2xl">Pronounciation</h1>
-          <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and Wings
+        <div class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 rounded-sm">
+          <h1 class="text-3xl">Pronounciation</h1>
+          <p class="text-gray-700 text-lg font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
+            Wings
             (wˈɪŋz).</p>
-          <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स (wˈɪŋz)।
+          <p class="text-gray-700 text-lg font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+            (wˈɪŋz)।
           </p>
         </div>
       </div>
@@ -292,11 +302,11 @@
       </div> -->
     </section>
 
-    <section id="contact" class="w-full h-screen flex items-center justify-end py-4 px-28 left-0 top-0 bg-white">
-      <div id="contact-left"
-        class="p-4 w-5/12 h-fit fade-in bg-white text-center rounded-2xl shadow-xl border border-gray-300">
+    <section id="contact" class="w-full h-screen flex items-center justify-center py-4 left-0 top-0 bg-white">
+      <div
+        class="p-4 h-fit fade-in bg-white text-center rounded-2xl md:shadow-xl md:border md:border-gray-300">
 
-        <div id="contact-us" class="mb-4">
+        <div id="contact-us" class="w-full mb-4">
           <h1 class="text-3xl font-bold text-blue-800 mb-1">Get in Touch</h1>
           <p class="text-gray-600 normal-case">We'd love to hear from you! Fill out the form below and we'll get back to
             you
@@ -466,7 +476,11 @@
 
   <!-- Date Time Div -->
   <div id="dateTime"
-    class="fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
+    class="hidden md:block fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
+  </div>
+
+  <div id="dateTime2"
+    class="md:hidden fixed bottom-0 left-0 pointer-events-none pl-20 pr-8 py-2! font-[PixPixls] text-gray-100 bg-blue-600 opacity-100 z-[1000]">
   </div>
 
 
