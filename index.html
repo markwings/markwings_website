@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MarkWings</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
   <link rel="stylesheet" href="./src/index.css" />
   <link rel="stylesheet" href="./src/animations.css" />
   <style>
@@ -12,7 +13,7 @@
   </style>
 </head>
 
-<body class="h-[500vh] inter-font select-none bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+<body class="inter-font h-fit select-none overflow-x-hidden">
   <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
       <!-- Logo -->
@@ -60,184 +61,129 @@
     </div>
   </header>
 
-  <main class="panelCon fixed bottom-0 left-0 w-full z-[90]">
-
-    <section id="about" class=" w-full min-h-[100vh] flex justify-end  uppercase md:px-36 relative">
-
-      <div class="md:w-1/2 flex items-center flex-col justify-center space-y-4 md:space-y-8">
-
-        <div id="about-us"
-          class="w-full h-fit bg-white text-center p-4 rounded-2xl fade-in drop-shadow-2xl md:-rotate-[3deg]">
-          <h1 class="text-xl md:text-4xl text-blue-800 font-black">Our Story</h1>
-          <p class="p-4 text-sm md:text-md">Markwings is family of creative young minds from the year 2023 to provide a
-            one stop
-            digital solution for companies, agencies and everyone. The company has one and only one vision, that is to
-            provide the best quality of work as a proud Indian organization. We solely focus on the quality of work we
-            provide to help you and satisfy our minds that are greedy for creativity. With our slogal, GET SET GROW, Let
-            us GET our creative minds to work for you, So that we can SET the bars for creativity high each and every
-            time and we all can GROW together. Jai Hind!</p>
+  <main class="panelCon w-full smooth-scroll bg-white space-y-52 scroll-smooth">
+    <section id="banner" class="w-full h-screen flex items-center justify-center left-0 top-0 bg-white">
+      <div id="check"
+        class="absolute w-full h-full flex py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white">
+        <h1 class="ml-36 text-blue-200">Growth</h1>
+        <h1 class="ml-36 text-blue-300">Gr<span class="text-black">o</span>wth</h1>
+        <h1 class="ml-36 text-blue-400">Growth</h1>
+        <h1 class="ml-36 text-blue-500 border-4 border-black">Growth</h1>
+        <h1 class="ml-36 text-blue-600">Growth</h1>
+        <h1 class="ml-36 text-blue-700"><span class="italic">G</span>rowth</h1>
+        <h1 class="ml-36 text-blue-800">Growt<span class="italic">h</span></h1>
+        <h1 class="ml-36 text-blue-900">G<span class="text-transparent">r</span>owth</h1>
+        <h1 class="ml-36 text-blue-950">Growth</h1>
+      </div>
+      <div
+        class="h-4/5 w-4/5 z-10 bg-white/30 backdrop-blur-md flex items-end px-4 pb-12 justify-center md:items-center md:justify-between xl:p-16 uppercase shadow-2xl drop-shadow-2xl relative rounded-tr-4xl">
+        <div id="container3D" class="relative h-full">
+          <canvas id="3dCanvas" class="absolute -left-64 top-8"></canvas>
         </div>
-
-        <div id="about-roadmad">
-          <div class="w-[480px] mx-auto flex flex-col items-center justify-end h-full">
-            <h2 class="text-lg font-bold text-blue-900 font-serif tracking-wider">Our Treasure Map</h2>
-            <div class="relative w-full flex items-center justify-center py-2">
-              <div class="absolute inset-0 pointer-events-none z-0">
-                <svg width="100%" height="60" viewBox="0 0 480 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 30 Q80 5 160 30 T320 30 T464 30" stroke="grey" stroke-width="2" fill="none"
-                    stroke-dasharray="8 6" />
-                  <text x="455" y="30" font-size="16" fill="blue" font-family="serif" font-weight="bold">X</text>
-                </svg>
-              </div>
-              <div class="relative z-10 flex w-full justify-between space-x-2 items-end">
-
-                <div class="flex flex-col items-center w-1/4">
-                  <div
-                    class="w-6 h-6 bg-blue-400 border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-semibold text-white/85 mb-0.5">
-                    1</div>
-                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
-                    <span class="text-[10px] font-semibold text-blue-900 font-serif">2023: The Discovery</span>
-                    <p class="text-gray-700 text-[10px] mt-0.5">Founded MarkWings, gathered our crew, and set sail with
-                      creative digital solutions.</p>
-                  </div>
-                </div>
-                <div class="flex flex-col items-center w-1/4">
-                  <div
-                    class="w-6 h-6 bg-blue-400 border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-semibold text-white/85 mb-0.5">
-                    2</div>
-                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
-                    <span class="text-[10px] font-semibold text-blue-900 font-serif">2024: The Voyage</span>
-                    <p class="text-gray-700 text-[10px] mt-0.5">Expanded our fleet, added new services, and charted new
-                      creative waters.</p>
-                  </div>
-                </div>
-                <div class="flex flex-col items-center w-1/4">
-                  <div
-                    class="w-6 h-6 bg-white border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-bold text-blue-900 mb-0.5">
-                    3</div>
-                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
-                    <span class="text-[10px] font-semibold text-blue-900 font-serif">2025: The Hidden Coves</span>
-                    <p class="text-gray-700 text-[10px] mt-0.5">Uncovering innovation—AI tools, automation, and new
-                      digital treasures await.</p>
-                  </div>
-                </div>
-                <div class="flex flex-col items-center w-1/4">
-                  <div
-                    class="w-6 h-6 bg-white border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-bold text-blue-900 mb-0.5">
-                    4</div>
-                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
-                    <span class="text-[10px] font-semibold text-blue-900 font-serif">Beyond: The Treasure</span>
-                    <p class="text-gray-700 text-[10px] mt-0.5">Global adventures, legendary partnerships, and endless
-                      growth—X marks the spot!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div id="banner-right" class="h-fit w-fit">
+          <div
+            class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl">
+            <h1 class="text-blue-800 font-light text-shadow-lg">Your <span
+                class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Deserves <br class="xl:hidden">More Than
+              <span class="font-bold lg:font-semibold text-shadow-lg">Average</span>!
+            </h1>
+            <h1 class="font-light text-blue-800 text-shadow-lg">Let's Give <span
+                class="font-bold lg:font-semibold text-shadow-lg">Your</span> Brand <br class="xl:hidden"> the <span
+                class="font-bold lg:font-semibold text-shadow-lg">Wingsss</span> It Needs!</h1>
+            <h2 class="text-xs text-gray-800 italic mt-2 text-shadow-lg">"Markwings is your all-in-one digital marketing
+              partner. <br class="hidden lg:inline">We craft stunning designs, develop smart apps, <br
+                class="hidden lg:inline">and
+              create impactful content to help your brand soar."</h2>
+            <button
+              class="con-btn text-xl mt-12 bg-blue-600 px-4 py-2 rounded-3xl text-white hover:bg-blue-800 transition-all duration-75 active:scale-95">
+              Get in Touch</button>
           </div>
         </div>
+    </section>
 
+    <section id="intro" class="w-full h-fit left-0 top-0 bg-white space-y-36">
+      <!-- <div id="snakeContainer" class="w-full h-1/3 bg-black relative flex flex-col justify-center items-center">
+        <div class="w-4 aspect-square bg-red-600 rounded-full z-50 absolute"></div> 
+        <h1 class="text-white text-4xl hidden">Game Over!</h1>
+        <h2 class="text-gray-500 text-3xl">Your Score = 0</h2>
+        <h3 class="text-gray-700 text-xl"></h3>
+      </div> -->
+      <div id="introCarousal"
+        class="w-full h-72 bg-black flex items-center justify-around space-x-1 py-2 px-8 transform-3d perspective-distant">
+        <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-amber-50 list-hover"></div>
+        <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-lime-600 list-hover "></div>
+        <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-violet-800 list-hover"></div>
+        <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-fuchsia-400 peer list-hover"></div>
+        <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-cyan-600 list-hover"></div>
+        <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-purple-800 list-hover"></div>
+      </div>
+      <div class="w-full h-fit flex items-center justify-center relative">
+        <div
+          class="w-fit h-fit px-12 py-8 text-gray-900 space-y-2 rounded-sm bg-white/80 backdrop-blur-xs z-10 peer transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
+          <div class="space-y-1 mt-2 px-4 fadeIn">
+            <h1 class="text-3xl">Dictionary</h1>
+            <h5 class="text-sm">Definitions from <span class="underline">Language of ❤️</span> · <span
+                class="underline">Learn more</span></h5>
+          </div>
+          <div class="px-4 fadeIn space-x-3">
+            <h1 class="text-4xl">Markwings</h1>
+            <h6 class="text-sm font-normal text-gray-800">मार्क'विंग्स</h6>
+            <h6 class="text-lg font-semibold text-gray-700 mt-2">noun</h6>
+          </div>
+          <div id="dictionary" class="px-4 fadeIn">
+            <p class="text-gray-700 font-normal">
+              A group of people mad for creativity and new ideas.
+            </p>
+            <p class="text-gray-700 font-normal">
+              रचनात्मकता और नए विचारों के लिए पागल लोगों का एक समूह।
+            </p>
+          </div>
+        </div>
+        <div
+          class="w-full h-full fixed top-0 left-0 opacity-0 pointer-events-none peer-hover:opacity-100 transition-all duration-500">
+          <video src="vid1.mp4" class="w-full" autoplay muted loop></video>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="w-full h-screen flex items-center justify-end py-4 px-28">
-      <div id="contact-left"
-        class="p-4 w-5/12 h-fit fade-in bg-white text-center rounded-2xl shadow-xl border border-gray-300">
-
-        <div id="contact-us" class="mb-4">
-          <h1 class="text-3xl font-bold text-blue-800 mb-1">Get in Touch</h1>
-          <p class="text-gray-600 normal-case">We'd love to hear from you! Fill out the form below and we'll get back to
-            you
-            soon.</p>
+    <section id="etymology" class="w-full h-screen flex items-center justify-center relative">
+      <!-- <div class="absolute inset-0 bg-cover bg-center z-20"
+        style="background-image: url('img1.jpg');">
+      </div> -->
+      
+      <!-- Circular Reveal Area -->
+      <div id="reveal" class="absolute w-72 h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
+        <div id="reveal-content" class="absolute w-screen h-screen flex justify-center items-center text-gray-900 rounded-sm">
+          <div class="w-1/3 space-y-4 px-12 py-8">
+            <h1 class="text-2xl fadeIn">Etymology</h1>
+            <p class="text-gray-700 font-normal fadeIn">The name "Markwings" is a combination of "Mark" and "Wings".
+              "Mark"
+              signifies a mark or impact, while "Wings" symbolizes growth and elevation.</p>
+            <p class="text-gray-700 font-normal fadeIn">नाम "मार्कविंग्स" "मार्क" और "विंग्स" का संयोजन है। "मार्क" एक
+              निशान या
+              प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का प्रतीक है।</p>
+          </div>
         </div>
-
-        <form id="con-form" class="w-full flex flex-col space-y-4">
-          <div class="w-full flex flex-col md:flex-row gap-4">
-            <div class="relative w-full">
-              <input name="fname" type="text" id="fname" required
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-              <label for="fname"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">First
-                Name</label>
-            </div>
-            <div class="relative w-full">
-              <input name="lname" type="text" id="lname" required
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-              <label for="lname"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Last
-                Name</label>
-            </div>
-          </div>
-
-          <div class="relative">
-            <input name="email" type="email" id="email" required
-              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-            <label for="email"
-              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Email
-              Address</label>
-          </div>
-
-          <div class="relative">
-            <input name="phone" type="tel" id="phone"
-              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-            <label for="phone"
-              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Phone
-              Number</label>
-          </div>
-
-          <div class="relative">
-            <input name="comp" type="text" id="comp"
-              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-            <label for="comp"
-              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Company/Organization</label>
-          </div>
-
-          <div class="relative">
-            <select name="sub" id="sub" required
-              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSdub25lJyBoZWlnaHQ9JzI0JyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNNyAxMGw1IDUgNS01eicgZmlsbD0nIzc3NycvPjwvc3ZnPg==')] bg-no-repeat bg-[right_1rem_center]">
-              <option value="" disabled selected>Select Subject</option>
-              <option value="dev">Development</option>
-              <option value="graphics">Graphics Design</option>
-              <option value="dm">Digital Marketing</option>
-              <option value="video">Video Editing</option>
-              <option value="smm">Social Media Marketing</option>
-              <option value="other">Other</option>
-            </select>
-            <label for="sub"
-              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Subject</label>
-          </div>
-
-          <div class="relative">
-            <textarea name="msg" id="message" rows="3" required
-              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"></textarea>
-            <label for="msg"
-              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Your
-              Message</label>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button id="sub-form" type="submit"
-              class="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
-              Get a Call Back
-            </button>
-            <button id="sub-wp" type="button"
-              class="px-6 py-3 rounded-lg border border-green-500 bg-green-50 text-green-700 font-medium hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all flex items-center justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M3 20l1.3-3.9A9.8 9.8 0 0 1 2 10a10 10 0 0 1 10-10 9.8 9.8 0 0 1 6.1 2.3 10 10 0 0 1 2.3 6.1 10 10 0 0 1-10 10 9.8 9.8 0 0 1-6.1-2.3z" />
-                <path d="M8 14h.01" />
-                <path d="M12 14h.01" />
-                <path d="M16 14h.01" />
-              </svg>
-              Send via WhatsApp
-            </button>
-          </div>
-
-        </form>
+      </div>
+      </div>
+      <div class="absolute w-full h-full bg-cover bg-center z-10">
+        <img src="img1.jpg" alt="">
       </div>
     </section>
 
-    <section id="description" class="w-full min-h-screen relative py-36 px-28 overflow-hidden">
+    <section class="w-full h-screen left-0 top-0 bg-white">
+      <div class="w-full h-full flex items-center justify-center transform-3d perspective-distant">
+        <div class="w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 rounded-sm">
+          <h1 class="text-2xl">Pronounciation</h1>
+          <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and Wings
+            (wˈɪŋz).</p>
+          <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स (wˈɪŋz)।
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="description" class="w-full min-h-screen py-36 px-28 overflow-hidden left-0 top-0 bg-white">
       <!-- Fortune Wheel Section -->
       <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
         <div class="w-full h-full flex items-center justify-center p-12 bg-white relative">
@@ -336,72 +282,180 @@
       </div> -->
     </section>
 
+    <section id="contact" class="w-full h-screen flex items-center justify-end py-4 px-28 left-0 top-0 bg-white">
+      <div id="contact-left"
+        class="p-4 w-5/12 h-fit fade-in bg-white text-center rounded-2xl shadow-xl border border-gray-300">
 
-    <section id="intro"
-      class="w-full h-screen justify-center flex items-center uppercase sm:justify-start sm:p-16 md:p-20 lg:p-32 xl:p-52 2xl:p-72">
-      <div id="intro-left" class="h-fit w-fit p-2 fade-in transition-[padding] duration-500 ease-in-out">
-        <div class="h-fit w-fit relative">
-          <div class="absolute w-40 -left-2 -rotate-8 text-xl text-blue-800 font-black z-1 xs:text-2xl 2xl:text-3xl">
-            <h1 class="text-wrap"><span class="text-xs xs:text-sm 2xl:text-base">What is</span> Markwings?</h1>
+        <div id="contact-us" class="mb-4">
+          <h1 class="text-3xl font-bold text-blue-800 mb-1">Get in Touch</h1>
+          <p class="text-gray-600 normal-case">We'd love to hear from you! Fill out the form below and we'll get back to
+            you
+            soon.</p>
+        </div>
+
+        <form id="con-form" class="w-full flex flex-col space-y-4">
+          <div class="w-full flex flex-col md:flex-row gap-4">
+            <div class="relative w-full">
+              <input name="fname" type="text" id="fname" required
+                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+              <label for="fname"
+                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">First
+                Name</label>
+            </div>
+            <div class="relative w-full">
+              <input name="lname" type="text" id="lname" required
+                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+              <label for="lname"
+                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Last
+                Name</label>
+            </div>
           </div>
-          <div class="drop-shadow-[0px_0px_16px_rgba(0,0,0,0.2)]">
-            <div
-              class="h-fit w-70 bg-white clip-left-head text-xs -rotate-3 px-2 pt-20 pb-6 xs:w-xs md:w-md 2xl:w-xl 2xl:text-base">
-              <p class="italic text-gray-700"> "We're not just a digital agency — <span class="underline">we're your
-                  creative growth partners</span>.Based in India and trusted globally, Markwings blends strategy,
-                storytelling, and design to turn ideas into digital success. From high-quality <span
-                  class="font-extrabold not-italic">graphic design, video editing, and website development to SEO,
-                  branding, and social media marketing</span> — we do it all with precision and passion. <br> Our name
-                says it all:
-                “Mark” for market impact, and “Wings” for the unstoppable growth we bring to your brand.
 
-                💡 Whether you're a startup looking for visibility or a business aiming for the next level —
-                Markwings is here to help you fly higher."</p>
+          <div class="relative">
+            <input name="email" type="email" id="email" required
+              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+            <label for="email"
+              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Email
+              Address</label>
+          </div>
+
+          <div class="relative">
+            <input name="phone" type="tel" id="phone"
+              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+            <label for="phone"
+              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Phone
+              Number</label>
+          </div>
+
+          <div class="relative">
+            <input name="comp" type="text" id="comp"
+              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+            <label for="comp"
+              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Company/Organization</label>
+          </div>
+
+          <div class="relative">
+            <select name="sub" id="sub" required
+              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSdub25lJyBoZWlnaHQ9JzI0JyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNNyAxMGw1IDUgNS01eicgZmlsbD0nIzc3NycvPjwvc3ZnPg==')] bg-no-repeat bg-[right_1rem_center]">
+              <option value="" disabled selected>Select Subject</option>
+              <option value="dev">Development</option>
+              <option value="graphics">Graphics Design</option>
+              <option value="dm">Digital Marketing</option>
+              <option value="video">Video Editing</option>
+              <option value="smm">Social Media Marketing</option>
+              <option value="other">Other</option>
+            </select>
+            <label for="sub"
+              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Subject</label>
+          </div>
+
+          <div class="relative">
+            <textarea name="msg" id="message" rows="3" required
+              class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"></textarea>
+            <label for="msg"
+              class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Your
+              Message</label>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button id="sub-form" type="submit"
+              class="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+              Get a Call Back
+            </button>
+            <button id="sub-wp" type="button"
+              class="px-6 py-3 rounded-lg border border-green-500 bg-green-50 text-green-700 font-medium hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M3 20l1.3-3.9A9.8 9.8 0 0 1 2 10a10 10 0 0 1 10-10 9.8 9.8 0 0 1 6.1 2.3 10 10 0 0 1 2.3 6.1 10 10 0 0 1-10 10 9.8 9.8 0 0 1-6.1-2.3z" />
+                <path d="M8 14h.01" />
+                <path d="M12 14h.01" />
+                <path d="M16 14h.01" />
+              </svg>
+              Send via WhatsApp
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <section id="about" class=" w-full min-h-[100vh] flex justify-end  uppercase md:px-36 left-0 top-0 bg-white">
+      <div class="md:w-1/2 flex items-center flex-col justify-center space-y-4 md:space-y-8">
+        <div id="about-us"
+          class="w-full h-fit bg-white text-center p-4 rounded-2xl fade-in drop-shadow-2xl md:-rotate-[3deg]">
+          <h1 class="text-xl md:text-4xl text-blue-800 font-black">Our Story</h1>
+          <p class="p-4 text-sm md:text-md">Markwings is family of creative young minds from the year 2023 to provide a
+            one stop
+            digital solution for companies, agencies and everyone. The company has one and only one vision, that is to
+            provide the best quality of work as a proud Indian organization. We solely focus on the quality of work we
+            provide to help you and satisfy our minds that are greedy for creativity. With our slogal, GET SET GROW, Let
+            us GET our creative minds to work for you, So that we can SET the bars for creativity high each and every
+            time and we all can GROW together. Jai Hind!</p>
+        </div>
+        <div id="about-roadmad">
+          <div class="w-[480px] mx-auto flex flex-col items-center justify-end h-full">
+            <h2 class="text-lg font-bold text-blue-900 font-serif tracking-wider">Our Treasure Map</h2>
+            <div class="relative w-full flex items-center justify-center py-2">
+              <div class="absolute inset-0 pointer-events-none z-0">
+                <svg width="100%" height="60" viewBox="0 0 480 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 30 Q80 5 160 30 T320 30 T464 30" stroke="grey" stroke-width="2" fill="none"
+                    stroke-dasharray="8 6" />
+                  <text x="455" y="30" font-size="16" fill="blue" font-family="serif" font-weight="bold">X</text>
+                </svg>
+              </div>
+              <div class="relative z-10 flex w-full justify-between space-x-2 items-end">
+                <div class="flex flex-col items-center w-1/4">
+                  <div
+                    class="w-6 h-6 bg-blue-400 border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-semibold text-white/85 mb-0.5">
+                    1</div>
+                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
+                    <span class="text-[10px] font-semibold text-blue-900 font-serif">2023: The Discovery</span>
+                    <p class="text-gray-700 text-[10px] mt-0.5">Founded MarkWings, gathered our crew, and set sail with
+                      creative digital solutions.</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center w-1/4">
+                  <div
+                    class="w-6 h-6 bg-blue-400 border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-semibold text-white/85 mb-0.5">
+                    2</div>
+                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
+                    <span class="text-[10px] font-semibold text-blue-900 font-serif">2024: The Voyage</span>
+                    <p class="text-gray-700 text-[10px] mt-0.5">Expanded our fleet, added new services, and charted new
+                      creative waters.</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center w-1/4">
+                  <div
+                    class="w-6 h-6 bg-white border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-bold text-blue-900 mb-0.5">
+                    3</div>
+                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
+                    <span class="text-[10px] font-semibold text-blue-900 font-serif">2025: The Hidden Coves</span>
+                    <p class="text-gray-700 text-[10px] mt-0.5">Uncovering innovation—AI tools, automation, and new
+                      digital treasures await.</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center w-1/4">
+                  <div
+                    class="w-6 h-6 bg-white border-2 border-blue-700 rounded-full flex items-center justify-center shadow font-serif text-xs font-bold text-blue-900 mb-0.5">
+                    4</div>
+                  <div class="bg-white/90 rounded px-1.5 py-0.5 shadow border border-blue-300 mb-0.5">
+                    <span class="text-[10px] font-semibold text-blue-900 font-serif">Beyond: The Treasure</span>
+                    <p class="text-gray-700 text-[10px] mt-0.5">Global adventures, legendary partnerships, and endless
+                      growth—X marks the spot!</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <section id="banner" class="w-full h-screen flex items-center justify-center relative">
-      <div class="absolute w-full h-full flex py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white">
-        <h1 class="ml-36 text-blue-200">Growth</h1>
-        <h1 class="ml-36 text-blue-300">Gr<span class="text-black">o</span>wth</h1>
-        <h1 class="ml-36 text-blue-400">Growth</h1>
-        <h1 class="ml-36 text-blue-500 border-4 border-black">Growth</h1>
-        <h1 class="ml-36 text-blue-600">Growth</h1>
-        <h1 class="ml-36 text-blue-700"><span class="italic">G</span>rowth</h1>
-        <h1 class="ml-36 text-blue-800">Growt<span class="italic">h</span></h1>
-        <h1 class="ml-36 text-blue-900">G<span class="text-transparent">r</span>owth</h1>
-        <h1 class="ml-36 text-blue-950">Growth</h1>
-      </div>
-      <div
-        class="h-4/5 w-4/5 z-10 bg-white/30 backdrop-blur-md flex items-end px-4 pb-12 justify-center md:items-center md:justify-between xl:p-16 uppercase shadow-2xl drop-shadow-2xl relative rounded-tr-4xl">
-        <div id="container3D" class="relative h-full">
-          <canvas id="3dCanvas" class="absolute -left-64 top-8"></canvas>
-        </div>
-        <div id="banner-right" class="h-fit w-fit">
-          <div
-            class="w-fit text-wrap text-xl text-center xs:w-md xs:text-3xl sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl">
-            <h1 class="text-blue-800 font-light text-shadow-lg">Your <span
-                class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Deserves <br class="xl:hidden">More Than
-              <span class="font-bold lg:font-semibold text-shadow-lg">Average</span>!</h1>
-            <h1 class="font-light text-blue-800 text-shadow-lg">Let's Give <span
-                class="font-bold lg:font-semibold text-shadow-lg">Your</span> Brand <br class="xl:hidden"> the <span
-                class="font-bold lg:font-semibold text-shadow-lg">Wingsss</span> It Needs!</h1>
-            <h2 class="text-xs text-gray-800 italic mt-2 text-shadow-lg">"Markwings is your all-in-one digital marketing
-              partner. <br class="hidden lg:inline">We craft stunning designs, develop smart apps, <br
-                class="hidden lg:inline">and
-              create impactful content to help your brand soar."</h2>
-              <button class="con-btn text-xl mt-12 bg-blue-600 px-4 py-2 rounded-3xl text-white hover:bg-blue-800 transition-all duration-75 active:scale-95"> Get in Touch</button>
-          </div>
-        </div>
-    </section>
-    </div>
   </main>
   <!-- Date Time Div -->
   <div id="dateTime"
-    class="fixed rotate-90 -right-8 top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[100]">
+    class="fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
   </div>
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"
@@ -427,15 +481,16 @@
     </svg>
   </div>
 
-
-  <script type="module" src="./src/script/main.js"></script>
-  <script type="module" src="./src/script/banner.js"></script>
-  <script type="module" src="./src/script/mouseTrail.js"></script>
-  <script type="module" src="./src/script/scroller.js"></script>
-  <script type="module" src="./src/script/fadeInAnimation.js"></script>
-  <script type="module" src="./src/script/description.js"></script>
-  <script type="module" src="./src/script/header.js"></script>
-  <script type="module" src="./src/script/contact.js"></script>
+  <script type="module" src="./src/script/home/main.js"></script>
+  <script type="module" src="./src/script/home/banner.js"></script>
+  <script type="module" src="./src/script/home/intro.js"></script>
+  <script type="module" src="./src/script/home/etymology.js"></script>
+  <script type="module" src="./src/script/home/mouseTrail.js"></script>
+  <script type="module" src="./src/script/home/scroller.js"></script>
+  <script type="module" src="./src/script/home/fadeInAnimation.js"></script>
+  <script type="module" src="./src/script/home/description.js"></script>
+  <script type="module" src="./src/script/home/header.js"></script>
+  <script type="module" src="./src/script/home/contact.js"></script>
 </body>
 
 </html>
