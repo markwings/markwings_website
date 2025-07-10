@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MarkWings</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
   <link rel="stylesheet" href="./src/index.css" />
   <link rel="stylesheet" href="./src/animations.css" />
   <style>
@@ -17,9 +16,11 @@
   <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
+
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
 
       <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex space-x-6 lg:space-x-8">
       <ul class="hidden lg:flex space-x-6 lg:space-x-8">
         <li><a href="./skills/marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Digital
             Marketing</a></li>
@@ -33,6 +34,7 @@
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
+      <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -40,6 +42,7 @@
     </nav>
 
     <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
     <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
       <ul class="flex flex-col space-y-3">
         <li><a href="./skills/marketing.html"
@@ -460,13 +463,17 @@
       </div>
     </section>
   </main>
+
   <!-- Date Time Div -->
   <div id="dateTime"
     class="fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
   </div>
+
+
+
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"
-    class="fixed right-5 bottom-5 z-50 flex aspect-square w-10 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110">
+    class="fixed right-2 bottom-1 lg:right-3 lg:bottom-1  z-50 flex aspect-square w-15 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110">
     <svg class="absolute top-1.5 left-1/2 -translate-x-1/2 transform" width="60" height="60" viewBox="0 0 60 60">
       <path d="M10,30 A20,20 0 1,1 50,30" fill="transparent" stroke="none" id="curveTop" />
       <text fill="white" font-size="10" text-anchor="middle">
@@ -488,6 +495,16 @@
     </svg>
   </div>
 
+  <script type="module" src="./src/script/home/main.js"></script>
+  <script type="module" src="./src/script/home/banner.js"></script>
+  <script type="module" src="./src/script/home/intro.js"></script>
+  <script type="module" src="./src/script/home/etymology.js"></script>
+  <script type="module" src="./src/script/home/mouseTrail.js"></script>
+  <script type="module" src="./src/script/home/scroller.js"></script>
+  <script type="module" src="./src/script/home/fadeInAnimation.js"></script>
+  <script type="module" src="./src/script/home/description.js"></script>
+  <script type="module" src="./src/script/home/header.js"></script>
+  <script type="module" src="./src/script/home/contact.js"></script>
   <script type="module" src="./src/script/home/main.js"></script>
   <script type="module" src="./src/script/home/banner.js"></script>
   <script type="module" src="./src/script/home/intro.js"></script>
