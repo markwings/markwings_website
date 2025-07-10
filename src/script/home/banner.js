@@ -7,6 +7,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 // Creating a scene
 const scene = new THREE.Scene();
 const canvas = document.getElementById("3dCanvas");
+const canvas2 = document.getElementById("3dCanvas2");
 
 // Initialize the camera
 const camera = new THREE.PerspectiveCamera(
@@ -28,8 +29,9 @@ renderer.setSize(window.innerWidth/1.75, window.innerHeight/1.75);
 
 // Load the model
 let logo;
+let logo2;
 const loader = new GLTFLoader();
-const scalingFactor = Math.min(Math.max(window.innerWidth / 1300, 0.5), 1);
+const scalingFactor = Math.min(Math.max(window.innerWidth / 1000, 0.5), 1);
 loader.load("/logo.glb", function (model) {
   logo = model.scene;
   logo.scale.setScalar(3*scalingFactor);
@@ -39,11 +41,20 @@ loader.load("/logo.glb", function (model) {
   scene.add(logo);
 });
 
+loader.load("/logo.glb", function (model) {
+  logo2 = model.scene;
+  logo2.scale.setScalar(3 * scalingFactor);
+  logo2.rotation.set(1.55, -0.01, -0.65);
+  logo2.matrixWorldNeedsUpdate = true;
+  scene.add(logo2);
+});
+
 // Handle window resize
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   logo.scale.setScalar(3 * scalingFactor);
+  logo2.scale.setScalar(3 * scalingFactor);
   renderer.setSize(window.innerWidth/1.75, window.innerHeight/1.75);
 });
 // Create and load Pedastal
