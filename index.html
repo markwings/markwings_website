@@ -13,7 +13,7 @@
 </head>
 
 <body class="inter-font select-none">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
+  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20 hidden">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
@@ -61,7 +61,7 @@
   </header>
 
   <main
-    class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden space-y-52">
+    class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden">
 
     <section id="banner" class="w-full h-screen flex items-center justify-center relative">
       <div
@@ -117,7 +117,7 @@
 
     </section>
 
-    <section id="intro" class="w-full h-fit left-0 top-0 bg-white space-y-36">
+    <section id="intro" class="w-full h-fit left-0 top-0 bg-white space-y-36 mt-24">
       <!-- <div id="snakeContainer" class="w-full h-1/3 bg-black relative flex flex-col justify-center items-center">
         <div class="w-4 aspect-square bg-red-600 rounded-full z-50 absolute"></div> 
         <h1 class="text-white text-4xl hidden">Game Over!</h1>
@@ -162,11 +162,7 @@
       </div>
     </section>
 
-    <section id="etymology" class="w-full h-screen flex items-center justify-center relative overflow-hidden">
-      <!-- <div class="absolute inset-0 bg-cover bg-center z-20"
-        style="background-image: url('img1.jpg');">
-      </div> -->
-
+    <section id="etymology" class="w-full h-screen flex items-center justify-center relative mt-52 overflow-hidden">
       <!-- Circular Reveal Area -->
       <div id="reveal"
         class="absolute w-72 h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
@@ -189,23 +185,37 @@
       </div>
     </section>
 
-    <section class="w-full h-screen left-0 top-0 bg-white">
-      <div class="w-full h-full flex items-center justify-center transform-3d perspective-distant">
-        <div class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 rounded-sm">
-          <h1 class="text-3xl">Pronounciation</h1>
-          <p class="text-gray-700 text-lg font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
-            Wings
-            (wˈɪŋz).</p>
-          <p class="text-gray-700 text-lg font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
-            (wˈɪŋz)।
-          </p>
+    <section id="planToAct" class="w-full h-screen left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 relative">
+      <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
+        <div class="w-full h-1/2 bg-blue-800"></div>
+        <div class="w-full h-1/2 bg-white"></div>
+      </div>
+      <div class="-space-y-15 -mt-8 pt-4.5">
+        <div class="w-full h-full flex justify-around items-center">
+          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et, amet mollitia magnam quidem excepturi corporis dolore?</p>
+          <p class="text-[12em] text-center text-white">Plan</p>
+          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et, amet mollitia magnam quidem excepturi corporis dolore?</p>
         </div>
+        <div class="w-full flex items-center justify-evenly rounded-md">
+          <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D</h1>
+          <div class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm">
+            <h1 class="text-3xl">Pronounciation</h1>
+            <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
+              Wings
+              (wˈɪŋz).</p>
+            <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+              (wˈɪŋz)।
+            </p>
+          </div>
+          <h1 class="text-[12em] text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
+        </div>
+        <p class="text-[12em] text-center text-white">Action</p>
       </div>
     </section>
 
     <section id="description" class="w-full min-h-screen py-36 px-28 overflow-hidden left-0 top-0 bg-white">
       <!-- Fortune Wheel Section -->
-      <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
+      <!-- <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
         <div class="w-full h-full flex items-center justify-center p-12 bg-white relative">
           <div
             class="p-2 rounded-l-2xl border-4 border-blue-800 border-r-0 shadow-[5px_1px_10px_-5px_rgb(0,0,200)] z-10 relative">
@@ -222,7 +232,7 @@
             class="p-12 text-xl font-semibold text-blue-900 h-full w-full flex justify-center items-center space-x-4 relative">
           </div>
         </div>
-      </div>
+      </div> -->
       <!--   
       <svg class="absolute h-full w-full top-0 left-0 pointer-events-none z-0" id="lines-container">
         <line id="dev-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
@@ -300,6 +310,7 @@
           </svg>
         </div>
       </div> -->
+      
     </section>
 
     <section id="contact" class="w-full h-screen flex items-center justify-center py-4 left-0 top-0 bg-white">
@@ -509,26 +520,17 @@
     </svg>
   </div>
 
+  <script type="module" src="./src/script/home/header.js"></script>
   <script type="module" src="./src/script/home/main.js"></script>
   <script type="module" src="./src/script/home/banner.js"></script>
   <script type="module" src="./src/script/home/intro.js"></script>
   <script type="module" src="./src/script/home/etymology.js"></script>
-  <script type="module" src="./src/script/home/mouseTrail.js"></script>
-  <script type="module" src="./src/script/home/scroller.js"></script>
-  <script type="module" src="./src/script/home/fadeInAnimation.js"></script>
+  <script type="module" src="./src/script/home/planToAct.js"></script>
   <script type="module" src="./src/script/home/description.js"></script>
-  <script type="module" src="./src/script/home/header.js"></script>
   <script type="module" src="./src/script/home/contact.js"></script>
-  <script type="module" src="./src/script/home/main.js"></script>
-  <script type="module" src="./src/script/home/banner.js"></script>
-  <script type="module" src="./src/script/home/intro.js"></script>
-  <script type="module" src="./src/script/home/etymology.js"></script>
-  <script type="module" src="./src/script/home/mouseTrail.js"></script>
   <script type="module" src="./src/script/home/scroller.js"></script>
-  <script type="module" src="./src/script/home/fadeInAnimation.js"></script>
-  <script type="module" src="./src/script/home/description.js"></script>
-  <script type="module" src="./src/script/home/header.js"></script>
-  <script type="module" src="./src/script/home/contact.js"></script>
+  <script type="module" src="./src/script/home/mouseTrail.js"></script>
+  <!-- <script type="module" src="./src/script/home/fadeInAnimation.js"></script> -->
 </body>
 
 </html>
