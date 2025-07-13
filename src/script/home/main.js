@@ -13,6 +13,16 @@ setInterval(() => {
     .replace(/,/g, "<br>");
 }, 1000);
 
+// Date and Time Display
+let dateTimeContainer2 = document.getElementById("dateTime2");
+
+dateTimeContainer2.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
+setInterval(() => {
+  dateTimeContainer2.innerHTML = new Date()
+    .toLocaleString()
+    .replace(/,/g, "<br>");
+}, 1000);
+
 // Reverse Scroll
 // window.addEventListener("scroll", function () {
 //   document.querySelector(".panelCon").style.bottom = window.scrollY * -1 + "px";
