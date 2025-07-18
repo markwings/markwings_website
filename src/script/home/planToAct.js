@@ -5,13 +5,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 gsap.to("#halfBlueBg",{
   rotate: "180deg",
+  ease: "power3.inOut",
   scrollTrigger : {
-    trigger: "#planToAct",
+    trigger: "#halfBlueBg",
     scroller: "body",
     start: "top 30%",
     end: "top 0%",
-    // pin: true,
     scrub: true,
-    markers: true
+    // markers: true
   }
 })

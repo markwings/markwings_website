@@ -60,8 +60,7 @@
     </div>
   </header>
 
-  <main
-    class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden">
+  <main class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden">
 
     <section id="banner" class="w-full h-screen flex items-center justify-center relative">
       <div
@@ -181,24 +180,31 @@
       </div>
       </div>
       <div class="absolute w-full h-full bg-cover bg-center z-10">
-        <img src="img1.jpg" alt="">
+        <img src="images/img1.jpg" alt="">
       </div>
     </section>
 
-    <section id="planToAct" class="w-full h-screen left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 relative">
+    <section id="planToAct"
+      class="w-full h-screen left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
       <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
         <div class="w-full h-1/2 bg-blue-800"></div>
         <div class="w-full h-1/2 bg-white"></div>
       </div>
       <div class="-space-y-15 -mt-8 pt-4.5">
         <div class="w-full h-full flex justify-around items-center">
-          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et, amet mollitia magnam quidem excepturi corporis dolore?</p>
+          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
+            eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
+            amet mollitia magnam quidem excepturi corporis dolore?</p>
           <p class="text-[12em] text-center text-white">Plan</p>
-          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et, amet mollitia magnam quidem excepturi corporis dolore?</p>
+          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
+            eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
+            amet mollitia magnam quidem excepturi corporis dolore?</p>
         </div>
-        <div class="w-full flex items-center justify-evenly rounded-md">
-          <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D</h1>
-          <div class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm">
+        <div class="w-full flex items-center justify-center rounded-md">
+          <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+          </h1>
+          <div
+            class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
             <h1 class="text-3xl">Pronounciation</h1>
             <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
               Wings
@@ -209,113 +215,18 @@
           </div>
           <h1 class="text-[12em] text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
         </div>
-        <p class="text-[12em] text-center text-white">Action</p>
+        <p class="text-[12em] text-center text-white">Plan -> Action</p>
       </div>
     </section>
 
-    <section id="description" class="w-full min-h-screen py-36 px-28 overflow-hidden left-0 top-0 bg-white">
-      <!-- Fortune Wheel Section -->
-      <!-- <div class="p-2 w-full h-full bg-gray-900 rounded-md shadow-2xl">
-        <div class="w-full h-full flex items-center justify-center p-12 bg-white relative">
-          <div
-            class="p-2 rounded-l-2xl border-4 border-blue-800 border-r-0 shadow-[5px_1px_10px_-5px_rgb(0,0,200)] z-10 relative">
-            <div class="flex items-center relative rounded-2xl">
-              <div
-                class="absolute w-1/2 h-full bg-gray-100 z-10 shadow-2xl blur-[1px] opacity-90 rounded-l-2xl flex flex-col justify-center">
-                <video id="descAnim" src="./Animation.webm" autoplay muted loop
-                  class="w-full -rotate-[27deg] ml-4.5"></video>
-              </div>
-              <canvas id="fortuneWheel" width="500" height="500" class="rotate-[75deg] object-contain"></canvas>
-            </div>
-          </div>
-          <div id="fortuneResult"
-            class="p-12 text-xl font-semibold text-blue-900 h-full w-full flex justify-center items-center space-x-4 relative">
-          </div>
-        </div>
-      </div> -->
-      <!--   
-      <svg class="absolute h-full w-full top-0 left-0 pointer-events-none z-0" id="lines-container">
-        <line id="dev-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
-        <line id="graphics-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
-        <line id="dm-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
-        <line id="video-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
-        <line id="smm-line" stroke="rgba(30, 64, 175, 0.4)" stroke-width="2" stroke-dasharray="4" />
-      </svg>
-
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-white relative z-10 place-items-center items-start">
-
-        <div class="flex flex-col gap-8 md:gap-4">
-          <div class="flex justify-center md:justify-end w-60 h-60">
-
-            <div id="desc-dev"
-              class="group service-card bg-blue-700 hover:bg-blue-800 w-full h-full flex flex-col justify-center items-center text-center p-4 rounded-full">
-              <h3 class="text-lg font-semibold">Development</h3>
-              <p class="text-sm opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Custom software solutions tailored to your business needs</p>
-            </div>
-
-          </div>
-          
-          <div class="flex justify-center md:justify-start w-60 h-60">
-            <div id="desc-graphics"
-              class="group service-card bg-blue-600 hover:bg-blue-700 w-full h-full flex flex-col justify-center items-center text-center p-4 rounded-full">
-              <h3 class="text-lg font-semibold">Graphics Design</h3>
-              <p class="text-sm opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Stunning visuals that communicate your brand identity</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="flex justify-center w-60 h-60">
-          <div id="desc-dm"
-            class="group service-card bg-blue-800 hover:bg-blue-900 w-full h-full flex flex-col justify-center items-center text-center p-4 rounded-full">
-            <h3 class="text-lg font-semibold">Digital Marketing</h3>
-            <p class="text-sm opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Data-driven strategies to grow your online presence</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-8 md:gap-4">
-          <div class="flex justify-center md:justify-start w-60 h-60">
-            <div id="desc-video"
-              class="group service-card bg-blue-600 hover:bg-blue-700 w-full h-full flex flex-col justify-center items-center text-center p-4 rounded-full">
-              <h3 class="text-lg font-semibold">Video Editing</h3>
-              <p class="text-sm opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Professional editing for engaging video content</p>
-            </div>
-          </div>
-          <div class="flex justify-center md:justify-end w-60 h-60">
-            <div id="desc-smm"
-              class="group service-card bg-blue-700 hover:bg-blue-800 w-full h-full flex flex-col justify-center items-center text-center p-4 rounded-full">
-              <h3 class="text-lg font-semibold">Social Media Marketing</h3>
-              <p class="text-sm opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Boost engagement across all social platforms</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="desc-bottom" class="w-full flex justify-center absolute left-0 right-0 bottom-10 fade-in z-10">
-        <div
-          class="relative w-40 h-40 md:w-60 md:h-60 rounded-full flex items-center justify-center bg-white border-4 border-blue-800">
-          <svg class="w-full h-full" viewBox="0 0 100 100">
-            <path id="circlePathTop" d="M10,50 a40,40 0 1,1 80,0" fill="none" />
-            <text font-size="5" fill="#1e40af" text-anchor="middle" font-weight="bold">
-              <textPath href="#circlePathTop" startOffset="50%">One Stop Solution for your Business</textPath>
-            </text>
-
-            <path id="circlePathBottom" d="M90,50 a40,40 0 1,1 -80,0" fill="none" />
-            <text font-size="5" fill="#1e40af" text-anchor="middle" font-weight="bold">
-              <textPath href="#circlePathBottom" startOffset="50%">Let's Build Something Amazing</textPath>
-            </text>
-
-            <circle cx="50" cy="50" r="25" fill="transparent" />
-          </svg>
-        </div>
-      </div> -->
-      
+    <section id="services" class="flex items-center justify-center h-screen w-full">
+      <div id="portfolio-items"
+        class="w-1/3 h-full flex flex-col justify-around items-center bg-blue-800 text-2xl px-16 py-8"></div>
+      <div id="items-info" class="w-2/3 h-full flex justify-center items-center relative bg-blue-500 space-x-16 overflow-hidden"></div>
     </section>
-
-    <section id="contact" class="w-full h-screen flex items-center justify-center py-4 left-0 top-0 bg-white">
-      <div
-        class="p-4 h-fit fade-in bg-white text-center rounded-2xl md:shadow-xl md:border md:border-gray-300">
+    <div class="h-screen w-full"></div>
+    <section id="contact" class="w-full h-screen flex items-center justify-center py-4 left-0 top-0 bg-black">
+      <div class="p-4 h-fit fade-in bg-white text-center rounded-2xl md:shadow-xl md:border md:border-gray-300">
 
         <div id="contact-us" class="w-full mb-4">
           <h1 class="text-3xl font-bold text-blue-800 mb-1">Get in Touch</h1>
@@ -411,8 +322,18 @@
       </div>
     </section>
 
-    <section id="about" class=" w-full min-h-[100vh] flex justify-end  uppercase md:px-36 left-0 top-0 bg-white">
-      <div class="md:w-1/2 flex items-center flex-col justify-center space-y-4 md:space-y-8">
+    <div class="h-[400px] grayscale hover:grayscale-0 flex justify-center items-center">
+      <svg id="string" width="1450" height="400" viewBox="0 0 1400 400">
+        <path id="strPath" d="M 10 200 Q 700 200 1440 200" stroke="black" stroke-width="50" fill="transparent" />
+        <text fill="white" font-size="19" align-text="center" text-anchor="middle" dominant-baseline="middle">
+          <textPath startOffset="50%" text-anchor="middle" xlink:href="#strPath">At Markwings💙, We create ideas💡 that
+            will blow your mind🤯 and boost your growth📈 because we care about our dreams✨. Lets grow together! 💖
+          </textPath>
+        </text>
+      </svg>
+    </div>
+    <section id="footer" class=" w-full min-h-[100vh] flex justify-end  uppercase md:px-36 left-0 top-0 bg-white">
+      <!-- <div class="md:w-1/2 flex items-center flex-col justify-center space-y-4 md:space-y-8">
         <div id="about-us"
           class="w-full h-fit bg-white text-center p-4 rounded-2xl fade-in drop-shadow-2xl md:-rotate-[3deg]">
           <h1 class="text-xl md:text-4xl text-blue-800 font-black">Our Story</h1>
@@ -481,13 +402,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
   </main>
 
   <!-- Date Time Div -->
   <div id="dateTime"
-    class="hidden md:block fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
+    class="hidden md:fixed fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
   </div>
 
   <div id="dateTime2"
@@ -526,7 +447,7 @@
   <script type="module" src="./src/script/home/intro.js"></script>
   <script type="module" src="./src/script/home/etymology.js"></script>
   <script type="module" src="./src/script/home/planToAct.js"></script>
-  <script type="module" src="./src/script/home/description.js"></script>
+  <script type="module" src="./src/script/home/services.js"></script>
   <script type="module" src="./src/script/home/contact.js"></script>
   <script type="module" src="./src/script/home/scroller.js"></script>
   <script type="module" src="./src/script/home/mouseTrail.js"></script>

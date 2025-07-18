@@ -3,25 +3,28 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Date and Time Display
-let dateTimeContainer = document.getElementById("dateTime");
-
-dateTimeContainer.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
-setInterval(() => {
-  dateTimeContainer.innerHTML = new Date()
-    .toLocaleString()
-    .replace(/,/g, "<br>");
-}, 1000);
-
-// Date and Time Display
-let dateTimeContainer2 = document.getElementById("dateTime2");
-
-dateTimeContainer2.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
-setInterval(() => {
-  dateTimeContainer2.innerHTML = new Date()
-    .toLocaleString()
-    .replace(/,/g, "<br>");
-}, 1000);
+function dateTime(){
+  // Date and Time Display
+  let dateTimeContainer = document.getElementById("dateTime");
+  
+  dateTimeContainer.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
+  setInterval(() => {
+    dateTimeContainer.innerHTML = new Date()
+      .toLocaleString()
+      .replace(/,/g, "<br>");
+  }, 1000);
+  
+  // Date and Time Display
+  let dateTimeContainer2 = document.getElementById("dateTime2");
+  
+  dateTimeContainer2.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
+  setInterval(() => {
+    dateTimeContainer2.innerHTML = new Date()
+      .toLocaleString()
+      .replace(/,/g, "<br>");
+  }, 1000);
+}
+dateTime();
 
 // Reverse Scroll
 // window.addEventListener("scroll", function () {
@@ -59,3 +62,28 @@ document.querySelectorAll(".threeD-element").forEach((item)=>{
     item.style.setProperty("--rY", "0deg");
   })
 });
+
+function strings(){
+  let initialPath = "M 10 200 Q 700 200 1390 200";
+  let finalPath = "M 10 200 Q 700 200 1390 200";
+  let el = document.getElementById("string");
+  el.addEventListener("mousemove",e=>{
+    initialPath = `M 10 200 Q ${e.x} ${e.y-200} 1390 200`;
+    gsap.set("#string path",{
+      attr: {
+        d: initialPath
+      }
+    })
+    
+  })
+  el.addEventListener("mouseleave",()=>{
+    gsap.to("#string path", {
+      attr: {
+        d: finalPath,
+      },
+      duration: 1,
+      ease: "elastic.out(1,0.2)",
+    });
+  })
+}
+strings();
