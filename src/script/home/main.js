@@ -14,7 +14,6 @@ function dateTime(){
       .replace(/,/g, "<br>");
   }, 1000);
   
-  // Date and Time Display
   let dateTimeContainer2 = document.getElementById("dateTime2");
   
   dateTimeContainer2.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");

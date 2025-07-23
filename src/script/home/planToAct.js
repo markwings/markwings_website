@@ -9,9 +9,9 @@ gsap.to("#halfBlueBg",{
   scrollTrigger : {
     trigger: "#halfBlueBg",
     scroller: "body",
-    start: "top 30%",
+    start: "top 40%",
     end: "top 0%",
-    scrub: true,
+    scrub: 1.5,
     // markers: true
   }
 })
