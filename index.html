@@ -13,7 +13,7 @@
 </head>
 
 <body class="inter-font select-none">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20 hidden">
+  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
@@ -156,7 +156,7 @@
         </div>
         <div
           class="w-full h-full fixed top-0 left-0 opacity-0 pointer-events-none peer-hover:opacity-100 transition-all duration-500">
-          <video src="vid1.mp4" class="w-full" autoplay muted loop></video>
+          <video src="videos/vid1.mp4" class="w-full" autoplay muted loop></video>
         </div>
       </div>
     </section>
@@ -219,13 +219,95 @@
       </div>
     </section>
 
-    <section id="services" class="flex items-center justify-center h-screen w-full">
-      <div id="portfolio-items"
-        class="w-1/3 h-full flex flex-col justify-around items-center bg-blue-800 text-2xl px-16 py-8"></div>
-      <div id="items-info" class="w-2/3 h-full flex justify-center items-center relative bg-blue-500 space-x-16 overflow-hidden"></div>
+    <section id="services"
+      class="flex items-center justify-center h-screen max-h-screen overflow-hidden w-full relative">
+      <!-- Social Media Management -->
+      <div id="smm-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
+        <div
+          class="mt-12 flex flex-col items-center justify-end w-2/3 sm:h-1/3 md:mt-52 xl:m-0 md:p-28 xl:p-4 xl:w-1/3! xl:h-full">
+          <div id="smm1" class="w-full h-full md:h-fit svg-container"></div>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:w-1/3 xl:h-full md:space-y-8">
+          <h1 class="text-6xl text-center md:text-9xl">Social Media Management</h1>
+        <h1 class="text-base md:text-4xl italic text-nowrap">"From Followers to Fans — We Make It Happen."</h1>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-end justify-start xl:h-full xl:w-1/3 md:items-end">
+          <div id="smm2"
+            class="w-fit mt-12 h-full md:mt-8 md:w-1/2 md:mr-16 xl:h-1/3 xl:scale-150 xl:mt-14 xl:mr-32 svg-container">
+          </div>
+        </div>
+      </div>
+
+      <!-- Development -->
+      <div id="dev-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
+        <div
+          class="mt-12 flex flex-col items-center justify-between w-2/3 md:m-0 sm:h-1/3 md:p-18 xl:min-w-1/3 xl:h-full">
+          <div id="dev1" class="w-full h-full md:h-fit svg-container"></div>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:w-1/3 xl:h-full md:space-y-8">
+          <h1 class="text-6xl md:text-9xl text-center">Development</h1>
+        <h1 class="italic text-sm sm:text-xl text-nowrap">"From Sketch to Scale — We Develop What You Imagine."</h1>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-end justify-end xl:min-w-1/3 xl:h-full md:items-end">
+          <div id="dev2" class="w-fit mb-12 h-full xl:scale-200 xl:mr-32 md:w-1/2 md:mb-24 xl:h-1/3 svg-container">
+          </div>
+        </div>
+      </div>
+
+      <!-- VideoSection -->
+      <div id="video-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
+        <div
+          class="mt-12 flex flex-col items-center justify-end w-2/3 md:mt-52 md:w-2/3 sm:h-1/3 md:p-18 xl:min-w-1/3 xl:h-full xl:m-0">
+          <div id="video1" class="w-full h-full md:h-fit svg-container"></div>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:h-full md:space-y-8">
+          <h1 class="text-7xl text-center md:text-9xl">Video Editing</h1>
+          <h1 class="italic sm:text-4xl">"Videos That Spark Emotions and Drive Action."</h1>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-end justify-start xl:h-full md:items-end">
+          <div id="video2" class="w-fit mb-12 h-full md:mb-36 md:w-1/2 md:scale-150 xl:h-1/3 xl:mt-36 xl:scale-175 xl:m-0 xl:mr-32 svg-container">
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- GraphicsSection -->
+      <div id="graphic-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
+        <div class="mt-12 flex flex-col items-center justify-between w-2/3 md:m-0 md:w-2/3 sm:h-1/3 md:p-18 xl:w-1/3 xl:h-full">
+          <div id="designer1" class="w-full h-full md:h-fit svg-container"></div>
+          <h1 class="text-lg text-nowrap px-28 hidden mb-8 xl:block text-gray-700">We Don't Just Design <br> We Define
+            Your Brand.</h1>
+        </div>
+        <div
+          class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:h-full md:space-y-8">
+          <h1 class="text-7xl text-center md:text-9xl">Graphic Designing</h1>
+          <h1 class="italic sm:text-4xl">"Your Brand, Styled to Perfection."</h1>
+        </div>
+        <div class="w-full h-1/3 flex flex-col items-end justify-end xl:h-full md:items-end">
+          <div id="designer2"
+            class="w-fit mb-12 h-full xl:h-1/3 xl:scale-175 xl:mr-32 md:w-1/2 md:mb-2 svg-container">
+          </div>
+        </div>
+      </div>
     </section>
+
     <div class="h-screen w-full"></div>
-    <section id="contact" class="w-full h-screen flex items-center justify-center py-4 left-0 top-0 bg-black">
+    <div class="h-screen w-full flex flex-col items-center justify-end">
+      <div class="h-[400px] grayscale hover:grayscale-0 flex justify-center items-center">
+        <svg id="string" width="1450" height="400" viewBox="0 0 1400 400">
+          <path id="strPath" d="M 10 200 Q 700 200 1440 200" stroke="black" stroke-width="50" fill="transparent"
+            stroke-linecap="round" />
+          <text fill="white" font-size="19" align-text="center" text-anchor="middle" dominant-baseline="middle">
+            <textPath startOffset="50%" text-anchor="middle" xlink:href="#strPath">At Markwings💙, We create ideas💡
+              that
+              will blow your mind🤯 and boost your growth📈 because we care about our dreams✨. Lets grow together! 💖
+            </textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+
+    <section id="contact" class="w-full h-screen flex items-center justify-center py-4 left-0 top-0">
       <div class="p-4 h-fit fade-in bg-white text-center rounded-2xl md:shadow-xl md:border md:border-gray-300">
 
         <div id="contact-us" class="w-full mb-4">
@@ -321,17 +403,6 @@
         </form>
       </div>
     </section>
-
-    <div class="h-[400px] grayscale hover:grayscale-0 flex justify-center items-center">
-      <svg id="string" width="1450" height="400" viewBox="0 0 1400 400">
-        <path id="strPath" d="M 10 200 Q 700 200 1440 200" stroke="black" stroke-width="50" fill="transparent" />
-        <text fill="white" font-size="19" align-text="center" text-anchor="middle" dominant-baseline="middle">
-          <textPath startOffset="50%" text-anchor="middle" xlink:href="#strPath">At Markwings💙, We create ideas💡 that
-            will blow your mind🤯 and boost your growth📈 because we care about our dreams✨. Lets grow together! 💖
-          </textPath>
-        </text>
-      </svg>
-    </div>
     <section id="footer" class=" w-full min-h-[100vh] flex justify-end  uppercase md:px-36 left-0 top-0 bg-white">
       <!-- <div class="md:w-1/2 flex items-center flex-col justify-center space-y-4 md:space-y-8">
         <div id="about-us"
@@ -408,18 +479,16 @@
 
   <!-- Date Time Div -->
   <div id="dateTime"
-    class="hidden md:fixed fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 opacity-100 z-[1000]">
+    class="hidden md:block fixed rotate-90 -right-8 pointer-events-none top-20 pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600  z-[1000]">
   </div>
 
   <div id="dateTime2"
-    class="md:hidden fixed bottom-0 left-0 pointer-events-none pl-20 pr-8 py-2! font-[PixPixls] text-gray-100 bg-blue-600 opacity-100 z-[1000]">
+    class="md:hidden fixed bottom-0 left-0 pointer-events-none pl-20 pr-8 py-2! font-[PixPixls] text-gray-100 bg-blue-600 z-[1000]">
   </div>
-
-
 
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"
-    class="fixed right-2 bottom-1 lg:right-3 lg:bottom-1  z-50 flex aspect-square w-15 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110">
+    class="fixed right-2 bottom-1 lg:right-3 lg:bottom-8 flex aspect-square w-15 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110 z-[1000]">
     <svg class="absolute top-1.5 left-1/2 -translate-x-1/2 transform" width="60" height="60" viewBox="0 0 60 60">
       <path d="M10,30 A20,20 0 1,1 50,30" fill="transparent" stroke="none" id="curveTop" />
       <text fill="white" font-size="10" text-anchor="middle">
