@@ -1,4 +1,11 @@
 import emailjs from "@emailjs/browser";
+import gsap from "gsap";
+
+const contactSection = document.getElementById("contact");
+const contactButton = document.getElementById("contact-button");
+const contactForm = document.getElementById("contact-form");
+
+let position = {x: null,y: null};
 
 emailjs.init("uVVMgS-56q2ObctTT");
 document.getElementById("con-form").addEventListener("submit", function (e) {
@@ -43,3 +50,57 @@ document.getElementById("sub-wp").addEventListener("click", function () {
   document.getElementById("con-form").reset();
   window.open(whatsappUrl, "_blank");
 });
+
+function updateContactButtonPosition(x,y){
+  
+let boxSize = contactSection.getBoundingClientRect();
+  gsap.to(contactButton, {
+    left: `${x - boxSize.left}px`,
+    top: `${y - boxSize.top}px`,
+    duration: 0.4,
+    delay: 0.2,
+  });
+}
+
+contactSection.addEventListener("mousemove",(e)=>{
+  position.x = e.clientX - 75;
+  position.y = e.clientY - 25;
+  updateContactButtonPosition(position.x,position.y);
+});
+
+contactSection.addEventListener("mouseenter", (e) => {
+  position.x = e.clientX - 75;
+  position.y = e.clientY - 25;
+  updateContactButtonPosition(position.x, position.y);
+});
+
+contactSection.addEventListener("mouseleave",()=>{
+  position.x = null;
+  position.y = null
+})
+window.addEventListener("scroll", () => {
+  if (
+     position.x !== null && position.y !== null
+  ) {
+    updateContactButtonPosition(position.x,position.y);
+  }
+});
+
+document.querySelectorAll(".contact-button").forEach((button)=>{
+  button.addEventListener("click",()=>{
+    window.scrollTo({top: contactSection.offsetTop, behavior: "smooth"});
+    contactForm.classList.replace("hidden","flex");
+    gsap.from(contactForm,{
+      scale:0,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out"
+    })
+    contactButton.classList.add("hidden");
+  });
+});
+
+document.getElementById("close-form").addEventListener("click",()=>{
+  contactForm.classList.replace("flex", "hidden");
+  contactButton.classList.remove("hidden");
+})

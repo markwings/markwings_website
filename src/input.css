@@ -15,39 +15,12 @@
 }
 
 @layer utilities{
-  /* .clip-left-head{
-    clip-path: path("M 0 15 L 5 17 L 55 17 L 57 19 L 57 0 L 98 0 L 100 2 L 100 98 L 98 100 L 2 100 L 0 98 Z");  
-  } */
-   /* .clip-left-head {
-  clip-path: polygon(
-    0% 17%, 2% 15%, 55% 15%, 57% 13%, 57% 2%, 59% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%
-  );
-  }
-  @variant xs{
-    .clip-left-head{
-      clip-path: polygon(
-        0% 20%, 2% 18%, 54% 18%, 56% 16%, 56% 2%, 58% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%
-      );
-    }
-  }
-  @variant sm{
-    .clip-left-head{
-      clip-path: polygon(
-        0% 20%, 2% 18%, 49% 18%, 51% 16%, 51% 2%, 53% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%
-      );
-    }
-  }
-  @variant md{
-    .clip-left-head{
-      clip-path: polygon(
-        0% 22%, 2% 20%, 43% 20%, 45% 18%, 45% 2%, 47% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%
-      );
-    }
-  } */
-
   .carousal{
     animation: carousal-anim 1s linear;
     transform: rotate(30/var(--i));
+  }
+  .animate-wiggle{
+    animation: tilt-shaking 1s linear infinite both;
   }
 }
 
@@ -65,4 +38,16 @@
       transform: translateX(0%);
     }
   }
+  @keyframes tilt-shaking {
+  10% {scale: 1.5 }
+  20% {transform: rotate(5deg);}
+  30% { transform: rotate(0deg);}
+  40% { transform: rotate(-5deg);}
+  50% { transform: rotate(0deg);}
+  60%{transform: rotate(5deg)}
+  70% { transform: rotate(0deg);}
+  80% { transform: rotate(-5deg);}
+  90% { transform: rotate(0deg);}
+  100%{scale: 1}
+}
 }
