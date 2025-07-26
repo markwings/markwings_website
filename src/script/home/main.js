@@ -13,15 +13,6 @@ function dateTime(){
       .toLocaleString()
       .replace(/,/g, "<br>");
   }, 1000);
-  
-  let dateTimeContainer2 = document.getElementById("dateTime2");
-  
-  dateTimeContainer2.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
-  setInterval(() => {
-    dateTimeContainer2.innerHTML = new Date()
-      .toLocaleString()
-      .replace(/,/g, "<br>");
-  }, 1000);
 }
 dateTime();
 
