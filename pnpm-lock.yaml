@@ -20,6 +20,9 @@ importers:
       lil-gui:
         specifier: ^0.20.0
         version: 0.20.0
+      lottie-web:
+        specifier: ^5.13.0
+        version: 5.13.0
       three:
         specifier: ^0.175.0
         version: 0.175.0
@@ -610,6 +613,9 @@ packages:
   lil-gui@0.20.0:
     resolution: {integrity: sha512-k7Ipr0ztqslMA2XvM5z5ZaWhxQtnEOwJBfI/hmSuRh6q4iMG9L0boqqrnZSzBR1jzyJ28OMl47l65ILzRe1TdA==}
 
+  lottie-web@5.13.0:
+    resolution: {integrity: sha512-+gfBXl6sxXMPe8tKQm7qzLnUy5DUPJPKIyRHwtpCpyUEYjHYRJC/5gjUvdkuO2c3JllrPtHXH5UJJK8LRYl5yQ==}
+
   meshoptimizer@0.18.1:
     resolution: {integrity: sha512-ZhoIoL7TNV4s5B6+rx5mC//fw8/POGyNxS/DZyCJeiZ12ScLfVwRE/GfsxwiTkMYYD5DmK2/JXnEVXqL4rF+Sw==}
 
@@ -1111,6 +1117,8 @@ snapshots:
       lightningcss-win32-x64-msvc: 1.29.2
 
   lil-gui@0.20.0: {}
+
+  lottie-web@5.13.0: {}
 
   meshoptimizer@0.18.1: {}
 
