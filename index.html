@@ -13,7 +13,7 @@
 </head>
 
 <body class="inter-font select-none">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
+  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
@@ -161,28 +161,31 @@
       </div>
     </section>
 
-    <section id="etymology" class="w-full h-screen flex items-center justify-center relative mt-52 overflow-hidden">
-      <!-- Circular Reveal Area -->
-      <div id="reveal"
-        class="absolute w-72 h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
-        <div id="reveal-content"
-          class="absolute w-screen h-screen flex justify-center items-center text-gray-900 rounded-sm">
-          <div class="w-1/3 space-y-4 px-12 py-8">
-            <h1 class="text-2xl fadeIn">Etymology</h1>
-            <p class="text-gray-700 font-normal fadeIn">The name "Markwings" is a combination of "Mark" and "Wings".
-              "Mark"
-              signifies a mark or impact, while "Wings" symbolizes growth and elevation.</p>
-            <p class="text-gray-700 font-normal fadeIn">नाम "मार्कविंग्स" "मार्क" और "विंग्स" का संयोजन है। "मार्क" एक
-              निशान या
-              प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का प्रतीक है।</p>
-          </div>
+  <section id="etymology"
+    class="w-full h-screen flex items-center justify-center relative mt-32 sm:mt-52 overflow-hidden touch-none">
+    <!-- Circular Reveal Area -->
+    <div id="reveal"
+      class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
+      <div id="reveal-content"
+        class="absolute w-screen h-screen flex justify-center items-center text-gray-900 rounded-sm">
+        <div class="w-11/12 sm:w-2/3 md:w-1/3 max-w-md space-y-3 sm:space-y-4 px-4 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8">
+          <h1 class="text-xl sm:text-2xl font-semibold fadeIn">Etymology</h1>
+          <p class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed">The name "Markwings" is a
+            combination of "Mark" and "Wings". "Mark" signifies a mark or impact, while "Wings" symbolizes growth and
+            elevation.</p>
+          <p class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed">नाम "मार्कविंग्स" "मार्क" और
+            "विंग्स" का संयोजन है। "मार्क" एक निशान या प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का प्रतीक है।
+          </p>
         </div>
       </div>
-      </div>
-      <div class="absolute w-full h-full bg-cover bg-center z-10">
-        <img src="images/img1.jpg" alt="">
-      </div>
-    </section>
+    </div>
+  
+    <!-- Background Image -->
+    <div class="absolute inset-0 w-full h-full z-10">
+      <img src="/images/img1.jpg" alt="Etymology section background"
+        class="w-full h-full object-cover">
+    </div>
+  </section>
 
     <section id="planToAct"
       class="w-full h-screen left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
@@ -439,9 +442,20 @@
   </main>
 
   <!-- Date Time Div -->
+  <!-- Mobile Only -->
   <div id="dateTime"
-    class="fixed xs:max-lg:bottom-12! xs:max-lg:left-0 pl-20 lg:rotate-90 lg:-right-8 lg:top-20 pointer-events-none lg:pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 z-[1000]">
+    class="fixed bottom-0 left-0 w-max pl-6 pr-6 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] lg:hidden">
+    <!-- Your mobile date/time content here -->
   </div>
+
+  <!-- Desktop Only -->
+  <div id="dateTime2"
+    class="fixed w-max pl-20 pr-8 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8 lg:top-40 pointer-events-none lg:pl-36">
+    <!-- Your desktop date/time content here -->
+  </div>
+
+
+
 
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"
