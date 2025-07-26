@@ -9,7 +9,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "css": "npx tailwindcss -i ./src/input.css -o ./src/index.css --watch"
+    "css": "npx tailwindcss -i ./src/input.css -o ./src/index.css --watch",
+    "buildcss": "npx tailwindcss -i ./src/input.css -o ./src/index.css"
   },
   "keywords": [],
   "author": "",
