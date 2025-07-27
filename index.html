@@ -191,7 +191,7 @@
     </section>
 
   <section id="planToAct"
-    class="w-full h-screen hidden lg:block left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
+    class="w-full h-screen hidden xl:block left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
     <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
       <div class="w-full h-1/2 bg-blue-800"></div>
       <div class="w-full h-1/2 bg-white"></div>
@@ -226,63 +226,30 @@
   </section>
 
     <!-- Mobile Curtain Version (Hidden on Desktop) -->
-    <section id="planToActMobile"
-      class="mobile-curtain lg:hidden w-full min-h-screen relative overflow-hidden bg-gradient-to-b from-blue-800 to-blue-900">
-    
-      <!-- Curtain Panels -->
-      <div id="curtainLeft" class="curtain-panel absolute top-0 left-0 w-1/2 h-full bg-blue-800 z-50"></div>
-      <div id="curtainRight" class="curtain-panel absolute top-0 right-0 w-1/2 h-full bg-blue-800 z-50"></div>
-    
-      <!-- Main Content Behind Curtain -->
-      <div class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 py-12 space-y-12">
-    
-        <!-- Top Section -->
-        <div class="text-center space-y-6">
-          <h1 class="text-6xl font-bold text-white drop-shadow-lg">PLAN</h1>
-          <div class="w-full max-w-sm mx-auto">
-            <p class="text-blue-100 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptate voluptates eaque id culpa, eligendi deleniti laboriosam incidunt!</p>
+    <section id="planToActMobile" class="mobile-curtain xl:hidden w-full h-screen overflow-hidden bg-blue-800 relative -z-20">
+      <div id="planToActMobileBg" class="h-1/2 w-full absolute bg-white -z-10"></div>
+      <div class="w-full h-full flex flex-col items-center justify-around">
+        <div class="w-full h-fit flex justify-around items-center">
+          <p class="w-1/2 md:w-1/5 text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates</p>
+          <p class="text-9xl md:text-[11em] text-center text-blue-800">Plan</p>
+          <p class="w-1/2 md:w-1/5 text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates</p>
+        </div>
+        <div class="w-full flex items-center justify-center rounded-md">
+          <h1 class="hidden lg:block text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+          </h1>
+          <div
+            class=" m-2 md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
+            <h1 class="text-3xl">Pronounciation</h1>
+            <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
+              Wings
+              (wˈɪŋz).</p>
+            <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+              (wˈɪŋz)।
+            </p>
           </div>
+          <h1 class="hidden lg:block text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
         </div>
-    
-        <!-- Center Card -->
-        <div
-          class="w-full max-w-sm mx-auto bg-white rounded-lg shadow-2xl p-6 space-y-4 transform transition-all duration-1000"
-          id="centerCard">
-          <h2 class="text-2xl font-bold text-blue-800 text-center">Pronunciation</h2>
-          <div class="space-y-3">
-            <p class="text-gray-700 text-sm leading-relaxed">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk)
-              and Wings (wˈɪŋz).</p>
-            <p class="text-gray-700 text-sm leading-relaxed">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
-              (wˈɪŋz)।</p>
-          </div>
-        </div>
-    
-        <!-- Roman Numerals -->
-        <div class="flex items-center justify-center space-x-4">
-          <span class="text-4xl font-bold text-white drop-shadow-lg">I</span>
-          <span class="text-4xl font-bold text-blue-200 drop-shadow-lg">D</span>
-          <span class="text-4xl font-bold text-white drop-shadow-lg">E</span>
-          <span class="text-4xl font-bold text-blue-200 drop-shadow-lg">A</span>
-        </div>
-    
-        <!-- Bottom Section -->
-        <div class="text-center space-y-6">
-          <h2 class="text-4xl font-bold text-white drop-shadow-lg">ACTION</h2>
-          <div class="w-full max-w-sm mx-auto">
-            <p class="text-blue-100 text-sm leading-relaxed">Officiis dignissimos reprehenderit minus, vitae et, amet
-              mollitia magnam quidem excepturi corporis dolore?</p>
-          </div>
-        </div>
-    
-        <!-- Plan to Action Arrow -->
-        <div class="flex items-center space-x-4 text-white">
-          <span class="text-2xl font-semibold">PLAN</span>
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-          <span class="text-2xl font-semibold">ACTION</span>
-        </div>
+        <p class="text-9xl md:text-[11em] text-center text-blue-800">Action</p>
       </div>
     </section>
 
@@ -374,11 +341,9 @@
       </div>
     </div>
     <section class="w-full h-112 flex flex-col items-center justify-center p-8 text-3xl lg:h-screen lg:justify-start">
-      <h1 class="text-center lg:text-9xl">Scroll Down? <span
-          class="animate-[spin_3s_linear_infinite] inline-block">🤔</span><br>or</h1>
-      <button
-        class="text-3xl px-8 py-3 rounded-4xl text-white hover:bg-blue-800 active:scale-95 bg-blue-700 animate-pulse hover:animate-none lg:text-5xl contact-button">Contact
-        now</button>
+      <h1 class="text-center lg:text-9xl">Scroll Down? <span class="animate-[spin_3s_linear_infinite] inline-block">🤔</span><br>or</h1>
+      <button class="text-3xl px-8 py-3 rounded-4xl text-white hover:bg-blue-800 active:scale-95 bg-blue-700 animate-pulse hover:animate-none lg:text-5xl contact-button">Contact now
+      </button>
     </section>
     <section class="w-full h-screen flex flex-col items-center justify-between space-y-8 text-2xl lg:text-7xl">
       <h1 class="text-center lg:ml-112 scale-50 animate-[ping_1s_linear_infinite]">You still wanna Scroll More?🤨</h1>
@@ -412,10 +377,7 @@
               <h1 class="text-3xl font-bold text-blue-800 mb-1">Get in Touch</h1>
               <h1 id="close-form" class="text-xl font-bold grayscale hover:grayscale-0 mb-1">❌</h1>
             </div>
-            <p class="text-gray-600 normal-case">We'd love to hear from you! Fill out the form below and we'll get back
-              to
-              you
-              soon.</p>
+            <p class="text-gray-600 normal-case">We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
           </div>
 
           <form id="con-form" class="w-full flex flex-col space-y-4">
@@ -514,7 +476,7 @@
 
   <!-- Desktop Only -->
   <div id="dateTime2"
-    class="fixed w-max pl-20 pr-8 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8 lg:top-40 pointer-events-none lg:pl-36">
+    class="fixed w-max pl-48 top-0 pr-8 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8  pointer-events-none lg:pl-36">
     <!-- Your desktop date/time content here -->
   </div>
 

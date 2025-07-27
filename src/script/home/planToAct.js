@@ -2,6 +2,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+var mm = gsap.matchMedia();
 // Desktop animation (original)
 if (window.innerWidth >= 768) {
   gsap.to("#halfBlueBg", {
@@ -18,71 +19,19 @@ if (window.innerWidth >= 768) {
 }
 
 // Mobile curtain animation
-if (window.innerWidth < 768) {
-  // Set initial state
-  gsap.set("#centerCard", { scale: 0.8, opacity: 0 });
-  gsap.set("#curtainLeft", { scaleY: 1, transformOrigin: "top center" });
-  gsap.set("#curtainRight", { scaleY: 1, transformOrigin: "top center" });
-
-  // Create timeline for curtain effect
-  const curtainTl = gsap.timeline({
+if (window.innerWidth < 1280) {
+  gsap.to("#planToActMobileBg", {
+    y: "100%",
+    ease: "power3.inOut",
     scrollTrigger: {
-      trigger: "#planToActMobile",
-      start: "top 80%",
-      end: "top 20%",
+      trigger: "#planToActMobileBg",
+      scroller: "body",
+      start: "top 40%",
+      end: "top 0%",
+      markers: true,
       scrub: 1,
     },
   });
-
-  // Animate curtains pulling up
-  curtainTl
-    .to(
-      "#curtainLeft",
-      {
-        scaleY: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      0
-    )
-    .to(
-      "#curtainRight",
-      {
-        scaleY: 0,
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      0
-    )
-    .to(
-      "#centerCard",
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-      },
-      0.5
-    );
-
-  // Additional entrance animations
-  gsap.fromTo(
-    "#planToActMobile h1, #planToActMobile h2, #planToActMobile p",
-    { y: 30, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#planToActMobile",
-        start: "top 60%",
-        end: "top 30%",
-        scrub: 1,
-      },
-    }
-  );
 }
 
 // Handle window resize
