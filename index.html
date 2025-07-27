@@ -13,7 +13,7 @@
 </head>
 
 <body class="inter-font select-none">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl glass-effect bg-white/20">
+  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/20">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
@@ -132,7 +132,7 @@
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-cyan-600 list-hover"></div>
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-purple-800 list-hover"></div>
       </div>
-      <div class="w-full h-fit flex items-center justify-center relative">
+      <div class="w-full h-screen flex items-center justify-center relative">
         <div
           class="w-fit h-fit px-12 py-8 text-gray-900 space-y-2 rounded-sm bg-white/80 backdrop-blur-xs z-10 peer transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
           <div class="space-y-1 mt-2 px-4 fadeIn">
@@ -162,61 +162,127 @@
       </div>
     </section>
 
-    <section id="etymology" class="w-full h-screen flex items-center justify-center relative mt-52 overflow-hidden">
+    <section id="etymology"
+      class="w-full h-screen flex items-center justify-center relative mt-32 sm:mt-52 overflow-hidden touch-none">
       <!-- Circular Reveal Area -->
       <div id="reveal"
-        class="absolute w-72 h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
+        class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
         <div id="reveal-content"
           class="absolute w-screen h-screen flex justify-center items-center text-gray-900 rounded-sm">
-          <div class="w-1/3 space-y-4 px-12 py-8">
-            <h1 class="text-2xl fadeIn">Etymology</h1>
-            <p class="text-gray-700 font-normal fadeIn">The name "Markwings" is a combination of "Mark" and "Wings".
-              "Mark"
-              signifies a mark or impact, while "Wings" symbolizes growth and elevation.</p>
-            <p class="text-gray-700 font-normal fadeIn">नाम "मार्कविंग्स" "मार्क" और "विंग्स" का संयोजन है। "मार्क" एक
-              निशान या
-              प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का प्रतीक है।</p>
+          <div
+            class="w-11/12 sm:w-2/3 md:w-1/3 max-w-md space-y-3 sm:space-y-4 px-4 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8">
+            <h1 class="text-xl sm:text-2xl font-semibold fadeIn">Etymology</h1>
+            <p class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed">The name "Markwings" is a
+              combination of "Mark" and "Wings". "Mark" signifies a mark or impact, while "Wings" symbolizes growth and
+              elevation.</p>
+            <p class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed">नाम "मार्कविंग्स" "मार्क"
+              और
+              "विंग्स" का संयोजन है। "मार्क" एक निशान या प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का प्रतीक
+              है।
+            </p>
           </div>
         </div>
       </div>
-      </div>
-      <div class="absolute w-full h-full bg-cover bg-center z-10">
-        <img src="images/img1.jpg" alt="">
+
+      <!-- Background Image -->
+      <div class="absolute inset-0 w-full h-full z-10">
+        <img src="/images/img1.jpg" alt="Etymology section background" class="w-full h-full object-cover">
       </div>
     </section>
 
-    <section id="planToAct"
-      class="w-full h-screen left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
-      <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
-        <div class="w-full h-1/2 bg-blue-800"></div>
-        <div class="w-full h-1/2 bg-white"></div>
+  <section id="planToAct"
+    class="w-full h-screen hidden lg:block left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
+    <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
+      <div class="w-full h-1/2 bg-blue-800"></div>
+      <div class="w-full h-1/2 bg-white"></div>
+    </div>
+    <div class="-space-y-15 -mt-8 pt-4.5">
+      <div class="w-full h-full flex justify-around items-center">
+        <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
+          eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
+          amet mollitia magnam quidem excepturi corporis dolore?</p>
+        <p class="text-[12em] text-center text-white">Plan</p>
+        <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
+          eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
+          amet mollitia magnam quidem excepturi corporis dolore?</p>
       </div>
-      <div class="-space-y-15 -mt-8 pt-4.5">
-        <div class="w-full h-full flex justify-around items-center">
-          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
-            eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
-            amet mollitia magnam quidem excepturi corporis dolore?</p>
-          <p class="text-[12em] text-center text-white">Plan</p>
-          <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
-            eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
-            amet mollitia magnam quidem excepturi corporis dolore?</p>
+      <div class="w-full flex items-center justify-center rounded-md">
+        <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+        </h1>
+        <div
+          class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
+          <h1 class="text-3xl">Pronounciation</h1>
+          <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
+            Wings
+            (wˈɪŋz).</p>
+          <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+            (wˈɪŋz)।
+          </p>
         </div>
-        <div class="w-full flex items-center justify-center rounded-md">
-          <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
-          </h1>
-          <div
-            class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
-            <h1 class="text-3xl">Pronounciation</h1>
-            <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
-              Wings
-              (wˈɪŋz).</p>
-            <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
-              (wˈɪŋz)।
-            </p>
+        <h1 class="text-[12em] text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
+      </div>
+      <p class="text-[12em] text-center text-white">Plan -> Action</p>
+    </div>
+  </section>
+
+    <!-- Mobile Curtain Version (Hidden on Desktop) -->
+    <section id="planToActMobile"
+      class="mobile-curtain lg:hidden w-full min-h-screen relative overflow-hidden bg-gradient-to-b from-blue-800 to-blue-900">
+    
+      <!-- Curtain Panels -->
+      <div id="curtainLeft" class="curtain-panel absolute top-0 left-0 w-1/2 h-full bg-blue-800 z-50"></div>
+      <div id="curtainRight" class="curtain-panel absolute top-0 right-0 w-1/2 h-full bg-blue-800 z-50"></div>
+    
+      <!-- Main Content Behind Curtain -->
+      <div class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 py-12 space-y-12">
+    
+        <!-- Top Section -->
+        <div class="text-center space-y-6">
+          <h1 class="text-6xl font-bold text-white drop-shadow-lg">PLAN</h1>
+          <div class="w-full max-w-sm mx-auto">
+            <p class="text-blue-100 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate voluptates eaque id culpa, eligendi deleniti laboriosam incidunt!</p>
           </div>
-          <h1 class="text-[12em] text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
         </div>
-        <p class="text-[12em] text-center text-white">Plan -> Action</p>
+    
+        <!-- Center Card -->
+        <div
+          class="w-full max-w-sm mx-auto bg-white rounded-lg shadow-2xl p-6 space-y-4 transform transition-all duration-1000"
+          id="centerCard">
+          <h2 class="text-2xl font-bold text-blue-800 text-center">Pronunciation</h2>
+          <div class="space-y-3">
+            <p class="text-gray-700 text-sm leading-relaxed">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk)
+              and Wings (wˈɪŋz).</p>
+            <p class="text-gray-700 text-sm leading-relaxed">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+              (wˈɪŋz)।</p>
+          </div>
+        </div>
+    
+        <!-- Roman Numerals -->
+        <div class="flex items-center justify-center space-x-4">
+          <span class="text-4xl font-bold text-white drop-shadow-lg">I</span>
+          <span class="text-4xl font-bold text-blue-200 drop-shadow-lg">D</span>
+          <span class="text-4xl font-bold text-white drop-shadow-lg">E</span>
+          <span class="text-4xl font-bold text-blue-200 drop-shadow-lg">A</span>
+        </div>
+    
+        <!-- Bottom Section -->
+        <div class="text-center space-y-6">
+          <h2 class="text-4xl font-bold text-white drop-shadow-lg">ACTION</h2>
+          <div class="w-full max-w-sm mx-auto">
+            <p class="text-blue-100 text-sm leading-relaxed">Officiis dignissimos reprehenderit minus, vitae et, amet
+              mollitia magnam quidem excepturi corporis dolore?</p>
+          </div>
+        </div>
+    
+        <!-- Plan to Action Arrow -->
+        <div class="flex items-center space-x-4 text-white">
+          <span class="text-2xl font-semibold">PLAN</span>
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+          <span class="text-2xl font-semibold">ACTION</span>
+        </div>
       </div>
     </section>
 
@@ -440,9 +506,20 @@
   </main>
 
   <!-- Date Time Div -->
+  <!-- Mobile Only -->
   <div id="dateTime"
-    class="fixed xs:max-lg:bottom-12! xs:max-lg:left-0 pl-20 lg:rotate-90 lg:-right-8 lg:top-20 pointer-events-none lg:pl-36 pr-8 py-2! font-[PixPixls] text-gray-700 bg-blue-600 z-[1000]">
+    class="fixed bottom-0 left-0 w-max pl-6 pr-6 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] lg:hidden">
+    <!-- Your mobile date/time content here -->
   </div>
+
+  <!-- Desktop Only -->
+  <div id="dateTime2"
+    class="fixed w-max pl-20 pr-8 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8 lg:top-40 pointer-events-none lg:pl-36">
+    <!-- Your desktop date/time content here -->
+  </div>
+
+
+
 
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"

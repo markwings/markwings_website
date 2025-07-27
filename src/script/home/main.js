@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 function dateTime(){
   // Date and Time Display
   let dateTimeContainer = document.getElementById("dateTime");
+  let dateTimeContainer2 = document.getElementById("dateTime2");
   
   dateTimeContainer.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
   setInterval(() => {
@@ -13,6 +14,15 @@ function dateTime(){
       .toLocaleString()
       .replace(/,/g, "<br>");
   }, 1000);
+
+    dateTimeContainer2.innerHTML = new Date()
+      .toLocaleString()
+      .replace(/,/g, "<br>");
+    setInterval(() => {
+      dateTimeContainer2.innerHTML = new Date()
+        .toLocaleString()
+        .replace(/,/g, "<br>");
+    }, 1000);
 }
 dateTime();
 
