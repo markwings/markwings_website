@@ -38,19 +38,28 @@ document.querySelectorAll(".fadeIn").forEach((item)=>{
 });
 
 document.querySelectorAll(".threeD-element").forEach((item)=>{
-  item.addEventListener("mousemove",(e)=>{
-    let positionPx = e.x - item.getBoundingClientRect().left;
-    let positionX = (50-((positionPx / item.offsetWidth)*100))/3;
-    let positionPy = e.y - item.getBoundingClientRect().top;
-    let positionY = (50-((positionPy / item.offsetHeight)*100))/3;
+  function threeDAnimation(x,y){
+    let positionPx = x - item.getBoundingClientRect().left;
+    let positionX = (50 - (positionPx / item.offsetWidth) * 100) / 3;
+    let positionPy = y - item.getBoundingClientRect().top;
+    let positionY = (50 - (positionPy / item.offsetHeight) * 100) / 3;
 
-    item.style.setProperty('--rX',positionX + 'deg');
-    item.style.setProperty('--rY',positionY + 'deg');
+    item.style.setProperty("--rX", positionX + "deg");
+    item.style.setProperty("--rY", positionY + "deg");
+  }
+  item.addEventListener("mousemove",(e)=>{
+    threeDAnimation(e.x, e.y);
   });
+  item.addEventListener("touchstart",(e)=>{
+    document.getElementById("intro-bg-video").style.opacity = "1";
+  });
+  item.addEventListener("touchend",()=>{
+    document.getElementById("intro-bg-video").style.opacity = "0";
+  })
   item.addEventListener("mouseout",()=>{
     item.style.setProperty("--rX", "0deg");
     item.style.setProperty("--rY", "0deg");
-  })
+  });
 });
 
 function strings(){

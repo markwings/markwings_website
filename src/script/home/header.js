@@ -101,7 +101,7 @@ window.addEventListener("resize", function () {
 
 document.querySelectorAll(".con-btn").forEach((button) => {
   button.addEventListener("click", function () {
-    const contactSection = document.querySelector("#intro");
+    const contactSection = document.querySelector("#contact");
     console.log("clicked");
 
     if (contactSection) {

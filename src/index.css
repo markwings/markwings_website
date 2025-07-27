@@ -1892,6 +1892,16 @@
       scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
+  .active\:opacity-10 {
+    &:active {
+      opacity: 10%;
+    }
+  }
+  .active\:opacity-100 {
+    &:active {
+      opacity: 100%;
+    }
+  }
   .xs\:text-\[1\.7rem\] {
     @media (width >= 24rem) {
       font-size: 1.7rem;
