@@ -18,7 +18,6 @@ if (window.innerWidth >= 768) {
   });
 }
 
-// Mobile curtain animation
 if (window.innerWidth < 1280) {
   gsap.to("#planToActMobileBg", {
     y: "100%",
@@ -28,7 +27,6 @@ if (window.innerWidth < 1280) {
       scroller: "body",
       start: "top 40%",
       end: "top 0%",
-      markers: true,
       scrub: 1,
     },
   });

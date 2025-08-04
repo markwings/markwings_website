@@ -2,9 +2,20 @@ import gsap from "gsap";
 const reveal = document.getElementById("reveal");
 const div1Copy = document.getElementById("reveal-content");
 const container = document.getElementById("etymology");
+const etymBg = document.getElementById("etym-bg");
 
 let lastMouse = { x: null, y: null };
 let isTouch = false;
+
+let mm = gsap.matchMedia();
+
+mm.add("(max-width:1023px)",()=>{
+  gsap.set(etymBg,{
+    attr: {
+      src : "images/etymMob.svg"
+    }
+  })
+});
 
 function updateRevealPosition(clientX, clientY) {
   // Get container position

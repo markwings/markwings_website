@@ -47,18 +47,15 @@ document.querySelectorAll("#mobile-menu a").forEach((link) => {
 
 // Improved scroll behavior
 window.addEventListener("scroll", function () {
-  // Don't hide header if mobile menu is open
   if (isMobileMenuOpen) return;
 
   clearTimeout(scrollTimeout);
 
-  // Show header immediately on scroll
   gsap.to("header", {
     top: 0,
     duration: 0.3,
   });
 
-  // Hide header after scrolling stops (only on desktop)
   if (window.innerWidth > 768) {
     // md breakpoint
     scrollTimeout = setTimeout(function () {
@@ -70,7 +67,15 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// Mouse behavior (desktop only)
+window.addEventListener("scroll", function () {
+  if (window.scrollY === 0) {
+    gsap.to("header", {
+      top: 0,
+      duration: 0.3,
+    });
+    clearTimeout(scrollTimeout);
+  }
+});
 window.addEventListener("mousemove", function (e) {
   if (window.innerWidth <= 768) return; // Skip on mobile
 

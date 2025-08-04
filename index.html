@@ -13,7 +13,7 @@
 </head>
 
 <body class="inter-font select-none">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/20">
+  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/20 backdrop-blur-xs">
     <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
 
       <div class="text-2xl font-bold text-blue-800">MarkWings</div>
@@ -62,9 +62,9 @@
 
   <main class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden">
 
-    <section id="banner" class="w-full h-screen flex items-center justify-center relative">
+    <section id="banner" class="w-full h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-100 relative">
       <div
-        class="absolute w-full flex py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white">
+        class="absolute w-full hidden py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white">
         <h1 class="ml-36 text-blue-200">Growth</h1>
         <h1 class="ml-36 text-blue-300">Gr<span class="text-black">o</span>wth</h1>
         <h1 class="ml-36 text-blue-500 border-4 border-black">Growth</h1>
@@ -75,7 +75,7 @@
       </div>
 
       <div
-        class="h-4/5 w-4/5 md:h-8/10 md:w-9/10 z-10 bg-white/30 flex justify-center lg:justify-normal items-center  md: lg:-space-x-60 shadow-2xl uppercase rounded-tr-4xl">
+        class="h-4/5 w-4/5 md:h-8/10 md:w-9/10 z-10 bg-white/60 backdrop-blur-xs flex justify-center lg:justify-normal items-center  md: lg:-space-x-60 shadow-2xl uppercase rounded-tr-4xl">
 
         <div class="h-full md:w-2/3 flex z-[10] items-center justify-center p-4">
           <div
@@ -186,7 +186,7 @@
 
       <!-- Background Image -->
       <div class="absolute inset-0 w-full h-full z-10">
-        <img src="/images/img1.jpg" alt="Etymology section background" class="w-full h-full object-cover">
+        <img id="etym-bg" src="/images/etymDesktop.svg" alt="Etymology section background" class="w-full h-full object-cover">
       </div>
     </section>
 
@@ -480,8 +480,16 @@
     <!-- Your desktop date/time content here -->
   </div>
 
-
-
+  <div class="fixed left-8 bottom-4 w-max h-max z-[1000]">
+    <ul class="hidden lg:block space-y-2 font-[PixPixls]">
+      <li><a href="#banner" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Home</a></li>
+      <li><a href="./skills/Graphics.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Graphic Designing</a></li>
+      <li><a href="./skills/videos.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Video Editing</a></li>
+      <li><a href="./skills/development.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Development</a></li>
+      <li><a href="./skills/marketing.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Digital Marketing</a></li>
+      <li><a id="con-btn" class="con-btn text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Connect Now</a></li>
+    </ul>
+  </div>
 
   <!-- Scroll Progress Indicator -->
   <div id="scrollIndicator" title="Scroll to top"

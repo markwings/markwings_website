@@ -33,8 +33,8 @@ function setup3D(){
   const scalingFactor = Math.min(Math.max(window.innerWidth / 1000, 0.5), 1);
   loader.load("/logo.glb", function (model) {
     logo = model.scene;
-    logo.scale.setScalar(3*scalingFactor);
-    logo.position.set(0,-1,-1);
+    logo.scale.setScalar(2*scalingFactor);
+    logo.position.set(-0.5,0.5,-1);
     logo.rotation.set(1.55, -0.01, -0.65);
     logo.matrixWorldNeedsUpdate = true;
     scene.add(logo);

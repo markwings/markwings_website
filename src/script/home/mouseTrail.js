@@ -1,5 +1,6 @@
 // Add a rope-like trail to the cursor
 const canvas = document.createElement("canvas");
+canvas.style.zIndex = "1000";
 const ctx = canvas.getContext("2d");
 document.body.appendChild(canvas);
 
@@ -11,18 +12,15 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const trailPoints = [];
-const trailLength = 20; // Number of trail points
+const trailLength = 20;
 
 document.addEventListener("mousemove", (event) => {
-  // Use clientX/clientY for fixed canvas positioning
   trailPoints.push({ x: event.clientX, y: event.clientY });
 
-  // Remove excess points
   if (trailPoints.length > trailLength) {
     trailPoints.shift();
   }
 
-  // Clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Draw the trail with even smoother curves using Catmull-Rom to Bezier conversion
@@ -65,7 +63,7 @@ document.addEventListener("mousemove", (event) => {
     gradient.addColorStop(1, "rgba(0, 0, 255, 0)"); // Fade to transparent
 
     ctx.strokeStyle = gradient;
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 1.5;
     ctx.lineCap = "round";
     ctx.stroke();
   }
@@ -97,7 +95,7 @@ document.addEventListener("mousemove", (event) => {
         gradient.addColorStop(1, "rgba(0, 0, 255, 0)");
 
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 1.5;
         ctx.lineCap = "round";
         ctx.stroke();
       }
