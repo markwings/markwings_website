@@ -26,12 +26,6 @@ function dateTime(){
 }
 dateTime();
 
-// Reverse Scroll
-// window.addEventListener("scroll", function () {
-//   document.querySelector(".panelCon").style.bottom = window.scrollY * -1 + "px";
-// });
-
-
 document.querySelectorAll(".fadeIn").forEach((item)=>{
   gsap.from(item,{
     y: 30,

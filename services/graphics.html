@@ -10,41 +10,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Decorative background elements */
-        .bg-shape {
+        /* Floating shapes */
+        .floating-shape {
             position: absolute;
             z-index: 0;
-            pointer-events: none;
             opacity: 0.18;
-            filter: blur(2px);
+            pointer-events: none;
+            animation: floatY 8s ease-in-out infinite alternate;
         }
-        .bg-shape1 {
-            top: -80px; left: -80px;
-            width: 350px; height: 350px;
-            background: radial-gradient(circle at 30% 30%, #a5b4fc 60%, #818cf8 100%);
-            border-radius: 50%;
+
+        .floating-shape.shape1 {
+            top: 10%;
+            left: 5%;
+            width: 120px;
+            animation-delay: 0s;
         }
-        .bg-shape2 {
-            bottom: -100px; right: -100px;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle at 70% 70%, #fcd34d 60%, #fbbf24 100%);
-            border-radius: 50%;
+
+        .floating-shape.shape2 {
+            bottom: 8%;
+            right: 8%;
+            width: 90px;
+            animation-delay: 2s;
         }
-        .bg-shape3 {
-            top: 40%; left: 60%;
-            width: 180px; height: 180px;
-            background: linear-gradient(135deg, #f472b6 40%, #818cf8 100%);
-            border-radius: 40% 60% 60% 40%/60% 40% 60% 40%;
-            transform: rotate(-15deg);
+
+        .floating-shape.shape3 {
+            top: 40%;
+            right: 15%;
+            width: 60px;
+            animation-delay: 4s;
         }
+
+        @keyframes floatY {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-30px);
+            }
+        }
+
         .service-card {
             position: relative;
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
         }
+
         .service-card:hover {
             transform: translateY(-8px) scale(1.03) rotate(-1deg);
-            box-shadow: 0 12px 32px 0 rgba(0,0,0,0.12);
+            box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.12);
         }
+
         .service-img {
             width: 64px;
             height: 64px;
@@ -52,21 +68,26 @@
             margin-bottom: 1rem;
             border-radius: 1rem;
             background: #fff;
-            box-shadow: 0 2px 12px 0 rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.06);
             padding: 0.5rem;
         }
+
         .service-card .shine {
             position: absolute;
-            top: -40px; left: -40px;
-            width: 120px; height: 120px;
+            top: -40px;
+            left: -40px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(120deg, #fff6 40%, #fff0 100%);
             border-radius: 50%;
             z-index: 1;
             pointer-events: none;
         }
+
         .service-card .corner-icon {
             position: absolute;
-            bottom: 16px; right: 16px;
+            bottom: 16px;
+            right: 16px;
             font-size: 1.5rem;
             opacity: 0.13;
             z-index: 0;
@@ -75,131 +96,191 @@
 </head>
 
 <body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen relative overflow-x-hidden">
-    <!-- Decorative Background Elements -->
-    <div class="bg-shape bg-shape1"></div>
-    <div class="bg-shape bg-shape2"></div>
-    <div class="bg-shape bg-shape3"></div>
+    <!-- Floating SVG shapes for visual interest -->
+    <svg class="floating-shape shape1" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="100" fill="#6366f1" />
+    </svg>
+    <svg class="floating-shape shape2" viewBox="0 0 200 200">
+        <rect width="200" height="200" rx="60" fill="#60a5fa" />
+    </svg>
+    <svg class="floating-shape shape3" viewBox="0 0 200 200">
+        <polygon points="100,10 190,190 10,190" fill="#a78bfa" />
+    </svg>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-white/20">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold gradient-text">Agency</div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-                <a href="#" class="text-blue-600 font-medium">Skills</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Digital Marketing</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Development</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
-            </div>
+    <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl font-bold bg-white/20 backdrop-blur-xs">
+        <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
+            <div class="text-2xl font-bold text-blue-800">MarkWings</div>
+    
+            <!-- Desktop Navigation -->
+            <ul class="hidden lg:flex space-x-6 lg:space-x-8">
+                <li>
+                    <a href="./marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Digital
+                        Marketing</a>
+                </li>
+                <li>
+                    <a href="./development.html" class="text-gray-700 hover:text-blue-600 transition-colors">Development</a>
+                </li>
+                <li>
+                    <a href="./graphics.html" class="text-blue-600 transition-colors">Graphic
+                        Designing</a>
+                </li>
+                <li>
+                    <a id="con-btn" href="/#contact" class="con-btn text-gray-700 hover:text-blue-600 transition-colors">Connect Now</a>
+                </li>
+            </ul>
+    
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+    
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden h-screen lg:hidden bg-white/55 backdrop-blur-lg w-full px-4 pb-4 shadow-lg z-40">
+            <ul class="flex flex-col space-y-3">
+                <li>
+                    <a href="./marketing.html"
+                        class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Digital
+                        Marketing</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 border-b text-gray-700 hover:text-blue-600 transition-colors border-gray-100">Development</a>
+                </li>
+                <li>
+                    <a href="./graphics.html"
+                        class="block py-2 text-blue-600 transition-colors border-b border-gray-100">Graphic
+                        Designing</a>
+                </li>
+                <li>
+                    <a id="con-btn" href="/#contact" class="con-btn block py-2 text-gray-700 hover:text-blue-600 transition-colors">Connect
+                        Now</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Content -->
     <main class="pt-24 pb-12 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-16">
-                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 opacity-0" id="main-title">
+                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 opacity-0 leading-normal" id="main-title">
                     Graphic Designing
                 </h1>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto opacity-0" id="subtitle">
-                    Elevate your brand with creative visuals, unique identities, and stunning designs tailored for every platform.
+                    Elevate your brand with creative visuals, unique identities, and stunning designs tailored for every
+                    platform.
                 </p>
             </div>
-
+    
             <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[240px]">
-
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 auto-rows-[180px] md:auto-rows-[220px] lg:auto-rows-[240px]">
+    
                     <!-- Logo Creation (large tile) -->
                     <div
                         class="service-card bg-gradient-to-br from-yellow-100 to-yellow-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1 lg:col-span-2 row-span-2">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Logo Creation" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Logo Creation"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Logo Creation</h3>
                         <p class="text-gray-600">Memorable logos that define your brand’s identity.</p>
                         <i class="fas fa-crown corner-icon"></i>
                     </div>
-
+    
                     <!-- Social Media Post -->
                     <div
                         class="service-card bg-gradient-to-br from-blue-100 to-blue-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Social Media Post" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Social Media Post"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Social Media Post</h3>
                         <p class="text-gray-600">Eye-catching posts for all your social platforms.</p>
                         <i class="fab fa-instagram corner-icon"></i>
                     </div>
-
+    
                     <!-- Meta/Google Ads Creative -->
                     <div
                         class="service-card bg-gradient-to-br from-pink-100 to-pink-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Ads Creative" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Ads Creative"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Meta/Google Ads Creative</h3>
                         <p class="text-gray-600">High-converting ad creatives for Meta & Google platforms.</p>
                         <i class="fas fa-bullhorn corner-icon"></i>
                     </div>
-
+    
                     <!-- Poster/Banner Creation (tall tile) -->
                     <div
                         class="service-card bg-gradient-to-br from-green-100 to-green-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1 row-span-2">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Poster Banner" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Poster Banner"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Poster/Banner Creation</h3>
                         <p class="text-gray-600">Striking posters and banners for events and promotions.</p>
                         <i class="fas fa-image corner-icon"></i>
                     </div>
-
+    
                     <!-- Presskit/Portfolio Creation -->
                     <div
                         class="service-card bg-gradient-to-br from-purple-100 to-purple-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Presskit Portfolio" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Presskit Portfolio"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Presskit/Portfolio Creation</h3>
                         <p class="text-gray-600">Professional presskits and portfolios that impress.</p>
                         <i class="fas fa-folder-open corner-icon"></i>
                     </div>
-
+    
                     <!-- Business Card -->
                     <div
                         class="service-card bg-gradient-to-br from-red-100 to-red-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Business Card" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Business Card"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Business Card</h3>
                         <p class="text-gray-600">Distinctive business cards that leave a lasting impression.</p>
                         <i class="fas fa-address-card corner-icon"></i>
                     </div>
-
+    
                     <!-- Brand Identity (wide tile) -->
                     <div
                         class="service-card bg-gradient-to-br from-indigo-100 to-indigo-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1 lg:col-span-2">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135797.png" alt="Brand Identity" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135797.png" alt="Brand Identity"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Brand Identity</h3>
                         <p class="text-gray-600">Complete brand identity systems for cohesive visuals.</p>
                         <i class="fas fa-palette corner-icon"></i>
                     </div>
-
+    
                     <!-- Merch Designing -->
                     <div
                         class="service-card bg-gradient-to-br from-teal-100 to-teal-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135777.png" alt="Merch Designing" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135777.png" alt="Merch Designing"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Merch Designing</h3>
                         <p class="text-gray-600">Creative designs for merchandise and promotional items.</p>
                         <i class="fas fa-shopping-bag corner-icon"></i>
                     </div>
-
+    
                     <!-- T-shirt Designing -->
                     <div
                         class="service-card bg-gradient-to-br from-orange-100 to-orange-300 rounded-3xl p-8 shadow-lg hover:shadow-2xl flex flex-col items-center text-center col-span-1">
                         <div class="shine"></div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="T-shirt Designing" class="service-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="T-shirt Designing"
+                            class="service-img">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">T-shirt Designing</h3>
                         <p class="text-gray-600">Trendy and unique T-shirt designs for your brand or event.</p>
                         <i class="fas fa-tshirt corner-icon"></i>
                     </div>
-
+    
                     <!-- Filler tile to avoid blank space and balance the grid -->
                     <div
                         class="service-card bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-lg flex flex-col items-center justify-center text-center col-span-1">
@@ -210,14 +291,21 @@
                     </div>
                 </div>
             </div>
-
+    
             <!-- CTA Section -->
             <div class="mt-16 text-center">
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-blue-100 max-w-4xl mx-auto relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-30 z-0"></div>
-                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-yellow-200 to-pink-200 rounded-full opacity-20 z-0"></div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4 relative z-10">Ready to Make Your Brand Stand Out?</h2>
-                    <p class="text-gray-600 mb-8 relative z-10">Let’s craft stunning visuals and a unique identity for your business.</p>
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-lg border border-blue-100 max-w-4xl mx-auto relative overflow-hidden">
+                    <div
+                        class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-30 z-0">
+                    </div>
+                    <div
+                        class="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-yellow-200 to-pink-200 rounded-full opacity-20 z-0">
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4 relative z-10">Ready to Make Your Brand Stand Out?
+                    </h2>
+                    <p class="text-gray-600 mb-8 relative z-10">Let’s craft stunning visuals and a unique identity for
+                        your business.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                         <button
                             class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-semibold transition-colors shadow-lg">
@@ -235,5 +323,7 @@
         </div>
     </main>
 
+    <script type="module" src="../src/script/home/header.js"></script>
     <script type="module" src="../src/script/pages/marketing.js"></script>
-</body></div>
+</body>
+</div>
