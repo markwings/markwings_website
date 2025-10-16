@@ -78,6 +78,7 @@ contactSection.addEventListener("mouseleave",()=>{
   position.x = null;
   position.y = null
 })
+
 window.addEventListener("scroll", () => {
   if (
      position.x !== null && position.y !== null
@@ -85,6 +86,41 @@ window.addEventListener("scroll", () => {
     updateContactButtonPosition(position.x,position.y);
   }
 });
+
+function runOnHash(hash, callback) {
+  function check() {
+    if (window.location.hash === hash && typeof callback === "function") {
+      callback();
+    }
+  }
+
+  // Run once on load
+  document.addEventListener("DOMContentLoaded", check);
+
+  // Run again when hash changes (e.g., navigating to #contact)
+  window.addEventListener("hashchange", check);
+}
+
+// Usage
+runOnHash("#contact", () => {
+  // 1. Make the form visible immediately using a non-CSS-animated property
+  contactForm.classList.replace("hidden", "flex");
+
+  // 2. Optional: Force hardware layer for the element to be animated
+  contactForm.style.willChange = "transform"; // Can also be set in CSS
+
+  // 3. Run the GSAP animation
+  gsap.from(contactForm, {
+    scale: 0,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+  });
+
+  contactButton.classList.add("hidden");
+});
+
+
 
 document.querySelectorAll(".contact-button").forEach((button)=>{
   button.addEventListener("click",()=>{
@@ -99,6 +135,8 @@ document.querySelectorAll(".contact-button").forEach((button)=>{
     contactButton.classList.add("hidden");
   });
 });
+
+
 
 document.getElementById("close-form").addEventListener("click",()=>{
   contactForm.classList.replace("flex", "hidden");

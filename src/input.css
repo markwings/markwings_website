@@ -1,32 +1,31 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'PixPixls';
-  src: url("../fonts/PixPixls-Regular.ttf") format('truetype');
+  font-family: "PixPixls";
+  src: url("../fonts/PixPixls-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Icecreamer';
-  src: url("../fonts/Icecreamer.ttf") format('truetype');
+  font-family: "Icecreamer";
+  src: url("../fonts/Icecreamer.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Icecreamer';
-  src: url("../fonts/Icecreamer-Italic.ttf") format('truetype');
+  font-family: "Icecreamer";
+  src: url("../fonts/Icecreamer-Italic.ttf") format("truetype");
   font-style: italic;
 }
 
-@layer utilities{
-  .carousal{
+@layer utilities {
+  .carousal {
     animation: carousal-anim 1s linear;
-    transform: rotate(30/var(--i));
+    transform: rotate(30 / var(--i));
   }
-  .animate-wiggle{
+  .animate-wiggle {
     animation: tilt-shaking 1s linear infinite both;
   }
 }
 
-
 @theme {
-  --breakpoint-xs : 24rem;
+  --breakpoint-xs: 24rem;
   @keyframes carousal-anim {
     from {
       opacity: 0.5;
@@ -39,15 +38,35 @@
     }
   }
   @keyframes tilt-shaking {
-  10% {scale: 1.5 }
-  20% {transform: rotate(5deg);}
-  30% { transform: rotate(0deg);}
-  40% { transform: rotate(-5deg);}
-  50% { transform: rotate(0deg);}
-  60%{transform: rotate(5deg)}
-  70% { transform: rotate(0deg);}
-  80% { transform: rotate(-5deg);}
-  90% { transform: rotate(0deg);}
-  100%{scale: 1}
-}
+    10% {
+      scale: 1.5;
+    }
+    20% {
+      transform: rotate(5deg);
+    }
+    30% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    60% {
+      transform: rotate(5deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    }
+    80% {
+      transform: rotate(-5deg);
+    }
+    90% {
+      transform: rotate(0deg);
+    }
+    100% {
+      scale: 1;
+    }
+  }
 }

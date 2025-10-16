@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Development Services - MarkWings</title>
+    <link rel="stylesheet" href="../src/animations.css">
+    <link rel="stylesheet" href="../src/index.css">
+    <!-- Unique & Eye-Catching Elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Animated gradient border for cards */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            z-index: 0;
+            border-radius: 1.5rem;
+            background: linear-gradient(120deg, #60a5fa 0%, #a78bfa 100%);
+            opacity: 0.15;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                filter: blur(0px);
+            }
+
+            50% {
+                filter: blur(6px);
+            }
+
+            100% {
+                filter: blur(0px);
+            }
+        }
+
+        .service-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.18;
+            pointer-events: none;
+            animation: floatY 8s ease-in-out infinite alternate;
+        }
+
+        .floating-shape.shape1 {
+            top: 10%;
+            left: 5%;
+            width: 120px;
+            animation-delay: 0s;
+        }
+
+        .floating-shape.shape2 {
+            bottom: 8%;
+            right: 8%;
+            width: 90px;
+            animation-delay: 2s;
+        }
+
+        .floating-shape.shape3 {
+            top: 40%;
+            right: 15%;
+            width: 60px;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatY {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* Neon text effect for main title */
+        /* #main-title {
+            text-shadow: 0 0 12px #6366f1, 0 0 32px #60a5fa;
+        } */
+        /* Animated icon bounce */
+        .icon-bounce {
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+    <!-- Floating SVG shapes for visual interest -->
+    <svg class="floating-shape shape1" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="100" fill="#6366f1" />
+    </svg>
+    <svg class="floating-shape shape2" viewBox="0 0 200 200">
+        <rect width="200" height="200" rx="60" fill="#60a5fa" />
+    </svg>
+    <svg class="floating-shape shape3" viewBox="0 0 200 200">
+        <polygon points="100,10 190,190 10,190" fill="#a78bfa" />
+    </svg>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl font-bold bg-white/20 backdrop-blur-xs">
+        <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
+            <div class="text-2xl font-bold text-blue-800">
+                <a href="/">MarkWings</a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden lg:flex space-x-6 lg:space-x-8">
+                <li>
+                    <a href="./marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Digital
+                        Marketing</a>
+                </li>
+                <li>
+                    <a href="./development.html" class="text-blue-600 transition-colors">Development</a>
+                </li>
+                <li>
+                    <a href="./graphics.html" class="text-gray-700 hover:text-blue-600 transition-colors">Graphic
+                        Designing</a>
+                </li>
+                <li>
+                    <a id="con-btn" href="/#contact" class="con-btn text-gray-700 hover:text-blue-600 transition-colors">Connect Now</a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden h-screen lg:hidden bg-white/55 backdrop-blur-lg w-full px-4 pb-4 shadow-lg z-40">
+            <ul class="flex flex-col space-y-3">
+                <li>
+                    <a href="./marketing.html"
+                        class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Digital
+                        Marketing</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="block py-2 text-blue-600 transition-colors border-b border-gray-100">Development</a>
+                </li>
+                <li>
+                    <a href="./graphics.html"
+                        class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Graphic
+                        Designing</a>
+                </li>
+                <li>
+                    <a href="/#contact"
+                        class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Connect
+                        Now</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 opacity-0 leading-normal" id="main-title">
+                    Software
+                    Development</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto opacity-0" id="subtitle">
+                    Build robust, scalable, and innovative digital solutions tailored to your business needs.
+                </p>
+            </div>
+
+            <!-- Bento Grid for Development Skills -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 auto-rows-fr">
+
+                <!-- Custom Code Website -->
+                <div
+                    class="service-card bg-gradient-to-br from-white to-blue-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-blue-100 flex flex-col group transition-transform duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center text-3xl mr-4 icon-bounce">
+                            💻</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Custom Code Website</h3>
+                    </div>
+                    <ul class="text-gray-600 flex-1 mb-4 list-disc list-inside">
+                        <li>Modern, responsive design</li>
+                        <li>Performance optimized</li>
+                        <li>Full-stack solutions</li>
+                    </ul>
+                    <div class="text-xs text-blue-600">HTML • CSS • JS • React • Next.js • Node.js</div>
+                </div>
+
+                <!-- Shopify / Wordpress -->
+                <div
+                    class="service-card bg-gradient-to-br from-green-100 to-emerald-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-green-100 flex flex-col group transition-transform duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center text-3xl mr-4 icon-bounce">
+                            🛒</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Shopify / Wordpress</h3>
+                    </div>
+                    <ul class="text-gray-600 flex-1 mb-4 list-disc list-inside">
+                        <li>Custom themes & plugins</li>
+                        <li>E-commerce integration</li>
+                        <li>SEO & performance</li>
+                    </ul>
+                    <div class="text-xs text-green-600">Shopify • Wordpress • WooCommerce</div>
+                </div>
+
+                <!-- AI Website -->
+                <div
+                    class="service-card bg-gradient-to-br from-purple-100 to-pink-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-purple-100 flex flex-col group transition-transform duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-purple-500 rounded-2xl flex items-center justify-center text-3xl mr-4 icon-bounce">
+                            🤖</div>
+                        <h3 class="text-2xl font-bold text-gray-800">AI Website</h3>
+                    </div>
+                    <ul class="text-gray-600 flex-1 mb-4 list-disc list-inside">
+                        <li>AI-powered chatbots</li>
+                        <li>Personalized user experience</li>
+                        <li>Automation & analytics</li>
+                    </ul>
+                    <div class="text-xs text-purple-600">OpenAI • LangChain • Custom AI</div>
+                </div>
+
+                <!-- Application: Android | iOS -->
+                <div
+                    class="service-card bg-gradient-to-br from-yellow-100 to-orange-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-yellow-100 flex flex-col group transition-transform duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-3xl mr-4 icon-bounce">
+                            📱</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Mobile Application</h3>
+                    </div>
+                    <ul class="text-gray-600 flex-1 mb-4 list-disc list-inside">
+                        <li>Android & iOS apps</li>
+                        <li>Cross-platform development</li>
+                        <li>UI/UX focused</li>
+                    </ul>
+                    <div class="text-xs text-yellow-600">Flutter • React Native • Swift • Kotlin</div>
+                </div>
+
+                <!-- Software -->
+                <div
+                    class="service-card bg-gradient-to-br from-blue-100 to-indigo-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-indigo-100 flex flex-col group transition-transform duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-indigo-500 rounded-2xl flex items-center justify-center text-3xl mr-4 icon-bounce">
+                            🖥️</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Software</h3>
+                    </div>
+                    <ul class="text-gray-600 flex-1 mb-4 list-disc list-inside">
+                        <li>Desktop & web applications</li>
+                        <li>API development</li>
+                        <li>Cloud integration</li>
+                    </ul>
+                    <div class="text-xs text-indigo-600">.NET • Python • Java • Electron</div>
+                </div>
+
+                <!-- Excluded IOT -->
+                <div
+                    class="service-card bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-200 flex flex-col group transition-transform duration-300 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-gray-400 rounded-2xl flex items-center justify-center text-3xl mr-4 icon-bounce">
+                            🚫</div>
+                        <h3 class="text-2xl font-bold text-gray-800">Excluded: IoT</h3>
+                    </div>
+                    <div class="text-gray-600 flex-1 mb-4">
+                        <p>We currently do not offer IoT (Internet of Things) development services.</p>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+                <div
+                    class="md:col-span-3 lg:col-span-2 service-card bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl p-8 shadow-lg hover:shadow-2xl text-white flex flex-col justify-center group transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-3xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb text-yellow-300 animate-pulse"></i>
+                        Development Services
+                    </h3>
+                    <ul class="mb-4 list-disc list-inside text-white/90">
+                        <li>Custom Code Website</li>
+                        <li>Shopify/Wordpress</li>
+                        <li>AI Website</li>
+                        <li>Application: Android | iOS</li>
+                        <li>Software</li>
+                        <li>Excluded IoT</li>
+                    </ul>
+                    <div class="text-white/70 text-sm">End-to-end software solutions for your business growth.</div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-16 text-center relative">
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-lg border border-blue-100 max-w-4xl mx-auto relative overflow-hidden">
+                    <div class="absolute -top-8 -right-8 opacity-20 pointer-events-none">
+                        <i class="fa-solid fa-rocket fa-4x text-blue-400 animate-bounce"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Ready to Build Your Next Project?</h2>
+                    <p class="text-gray-600 mb-8">Let's create innovative software that drives your business forward.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-semibold transition-colors shadow-lg hover:shadow-xl">
+                            <i class="fa-solid fa-comments mr-2"></i>
+                            Get Free Consultation
+                        </button>
+                        <button
+                            class="px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-2xl font-semibold transition-colors shadow-lg hover:shadow-xl">
+                            <i class="fa-solid fa-briefcase mr-2"></i>
+                            View Our Portfolio
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="../src/script/home/header.js"></script>
+    <script type="module" src="../src/script/pages/marketing.js"></script>
+    <script>
+        // Animate header on load
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('main-title').classList.remove('opacity-0');
+            document.getElementById('main-title').classList.add('animate-fade-in-down');
+            document.getElementById('subtitle').classList.remove('opacity-0');
+            document.getElementById('subtitle').classList.add('animate-fade-in-up');
+        });
+    </script>

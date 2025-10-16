@@ -1,129 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MarkWings</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="stylesheet" href="./src/animations.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MarkWings</title>
-  <link rel="stylesheet" href="./src/index.css" />
-  <link rel="stylesheet" href="./src/animations.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-  </style>
-</head>
+  <body class="inter-font select-none">
+    <header
+      class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/20 backdrop-blur-xs"
+    >
+      <nav
+        class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16"
+      >
+        <div class="text-2xl font-bold text-blue-800">MarkWings</div>
 
-<body class="inter-font select-none">
-  <header class="fixed top-0 left-0 w-full z-[10000] shadow-xl bg-white/20 backdrop-blur-xs">
-    <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
+        <!-- Desktop Navigation -->
+        <ul class="hidden lg:flex space-x-6 lg:space-x-8">
+          <li>
+            <a
+              href="./services/marketing.html"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Digital Marketing</a
+            >
+          </li>
+          <li>
+            <a
+              href="./services/development.html"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Development</a
+            >
+          </li>
+          <li>
+            <a
+              href="./services/graphics.html"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Graphic Designing</a
+            >
+          </li>
+          <li>
+            <a
+            href="#contact"
+              id="con-btn"
+              class="con-btn text-gray-700 hover:text-blue-600 transition-colors"
+              >Connect Now</a
+            >
+          </li>
+        </ul>
 
-      <div class="text-2xl font-bold text-blue-800">MarkWings</div>
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </nav>
 
-      <!-- Desktop Navigation -->
-      <ul class="hidden lg:flex space-x-6 lg:space-x-8">
-        <li><a href="./skills/marketing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Digital
-            Marketing</a></li>
-        <li><a href="./skills/development.html"
-            class="text-gray-700 hover:text-blue-600 transition-colors">Development</a></li>
-        <li><a href="./skills/Graphics.html" class="text-gray-700 hover:text-blue-600 transition-colors">Graphic
-            Designing</a></li>
-        <li><a href="#intro" class="text-gray-700 hover:text-blue-600 transition-colors">Intro</a></li>
-        <li><a id="con-btn" class="con-btn text-gray-700 hover:text-blue-600 transition-colors">Connect Now</a></li>
-      </ul>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg">
-      <ul class="flex flex-col space-y-3">
-        <li><a href="./skills/marketing.html"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Digital
-            Marketing</a></li>
-        <li><a href="./skills/development.html"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Development</a>
-        </li>
-        <li><a href="./skills/Graphics.html"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Graphic
-            Designing</a>
-        </li>
-        <li><a href="#contact"
-            class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100">Intro</a>
-        </li>
-        <li><a href="#contact-left" class="block py-2 text-gray-700 hover:text-blue-600 transition-colors">Connect
-            Now</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <main class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden">
-
-    <section id="banner" class="w-full h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-100 relative">
+      <!-- Mobile Menu (Hidden by default) -->
       <div
-        class="absolute w-full hidden py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white">
-        <h1 class="ml-36 text-blue-200">Growth</h1>
-        <h1 class="ml-36 text-blue-300">Gr<span class="text-black">o</span>wth</h1>
-        <h1 class="ml-36 text-blue-500 border-4 border-black">Growth</h1>
-        <h1 class="ml-36 text-blue-600">Growth</h1>
-        <h1 class="ml-36 text-blue-700"><span class="italic">G</span>rowth</h1>
-        <h1 class="ml-36 text-blue-800">Growt<span class="italic">h</span></h1>
-        <h1 class="ml-36 text-blue-900">G<span class="text-transparent">r</span>owth</h1>
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white/95 backdrop-blur-lg w-full px-4 pb-4 shadow-lg z-40"
+      >
+        <ul class="flex flex-col space-y-3">
+          <li>
+            <a
+              href="./services/marketing.html"
+              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100"
+              >Digital Marketing</a
+            >
+          </li>
+          <li>
+            <a
+              href="./services/development.html"
+              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100"
+              >Development</a
+            >
+          </li>
+          <li>
+            <a
+              href="./services/graphics.html"
+              class="block py-2 text-gray-700 hover:text-blue-600 transition-colors border-b border-gray-100"
+              >Graphic Designing</a
+            >
+          </li>
+          <li>
+            <a
+                        href="#contact"
+              id="con-btn"
+              class="con-btn block py-2 text-gray-700 hover:text-blue-600 transition-colors"
+              >Connect Now</a
+            >
+          </li>
+        </ul>
       </div>
+    </header>
 
-      <div
-        class="h-4/5 w-4/5 md:h-8/10 md:w-9/10 z-10 bg-white/60 backdrop-blur-xs flex justify-center lg:justify-normal items-center  md: lg:-space-x-60 shadow-2xl uppercase rounded-tr-4xl">
-
-        <div class="h-full md:w-2/3 flex z-[10] items-center justify-center p-4">
-          <div
-            class="text-wrap text-xl text-center xs:text-[1.7rem] sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl">
-            <h1 class="md:block hidden text-blue-800 font-light text-shadow-lg">Your <span
-                class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Deserves <br class="xl:hidden">More Than
-              <span class="font-bold lg:font-semibold text-shadow-lg">Average</span>!
-            </h1>
-            <h1 class="md:block hidden font-light text-blue-800 text-shadow-lg">Let's Give <span
-                class="font-bold lg:font-semibold text-shadow-lg">Your</span> Brand <br class="xl:hidden"> the <span
-                class="font-bold lg:font-semibold text-shadow-lg">Wingsss</span> It Needs!</h1>
-
-            <h1 class="md:hidden text-blue-800 font-medium text-shadow-lg">
-              Time to <span class="font-bold lg:font-semibold text-shadow-lg">Rise Above!</span>
-            </h1>
-            <h1 class="md:hidden text-blue-800 font-medium text-shadow-lg">
-              Your <span class="font-bold lg:font-semibold text-shadow-lg">Brand</span> Needs <span
-                class="font-bold lg:font-semibold text-shadow-lg">Wingss</span><br class="xl:hidden"> — <br
-                class="xl:hidden"> Let's <span class="font-bold lg:font-semibold text-shadow-lg">Fly!</span>
-            </h1>
-
-            <h2 class="text-xs text-gray-800 italic mt-2 text-shadow-lg">"Markwings is your all-in-one digital marketing
-              partner. <br class="hidden lg:inline">We craft stunning designs, develop smart apps, <br
-                class="hidden lg:inline">and
-              create impactful content to help your brand soar."</h2>
-            <button
-              class="con-btn text-lg sm:text-xl mt-10 sm:mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-indigo-700 transition-transform duration-200 ease-in-out active:scale-95">
-              Get in Touch
-            </button>
-
-          </div>
+    <main
+      class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative overflow-x-hidden"
+    >
+      <section
+        id="banner"
+        class="w-full h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-blue-100 relative"
+      >
+        <div
+          class="absolute w-full hidden py-6 flex-col items-center justify-center text-[10em] leading-28 tracking-[0.9em] font-[Icecreamer-Italic] opacity-20 uppercase bg-linear-to-b from-blue-400 to-white"
+        >
+          <h1 class="ml-36 text-blue-200">Growth</h1>
+          <h1 class="ml-36 text-blue-300">
+            Gr<span class="text-black">o</span>wth
+          </h1>
+          <h1 class="ml-36 text-blue-500 border-4 border-black">Growth</h1>
+          <h1 class="ml-36 text-blue-600">Growth</h1>
+          <h1 class="ml-36 text-blue-700">
+            <span class="italic">G</span>rowth
+          </h1>
+          <h1 class="ml-36 text-blue-800">
+            Growt<span class="italic">h</span>
+          </h1>
+          <h1 class="ml-36 text-blue-900">
+            G<span class="text-transparent">r</span>owth
+          </h1>
         </div>
 
-        <canvas id="3dCanvas" class="absolute opacity-60 lg:opacity-100 lg:relative lg:ml-12 h-full"></canvas>
+        <div
+          class="h-4/5 w-4/5 md:h-8/10 md:w-9/10 z-10 bg-white/60 backdrop-blur-xs flex justify-center lg:justify-normal items-center md: lg:-space-x-60 shadow-2xl uppercase rounded-tr-4xl"
+        >
+          <div
+            class="h-full md:w-2/3 flex z-[10] items-center justify-center p-4"
+          >
+            <div
+              class="text-wrap text-xl text-center xs:text-[1.7rem] sm:w-xl sm:text-4xl md:w-xl md:text-4xl lg:w-3xl lg:text-5xl xl:text-5xl 2xl:w-3xl 2xl:text-5xl"
+            >
+              <h1
+                class="md:block hidden text-blue-800 font-light text-shadow-lg"
+              >
+                Your
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Brand</span
+                >
+                Deserves <br class="xl:hidden" />More Than
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Average</span
+                >!
+              </h1>
+              <h1
+                class="md:block hidden font-light text-blue-800 text-shadow-lg"
+              >
+                Let's Give
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Your</span
+                >
+                Brand <br class="xl:hidden" />
+                the
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Wingsss</span
+                >
+                It Needs!
+              </h1>
 
-      </div>
+              <h1 class="md:hidden text-blue-800 font-medium text-shadow-lg">
+                Time to
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Rise Above!</span
+                >
+              </h1>
+              <h1 class="md:hidden text-blue-800 font-medium text-shadow-lg">
+                Your
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Brand</span
+                >
+                Needs
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Wingss</span
+                ><br class="xl:hidden" />
+                — <br class="xl:hidden" />
+                Let's
+                <span class="font-bold lg:font-semibold text-shadow-lg"
+                  >Fly!</span
+                >
+              </h1>
 
+              <h2 class="text-xs text-gray-800 italic mt-2 text-shadow-lg">
+                "Markwings is your all-in-one digital marketing partner.
+                <br class="hidden lg:inline" />We craft stunning designs,
+                develop smart apps, <br class="hidden lg:inline" />and create
+                impactful content to help your brand soar."
+              </h2>
+              <button
+                class="con-btn text-lg sm:text-xl mt-10 sm:mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 rounded-full text-white font-semibold shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-indigo-700 transition-transform duration-200 ease-in-out active:scale-95"
+              >
+                Get in Touch
+              </button>
+            </div>
+          </div>
 
-    </section>
+          <canvas
+            id="3dCanvas"
+            class="absolute opacity-60 lg:opacity-100 lg:relative lg:ml-12 h-full"
+          ></canvas>
+        </div>
+      </section>
 
-    <section id="intro" class="w-full h-fit left-0 top-0 bg-white space-y-36 mt-24">
-      <!-- <div id="snakeContainer" class="w-full h-1/3 bg-black relative flex flex-col justify-center items-center">
-        <div class="w-4 aspect-square bg-red-600 rounded-full z-50 absolute"></div> 
-        <h1 class="text-white text-4xl hidden">Game Over!</h1>
-        <h2 class="text-gray-500 text-3xl">Your Score = 0</h2>
-        <h3 class="text-gray-700 text-xl"></h3>
-      </div> -->
-      <div id="introCarousal"
+      <section id="intro" class="w-full h-fit left-0 top-0 bg-white ">
+      <!-- <div id="introCarousal"
         class="w-full h-72 flex items-center justify-around space-x-1 py-2 px-8 transform-3d perspective-distant">
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-amber-50 list-hover"></div>
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-lime-600 list-hover "></div>
@@ -131,7 +228,7 @@
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-fuchsia-400 peer list-hover"></div>
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-cyan-600 list-hover"></div>
         <div class="h-10/11 w-1/6 brightness-50 grayscale-100 bg-purple-800 list-hover"></div>
-      </div>
+      </div> -->
       <div class="w-full h-screen flex items-center justify-center relative">
         <div
           class="w-fit h-fit px-12 py-8 text-gray-900 space-y-2 rounded-sm bg-white/80 backdrop-blur-xs z-10 peer transform-3d  threeD-element threeD-video-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
@@ -157,375 +254,652 @@
         <div
         id="intro-bg-video"
           class="w-full h-full fixed top-0 left-0 opacity-0 pointer-events-none peer-hover:opacity-100 transition-all duration-500">
-          <video src="videos/vid1.mp4" class="w-full" autoplay muted loop></video>
+          <video src="videos/vid1.mp4" class="w-full h-full object-cover" autoplay muted loop></video>
         </div>
       </div>
     </section>
 
-    <section id="etymology"
-      class="w-full h-screen flex items-center justify-center relative mt-32 sm:mt-52 overflow-hidden touch-none">
-      <!-- Circular Reveal Area -->
-      <div id="reveal"
-        class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden">
-        <div id="reveal-content"
-          class="absolute w-screen h-screen flex justify-center items-center text-gray-900 rounded-sm">
+      <!-- <section
+        id="intro"
+        class="w-full h-fit bg-white relative overflow-hidden"
+      >
+        <div
+          class="w-full h-screen flex items-center justify-center relative z-10"
+        >
           <div
-            class="w-11/12 sm:w-2/3 md:w-1/3 max-w-md space-y-3 sm:space-y-4 px-4 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8">
-            <h1 class="text-xl sm:text-2xl font-semibold fadeIn">Etymology</h1>
-            <p class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed">The name "Markwings" is a
-              combination of "Mark" and "Wings". "Mark" signifies a mark or impact, while "Wings" symbolizes growth and
-              elevation.</p>
-            <p class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed">नाम "मार्कविंग्स" "मार्क"
-              और
-              "विंग्स" का संयोजन है। "मार्क" एक निशान या प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का प्रतीक
-              है।
-            </p>
+            class="peer w-fit h-fit px-12 py-8 text-gray-900 space-y-2 rounded-sm bg-white/80 backdrop-blur-xs transform-3d threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]"
+          >
+            <div class="space-y-1 mt-2 px-4 fadeIn">
+              <h1 class="text-3xl">Dictionary</h1>
+              <h5 class="text-sm">
+                Definitions from <span class="underline">Language of ❤️</span> ·
+                <span class="underline">Learn more</span>
+              </h5>
+            </div>
+
+            <div class="px-4 fadeIn space-x-3">
+              <h1 class="text-4xl">Markwings</h1>
+              <h6 class="text-sm font-normal text-gray-800">मार्क'विंग्स</h6>
+              <h6 class="text-lg font-semibold text-gray-700 mt-2">noun</h6>
+            </div>
+
+            <div id="dictionary" class="px-4 fadeIn">
+              <p class="text-gray-700 font-normal">
+                A group of people mad for creativity and new ideas.
+              </p>
+              <p class="text-gray-700 font-normal">
+                रचनात्मकता और नए विचारों के लिए पागल लोगों का एक समूह।
+              </p>
+            </div>
           </div>
         </div>
+
+        <video
+          id="intro-bg-video"
+          src="videos/vid1.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          class="absolute top-0 left-0 w-full h-full object-cover opacity-0 peer-hover:opacity-100 transition-all duration-500"
+        ></video>
+      </section> -->
+
+      <section
+        id="etymology"
+        class="w-full h-screen hidden md:flex items-center justify-center relative overflow-hidden touch-none"
+      >
+        <div
+          id="reveal"
+          class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full pointer-events-none z-20 bg-clip-content overflow-hidden bg-white hidden"
+        >
+          <div
+            id="reveal-content"
+            class="absolute w-screen h-screen flex justify-center items-center text-gray-900 rounded-sm"
+          >
+            <div
+              class="w-11/12 sm:w-2/3 md:w-1/3 max-w-md space-y-3 sm:space-y-4 px-4 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8"
+            >
+              <h1 class="text-xl sm:text-2xl font-semibold fadeIn">
+                Etymology
+              </h1>
+              <p
+                class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed"
+              >
+                The name "Markwings" is a combination of "Mark" and "Wings".
+                "Mark" signifies a mark or impact, while "Wings" symbolizes
+                growth and elevation.
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 font-normal fadeIn leading-relaxed"
+              >
+                नाम "मार्कविंग्स" "मार्क" और "विंग्स" का संयोजन है। "मार्क" एक
+                निशान या प्रभाव को दर्शाता है, जबकि "विंग्स" विकास और ऊंचाई का
+                प्रतीक है।
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute inset-0 w-full h-full z-10">
+          <img
+            id="etym-bg"
+            src="/images/etymDesktop.svg"
+            alt="Etymology section background"
+            class="w-full h-full object-contain"
+          />
+        </div>
+      </section>
+
+      <section
+        id="etymology-mobile"
+        class="w-full h-screen flex items-center justify-center relative mt-32 sm:mt-52 overflow-hidden lg:hidden"
+      >
+        <img
+          id="etym-bg-mobile"
+          src="/images/etymMob.svg"
+          alt="Etymology section background"
+          class="absolute top-10 left-0 w-full h-full z-0"
+        />
+      </section>
+
+      <section id="planToAct"
+        class="w-full h-screen hidden xl:block left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
+        <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
+          <div class="w-full h-1/2 bg-blue-800"></div>
+          <div class="w-full h-1/2 bg-white"></div>
+        </div>
+        <div class="-space-y-15 -mt-8 pt-4.5">
+          <div class="w-full h-full flex justify-center items-center">
+            <p class="text-[12em] text-center text-white">Plan</p>
+          </div>
+          <div class="w-full flex items-center justify-center rounded-md">
+            <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+            </h1>
+            <div
+              class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
+              <h1 class="text-3xl">Pronounciation</h1>
+              <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
+                Wings
+                (wˈɪŋz).</p>
+              <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+                (wˈɪŋz)।
+              </p>
+            </div>
+            <h1 class="text-[12em] text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
+          </div>
+          <p class="text-[12em] text-center text-white">Execute.</p>
+        </div>
+      </section>
+      
+      <!-- Mobile Curtain Version (Hidden on Desktop) -->
+      <section id="planToActMobile"
+        class="mobile-curtain xl:hidden w-full h-screen overflow-hidden bg-blue-800 relative -z-20">
+        <div id="planToActMobileBg" class="h-1/2 w-full absolute bg-white -z-10"></div>
+        <div class="w-full h-full flex flex-col items-center justify-around">
+          <div class="w-full h-fit flex justify-center items-center">
+            <p class="text-9xl md:text-[11em] text-center text-blue-800">Plan</p>
+          </div>
+          <div class="w-full flex items-center justify-center rounded-md">
+            <h1 class="hidden lg:block text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+            </h1>
+            <div
+              class=" m-2 md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
+              <h1 class="text-3xl">Pronounciation</h1>
+              <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
+                Wings
+                (wˈɪŋz).</p>
+              <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
+                (wˈɪŋz)।
+              </p>
+            </div>
+            <h1 class="hidden lg:block text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
+          </div>
+          <p class="text-9xl md:text-[11em] text-center text-blue-800">Action</p>
+        </div>
+      </section>
+
+      <section
+        id="services"
+        class="flex items-center justify-center h-screen max-h-screen overflow-hidden w-full relative z-50"
+      >
+        <!-- Social Media Management -->
+        <div
+          id="smm-service"
+          class="w-full h-full flex flex-col bg-white xl:flex-row absolute"
+        >
+          <div
+            class="mt-12 flex flex-col items-center justify-end w-2/3 sm:h-1/3 md:mt-52 xl:m-0 md:p-28 xl:p-4 xl:w-1/3! xl:h-full"
+          >
+            <div id="smm1" class="w-full h-full md:h-fit svg-container"></div>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:w-1/3 xl:h-full md:space-y-8"
+          >
+            <h1 class="text-6xl text-center md:text-9xl">
+              Social Media Management
+            </h1>
+            <h1 class="text-base md:text-4xl italic text-nowrap">
+              "From Followers to Fans — We Make It Happen."
+            </h1>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-end justify-start xl:h-full xl:w-1/3 md:items-end"
+          >
+            <div
+              id="smm2"
+              class="w-fit mt-12 h-full md:mt-8 md:w-1/2 md:mr-16 xl:h-1/3 xl:scale-150 xl:mt-14 xl:mr-32 svg-container"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Development -->
+        <div
+          id="dev-service"
+          class="w-full h-full flex flex-col bg-white xl:flex-row absolute"
+        >
+          <div
+            class="mt-12 flex flex-col items-center justify-between w-2/3 md:m-0 sm:h-1/3 md:p-18 xl:min-w-1/3 xl:h-full"
+          >
+            <div id="dev1" class="w-full h-full md:h-fit svg-container"></div>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:w-1/3 xl:h-full md:space-y-8"
+          >
+            <h1 class="text-6xl md:text-9xl text-center">Development</h1>
+            <h1 class="italic text-sm sm:text-xl text-nowrap">
+              "From Sketch to Scale — We Develop What You Imagine."
+            </h1>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-end justify-end xl:min-w-1/3 xl:h-full md:items-end"
+          >
+            <div
+              id="dev2"
+              class="w-fit mb-12 h-full xl:scale-200 xl:mr-32 md:w-1/2 md:mb-24 xl:h-1/3 svg-container"
+            ></div>
+          </div>
+        </div>
+
+        <!-- VideoSection -->
+        <div
+          id="video-service"
+          class="w-full h-full flex flex-col bg-white xl:flex-row absolute"
+        >
+          <div
+            class="mt-12 flex flex-col items-center justify-end w-2/3 md:mt-52 md:w-2/3 sm:h-1/3 md:p-18 xl:min-w-1/3 xl:h-full xl:m-0"
+          >
+            <div id="video1" class="w-full h-full md:h-fit svg-container"></div>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:h-full md:space-y-8"
+          >
+            <h1 class="text-7xl text-center md:text-9xl">Video Editing</h1>
+            <h1 class="italic sm:text-4xl">
+              "Videos That Spark Emotions and Drive Action."
+            </h1>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-end justify-start xl:h-full md:items-end"
+          >
+            <div
+              id="video2"
+              class="w-fit mb-12 h-full md:mb-36 md:w-1/2 md:scale-150 xl:h-1/3 xl:mt-36 xl:scale-175 xl:m-0 xl:mr-32 svg-container"
+            ></div>
+          </div>
+        </div>
+
+        <!-- GraphicsSection -->
+        <div
+          id="graphic-service"
+          class="w-full h-full flex flex-col bg-white xl:flex-row absolute"
+        >
+          <div
+            class="mt-12 flex flex-col items-center justify-between w-2/3 md:m-0 md:w-2/3 sm:h-1/3 md:p-18 xl:w-1/3 xl:h-full"
+          >
+            <div
+              id="designer1"
+              class="w-full h-full md:h-fit svg-container"
+            ></div>
+            <h1
+              class="text-lg text-nowrap px-28 hidden mb-8 xl:block text-gray-700"
+            >
+              We Don't Just Design <br />
+              We Define Your Brand.
+            </h1>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:h-full md:space-y-8"
+          >
+            <h1 class="text-7xl text-center md:text-9xl">Graphic Designing</h1>
+            <h1 class="italic sm:text-4xl">
+              "Your Brand, Styled to Perfection."
+            </h1>
+          </div>
+          <div
+            class="w-full h-1/3 flex flex-col items-end justify-end xl:h-full md:items-end"
+          >
+            <div
+              id="designer2"
+              class="w-fit mb-12 h-full xl:h-1/3 xl:scale-175 xl:mr-32 md:w-1/2 md:mb-2 svg-container"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="h-screen w-full"></div>
+
+      <div class="h-screen w-full flex flex-col items-center justify-end">
+        <div
+          class="h-[400px] grayscale hover:grayscale-0 justify-center items-center hidden xl:flex"
+        >
+          <svg id="string" width="1450" height="400" viewBox="0 0 1400 400">
+            <path
+              id="strPath"
+              d="M 10 200 Q 700 200 1440 200"
+              stroke="black"
+              stroke-width="50"
+              fill="transparent"
+              stroke-linecap="round"
+            />
+            <text
+              fill="white"
+              font-size="19"
+              align-text="center"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              <textPath
+                startOffset="50%"
+                text-anchor="middle"
+                xlink:href="#strPath"
+              >
+                At Markwings💙, We create ideas💡 that will blow your mind🤯 and
+                boost your growth📈 because we care about our dreams✨. Lets
+                grow together! 💖
+              </textPath>
+            </text>
+          </svg>
+        </div>
       </div>
 
-      <!-- Background Image -->
-      <div class="absolute inset-0 w-full h-full z-10">
-        <img id="etym-bg" src="/images/etymDesktop.svg" alt="Etymology section background" class="w-full h-full object-cover">
-      </div>
-    </section>
-
-  <section id="planToAct"
-    class="w-full h-screen hidden xl:block left-0 top-0 bg-gradient-to-r from-0% from-white via-50% via-white to-50% to-blue-800 -z-40 overflow-hidden relative">
-    <div id="halfBlueBg" class="absolute w-3/1 -translate-x-1/3 h-full -z-30">
-      <div class="w-full h-1/2 bg-blue-800"></div>
-      <div class="w-full h-1/2 bg-white"></div>
-    </div>
-    <div class="-space-y-15 -mt-8 pt-4.5">
-      <div class="w-full h-full flex justify-around items-center">
-        <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
-          eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
-          amet mollitia magnam quidem excepturi corporis dolore?</p>
-        <p class="text-[12em] text-center text-white">Plan</p>
-        <p class="w-1/5 text-blue-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates
-          eaque id culpa, eligendi deleniti laboriosam incidunt! Officiis dignissimos reprehenderit minus, vitae et,
-          amet mollitia magnam quidem excepturi corporis dolore?</p>
-      </div>
-      <div class="w-full flex items-center justify-center rounded-md">
-        <h1 class="text-[12em] text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+      <section
+        class="w-full h-112 flex flex-col items-center justify-center p-8 text-3xl lg:h-screen lg:justify-start"
+      >
+        <h1 class="text-center lg:text-9xl">
+          Scroll Down?
+          <span class="animate-[spin_3s_linear_infinite] inline-block">🤔</span
+          ><br />or
         </h1>
-        <div
-          class="md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
-          <h1 class="text-3xl">Pronounciation</h1>
-          <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
-            Wings
-            (wˈɪŋz).</p>
-          <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
-            (wˈɪŋz)।
-          </p>
-        </div>
-        <h1 class="text-[12em] text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
-      </div>
-      <p class="text-[12em] text-center text-white">Plan -> Action</p>
-    </div>
-  </section>
+        <button
+          class="text-3xl px-8 py-3 rounded-4xl text-white hover:bg-blue-800 active:scale-95 bg-blue-700 animate-pulse hover:animate-none lg:text-5xl contact-button"
+        >
+          Contact now
+        </button>
+      </section>
 
-    <!-- Mobile Curtain Version (Hidden on Desktop) -->
-    <section id="planToActMobile" class="mobile-curtain xl:hidden w-full h-screen overflow-hidden bg-blue-800 relative -z-20">
-      <div id="planToActMobileBg" class="h-1/2 w-full absolute bg-white -z-10"></div>
-      <div class="w-full h-full flex flex-col items-center justify-around">
-        <div class="w-full h-fit flex justify-around items-center">
-          <p class="w-1/2 md:w-1/5 text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates</p>
-          <p class="text-9xl md:text-[11em] text-center text-blue-800">Plan</p>
-          <p class="w-1/2 md:w-1/5 text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates</p>
-        </div>
-        <div class="w-full flex items-center justify-center rounded-md">
-          <h1 class="hidden lg:block text-blue-800 drop-shadow-[0_0px_1px_#fff]"><span class="text-[1.08em]">&#8544;</span>D
+      <section
+        class="w-full h-screen flex flex-col items-center justify-between space-y-8 text-2xl lg:text-7xl"
+      >
+        <h1
+          class="text-center lg:ml-112 scale-50 animate-[ping_1s_linear_infinite]"
+        >
+          You still wanna Scroll More?🤨
+        </h1>
+        <h1 class="text-center text-red-700 lg:mr-112 animate-bounce">
+          Stop Scrolling!🥺
+        </h1>
+        <h1>
+          <span class="text-base lg:text-4xl text-blue-800"
+            >💖 "You should just
+            <button
+              class="text-xl px-8 py-3 rounded-4xl text-white hover:bg-blue-800 active:scale-95 bg-blue-700 contact-button"
+            >
+              Contact us
+            </button>
+            now" 💖</span
+          >
+        </h1>
+      </section>
+      
+      <section
+        class="w-full h-172 flex flex-col items-center justify-center space-y-12 lg:h-screen"
+      >
+        <h1 class="text-center lg:text-4xl anim">
+          That's Enough! Don't you dare scroll any now
+          <span class="inline-block animate-wiggle">😡</span>
+        </h1>
+        <h1 class="text-6xl text-center hover:text-blue-800">
+          This is the last warning!
+          <span class="animate-[spin_2s_linear_infinite] inline-block">😒</span>
+        </h1>
+      </section>
+
+      <section
+        id="contact"
+        class="w-full h-screen flex flex-col space-y-6 items-center justify-around py-4 relative lg:justify-center"
+      >
+        <div id="contact-bg" class="w-full h-fit space-y-8 text-2xl">
+          <h1 class="text-center lg:text-3xl">
+            Accept it, you scrolled till here means you also love creativity. 🥰
           </h1>
+          <h1 class="text-center mt-52 lg:text-8xl">
+            Let's get growing then... <br />
+            Click on the button now! 😌
+          </h1>
+        </div>
+        <button
+          id="contact-button"
+          class="border-2 px-6 py-3 rounded-4xl bg-blue-700 text-white shadow-md lg:text-4xl xl:absolute contact-button"
+        >
+          Get in touch
+        </button>
+       
+        <div id="contact-form"
+          class="bg-white/80 sm:z-[3000] backdrop-blur-md w-full h-full flex items-center justify-center absolute hidden p-4">
           <div
-            class=" m-2 md:w-1/3 h-fit px-12 py-8 text-gray-900 space-y-4 bg-white rounded-sm shadow-2xl transform-3d  threeD-element rotate-x-[var(--rX)] rotate-y-[var(--rY)]">
-            <h1 class="text-3xl">Pronounciation</h1>
-            <p class="text-gray-700 font-normal">The pronunciation of "Markwings" is as follows: Mark (mˈɑːk) and
-              Wings
-              (wˈɪŋz).</p>
-            <p class="text-gray-700 font-normal">मार्कविंग्स का उच्चारण इस प्रकार है: मार्क (mˈɑːk) और विंग्स
-              (wˈɪŋz)।
-            </p>
-          </div>
-          <h1 class="hidden lg:block text-white stroke-1 drop-shadow-[0_0px_1px_#193cb8]">EA</h1>
-        </div>
-        <p class="text-9xl md:text-[11em] text-center text-blue-800">Action</p>
-      </div>
-    </section>
-
-    <section id="services"
-      class="flex items-center justify-center h-screen max-h-screen overflow-hidden w-full relative">
-      <!-- Social Media Management -->
-      <div id="smm-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
-        <div
-          class="mt-12 flex flex-col items-center justify-end w-2/3 sm:h-1/3 md:mt-52 xl:m-0 md:p-28 xl:p-4 xl:w-1/3! xl:h-full">
-          <div id="smm1" class="w-full h-full md:h-fit svg-container"></div>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:w-1/3 xl:h-full md:space-y-8">
-          <h1 class="text-6xl text-center md:text-9xl">Social Media Management</h1>
-          <h1 class="text-base md:text-4xl italic text-nowrap">"From Followers to Fans — We Make It Happen."</h1>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-end justify-start xl:h-full xl:w-1/3 md:items-end">
-          <div id="smm2"
-            class="w-fit mt-12 h-full md:mt-8 md:w-1/2 md:mr-16 xl:h-1/3 xl:scale-150 xl:mt-14 xl:mr-32 svg-container">
-          </div>
-        </div>
-      </div>
-
-      <!-- Development -->
-      <div id="dev-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
-        <div
-          class="mt-12 flex flex-col items-center justify-between w-2/3 md:m-0 sm:h-1/3 md:p-18 xl:min-w-1/3 xl:h-full">
-          <div id="dev1" class="w-full h-full md:h-fit svg-container"></div>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:w-1/3 xl:h-full md:space-y-8">
-          <h1 class="text-6xl md:text-9xl text-center">Development</h1>
-          <h1 class="italic text-sm sm:text-xl text-nowrap">"From Sketch to Scale — We Develop What You Imagine."</h1>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-end justify-end xl:min-w-1/3 xl:h-full md:items-end">
-          <div id="dev2" class="w-fit mb-12 h-full xl:scale-200 xl:mr-32 md:w-1/2 md:mb-24 xl:h-1/3 svg-container">
-          </div>
-        </div>
-      </div>
-
-      <!-- VideoSection -->
-      <div id="video-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
-        <div
-          class="mt-12 flex flex-col items-center justify-end w-2/3 md:mt-52 md:w-2/3 sm:h-1/3 md:p-18 xl:min-w-1/3 xl:h-full xl:m-0">
-          <div id="video1" class="w-full h-full md:h-fit svg-container"></div>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:h-full md:space-y-8">
-          <h1 class="text-7xl text-center md:text-9xl">Video Editing</h1>
-          <h1 class="italic sm:text-4xl">"Videos That Spark Emotions and Drive Action."</h1>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-end justify-start xl:h-full md:items-end">
-          <div id="video2"
-            class="w-fit mb-12 h-full md:mb-36 md:w-1/2 md:scale-150 xl:h-1/3 xl:mt-36 xl:scale-175 xl:m-0 xl:mr-32 svg-container">
-          </div>
-        </div>
-      </div>
-
-
-      <!-- GraphicsSection -->
-      <div id="graphic-service" class="w-full h-full flex flex-col bg-white xl:flex-row absolute">
-        <div
-          class="mt-12 flex flex-col items-center justify-between w-2/3 md:m-0 md:w-2/3 sm:h-1/3 md:p-18 xl:w-1/3 xl:h-full">
-          <div id="designer1" class="w-full h-full md:h-fit svg-container"></div>
-          <h1 class="text-lg text-nowrap px-28 hidden mb-8 xl:block text-gray-700">We Don't Just Design <br> We Define
-            Your Brand.</h1>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-center justify-center space-y-2 xl:h-full md:space-y-8">
-          <h1 class="text-7xl text-center md:text-9xl">Graphic Designing</h1>
-          <h1 class="italic sm:text-4xl">"Your Brand, Styled to Perfection."</h1>
-        </div>
-        <div class="w-full h-1/3 flex flex-col items-end justify-end xl:h-full md:items-end">
-          <div id="designer2" class="w-fit mb-12 h-full xl:h-1/3 xl:scale-175 xl:mr-32 md:w-1/2 md:mb-2 svg-container">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="h-screen w-full"></div>
-    <div class="h-screen w-full flex flex-col items-center justify-end">
-      <div class="h-[400px] grayscale hover:grayscale-0 justify-center items-center hidden xl:flex">
-        <svg id="string" width="1450" height="400" viewBox="0 0 1400 400">
-          <path id="strPath" d="M 10 200 Q 700 200 1440 200" stroke="black" stroke-width="50" fill="transparent"
-            stroke-linecap="round" />
-          <text fill="white" font-size="19" align-text="center" text-anchor="middle" dominant-baseline="middle">
-            <textPath startOffset="50%" text-anchor="middle" xlink:href="#strPath">At Markwings💙, We create ideas💡
-              that
-              will blow your mind🤯 and boost your growth📈 because we care about our dreams✨. Lets grow together! 💖
-            </textPath>
-          </text>
-        </svg>
-      </div>
-    </div>
-    <section class="w-full h-112 flex flex-col items-center justify-center p-8 text-3xl lg:h-screen lg:justify-start">
-      <h1 class="text-center lg:text-9xl">Scroll Down? <span class="animate-[spin_3s_linear_infinite] inline-block">🤔</span><br>or</h1>
-      <button class="text-3xl px-8 py-3 rounded-4xl text-white hover:bg-blue-800 active:scale-95 bg-blue-700 animate-pulse hover:animate-none lg:text-5xl contact-button">Contact now
-      </button>
-    </section>
-    <section class="w-full h-screen flex flex-col items-center justify-between space-y-8 text-2xl lg:text-7xl">
-      <h1 class="text-center lg:ml-112 scale-50 animate-[ping_1s_linear_infinite]">You still wanna Scroll More?🤨</h1>
-      <h1 class="text-center text-red-700 lg:mr-112 animate-bounce">Stop Scrolling!🥺</h1>
-      <h1> <span class="text-base lg:text-4xl text-blue-800">💖 "You should just <button
-            class="text-xl px-8 py-3 rounded-4xl text-white hover:bg-blue-800 active:scale-95 bg-blue-700 contact-button">Contact
-            us</button> now" 💖</span></h1>
-    </section>
-    <section class="w-full h-172 flex flex-col items-center justify-center space-y-12 lg:h-screen">
-      <h1 class="text-center lg:text-4xl anim">That's Enough! Don't you dare scroll any now <span
-          class="inline-block animate-wiggle">😡</span></h1>
-      <h1 class="text-6xl text-center hover:text-blue-800"> This is the last warning! <span
-          class="animate-[spin_2s_linear_infinite] inline-block">😒</span></h1>
-    </section>
-
-    <section id="contact"
-      class="w-full h-screen flex flex-col space-y-6 items-center justify-around py-4 relative lg:justify-center">
-      <div id="contact-bg" class="w-full h-fit space-y-8 text-2xl">
-        <h1 class="text-center lg:text-3xl">Accept it, you scrolled till here means you also love creativity. 🥰</h1>
-        <h1 class="text-center mt-52 lg:text-8xl">Let's get growing then... <br> Click on the button now! 😌</h1>
-      </div>
-      <button id="contact-button"
-        class="border-2 px-6 py-3 rounded-4xl bg-blue-700 text-white shadow-md lg:text-4xl xl:absolute contact-button">Get
-        in touch</button>
-      <div id="contact-form"
-        class="bg-white/80 backdrop-blur-md w-full h-full items-center justify-center absolute hidden">
-        <div class="p-4 h-fit text-center rounded-2xl md:shadow-xl md:border md:border-gray-300">
-          <div id="contact-us" class="w-full mb-4">
-            <div class="w-full h-fit flex justify-between">
-              <span></span>
-              <h1 class="text-3xl font-bold text-blue-800 mb-1">Get in Touch</h1>
-              <h1 id="close-form" class="text-xl font-bold grayscale hover:grayscale-0 mb-1">❌</h1>
-            </div>
-            <p class="text-gray-600 normal-case">We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
-          </div>
-
-          <form id="con-form" class="w-full flex flex-col space-y-4">
-            <div class="w-full flex flex-col md:flex-row gap-4">
-              <div class="relative w-full">
-                <input name="fname" type="text" id="fname" required
-                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-                <label for="fname"
-                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">First
-                  Name</label>
+            class="w-full max-w-3xl p-6 md:p-8 bg-white/90 rounded-2xl md:shadow-xl md:border md:border-gray-300 flex flex-col space-y-6">
+            <!-- Header -->
+            <div id="contact-us" class="w-full mb-4">
+              <div class="w-full flex justify-between items-center mb-2">
+                <span></span>
+                <h1 class="text-2xl sm:text-3xl font-bold text-blue-800">Get in Touch</h1>
+                <h1 id="close-form" class="text-xl font-bold grayscale hover:grayscale-0 cursor-pointer">
+                  ❌
+                </h1>
               </div>
-              <div class="relative w-full">
-                <input name="lname" type="text" id="lname" required
-                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-                <label for="lname"
-                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Last
-                  Name</label>
+              <p class="text-gray-600 text-sm sm:text-base">
+                We'd love to hear from you! Fill out the form below and we'll get back to you soon.
+              </p>
+            </div>
+        
+            <!-- Form -->
+            <form id="con-form" class="w-full flex flex-col space-y-4">
+              <!-- Name fields -->
+              <div class="w-full flex flex-col md:flex-row gap-4">
+                <div class="relative w-full">
+                  <input name="fname" type="text" id="fname" required
+                    class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+                  <label for="fname"
+                    class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">First
+                    Name</label>
+                </div>
+                <div class="relative w-full">
+                  <input name="lname" type="text" id="lname" required
+                    class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+                  <label for="lname"
+                    class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Last
+                    Name</label>
+                </div>
               </div>
-            </div>
-
-            <div class="relative">
-              <input name="email" type="email" id="email" required
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-              <label for="email"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Email
-                Address</label>
-            </div>
-
-            <div class="relative">
-              <input name="phone" type="tel" id="phone"
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-              <label for="phone"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Phone
-                Number</label>
-            </div>
-
-            <div class="relative">
-              <input name="comp" type="text" id="comp"
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
-              <label for="comp"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Company/Organization</label>
-            </div>
-
-            <div class="relative">
-              <select name="sub" id="sub" required
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSdub25lJyBoZWlnaHQ9JzI0JyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNNyAxMGw1IDUgNS01eicgZmlsbD0nIzc3NycvPjwvc3ZnPg==')] bg-no-repeat bg-[right_1rem_center]">
-                <option value="" disabled selected>Select Subject</option>
-                <option value="dev">Development</option>
-                <option value="graphics">Graphics Design</option>
-                <option value="dm">Digital Marketing</option>
-                <option value="video">Video Editing</option>
-                <option value="smm">Social Media Marketing</option>
-                <option value="other">Other</option>
-              </select>
-              <label for="sub"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Subject</label>
-            </div>
-            <div class="relative">
-              <textarea name="msg" id="message" rows="3" required
-                class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"></textarea>
-              <label for="msg"
-                class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Your
-                Message</label>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <button id="sub-form" type="submit"
-                class="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
-                Get a Call Back
-              </button>
-              <button id="sub-wp" type="button"
-                class="px-6 py-3 rounded-lg border border-green-500 bg-green-50 text-green-700 font-medium hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all flex items-center justify-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M3 20l1.3-3.9A9.8 9.8 0 0 1 2 10a10 10 0 0 1 10-10 9.8 9.8 0 0 1 6.1 2.3 10 10 0 0 1 2.3 6.1 10 10 0 0 1-10 10 9.8 9.8 0 0 1-6.1-2.3z" />
-                  <path d="M8 14h.01" />
-                  <path d="M12 14h.01" />
-                  <path d="M16 14h.01" />
-                </svg>
-                Send via WhatsApp
-              </button>
-            </div>
-          </form>
+        
+              <!-- Email -->
+              <div class="relative">
+                <input name="email" type="email" id="email" required
+                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+                <label for="email"
+                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Email
+                  Address</label>
+              </div>
+        
+              <!-- Phone -->
+              <div class="relative">
+                <input name="phone" type="tel" id="phone"
+                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+                <label for="phone"
+                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Phone
+                  Number</label>
+              </div>
+        
+              <!-- Company -->
+              <div class="relative">
+                <input name="comp" type="text" id="comp"
+                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" />
+                <label for="comp"
+                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Company/Organization</label>
+              </div>
+        
+              <!-- Subject -->
+              <div class="relative">
+                <select name="sub" id="sub" required
+                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSdub25lJyBoZWlnaHQ9JzI0JyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNNyAxMGw1IDUgNS01eicgZmlsbD0nIzc3NycvPjwvc3ZnPg==')] bg-no-repeat bg-[right_1rem_center]">
+                  <option value="" disabled selected>Select Subject</option>
+                  <option value="dev">Development</option>
+                  <option value="graphics">Graphics Design</option>
+                  <option value="dm">Digital Marketing</option>
+                  <option value="video">Video Editing</option>
+                  <option value="smm">Social Media Marketing</option>
+                  <option value="other">Other</option>
+                </select>
+                <label for="sub"
+                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Subject</label>
+              </div>
+        
+              <!-- Message -->
+              <div class="relative">
+                <textarea name="msg" id="message" rows="3" required
+                  class="peer border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"></textarea>
+                <label for="msg"
+                  class="absolute text-sm text-gray-500 bg-white px-1 left-3 -top-2.5 peer-focus:text-blue-600 peer-focus:font-medium transition-all">Your
+                  Message</label>
+              </div>
+        
+              <!-- Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="sub-form" type="submit"
+                  class="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+                  Get a Call Back
+                </button>
+                <button id="sub-wp" type="button"
+                  class="px-6 py-3 rounded-lg border border-green-500 bg-green-50 text-green-700 font-medium hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all flex items-center justify-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M3 20l1.3-3.9A9.8 9.8 0 0 1 2 10a10 10 0 0 1 10-10 9.8 9.8 0 0 1 6.1 2.3 10 10 0 0 1 2.3 6.1 10 10 0 0 1-10 10 9.8 9.8 0 0 1-6.1-2.3z" />
+                    <path d="M8 14h.01" />
+                    <path d="M12 14h.01" />
+                    <path d="M16 14h.01" />
+                  </svg>
+                  Send via WhatsApp
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Date Time Div -->
-  <!-- Mobile Only -->
-  <div id="dateTime"
-    class="fixed bottom-0 left-0 w-max pl-6 pr-6 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] lg:hidden">
-    <!-- Your mobile date/time content here -->
-  </div>
 
-  <!-- Desktop Only -->
-  <div id="dateTime2"
-    class="fixed w-max pl-48 top-0 pr-8 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8  pointer-events-none lg:pl-36">
-    <!-- Your desktop date/time content here -->
-  </div>
+      </section>
+    </main>
 
-  <div class="fixed left-8 bottom-4 w-max h-max z-[1000]">
-    <ul class="hidden lg:block space-y-2 font-[PixPixls]">
-      <li><a href="#banner" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Home</a></li>
-      <li><a href="./skills/Graphics.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Graphic Designing</a></li>
-      <li><a href="./skills/videos.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Video Editing</a></li>
-      <li><a href="./skills/development.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Development</a></li>
-      <li><a href="./skills/marketing.html" class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Digital Marketing</a></li>
-      <li><a id="con-btn" class="con-btn text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100">Connect Now</a></li>
-    </ul>
-  </div>
-
-  <!-- Scroll Progress Indicator -->
-  <div id="scrollIndicator" title="Scroll to top"
-    class="fixed right-2 bottom-1 lg:right-3 lg:bottom-8 flex aspect-square w-15 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110 z-[1000]">
-    <svg class="absolute top-1.5 left-1/2 -translate-x-1/2 transform" width="60" height="60" viewBox="0 0 60 60">
-      <path d="M10,30 A20,20 0 1,1 50,30" fill="transparent" stroke="none" id="curveTop" />
-      <text fill="white" font-size="10" text-anchor="middle">
-        <textPath href="#curveTop" startOffset="50%">Get</textPath>
-      </text>
-    </svg>
-
-    <div class="z-10 flex h-full w-full items-center justify-center rounded-full font-bold">
-      <span class="text-white text-xs md:text-xl text-center w-full ">Set</span>
+    <!-- Date Time Div -->
+    <!-- Mobile Only -->
+    <div
+      id="dateTime"
+      class="fixed bottom-0 left-0 w-max pl-6 pr-6 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] lg:hidden"
+    >
+      <!-- Your mobile date/time content here -->
     </div>
 
-    <svg class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 transform" width="60" height="60" viewBox="0 0 60 60">
-      <path d="M11,30 A20,20 0 0,0 50,30" fill="transparent" stroke="none" id="curveBottom" />
-      <text fill="white" font-size="10" text-anchor="middle">
-        <textPath href="#curveBottom" class="tracking-[0.2em]" startOffset="50%">
-          Grow
-        </textPath>
-      </text>
-    </svg>
-  </div>
+    <!-- Desktop Only -->
+    <div
+      id="dateTime2"
+      class="fixed w-max pl-48 top-0 pr-8 py-2 font-[PixPixls] text-white bg-blue-600 z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8 pointer-events-none lg:pl-36"
+    >
+      <!-- Your desktop date/time content here -->
+    </div>
 
-  <script type="module" src="./src/script/home/header.js"></script>
-  <script type="module" src="./src/script/home/main.js"></script>
-  <script type="module" src="./src/script/home/banner.js"></script>
-  <script type="module" src="./src/script/home/intro.js"></script>
-  <script type="module" src="./src/script/home/etymology.js"></script>
-  <script type="module" src="./src/script/home/planToAct.js"></script>
-  <script type="module" src="./src/script/home/services.js"></script>
-  <script type="module" src="./src/script/home/contact.js"></script>
-  <script type="module" src="./src/script/home/scroller.js"></script>
-  <script type="module" src="./src/script/home/mouseTrail.js"></script>
-  <!-- <script type="module" src="./src/script/home/fadeInAnimation.js"></script> -->
-</body>
+    <div class="fixed left-8 bottom-4 w-max h-max z-[1000]">
+      <ul class="hidden lg:block space-y-2 font-[PixPixls]">
+        <li>
+          <a
+            href="#banner"
+            class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="./services/graphics.html"
+            class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100"
+            >Graphic Designing</a
+          >
+        </li>
+        <li>
+          <a
+            href="./services/videos.html"
+            class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100"
+            >Video Editing</a
+          >
+        </li>
+        <li>
+          <a
+            href="./services/development.html"
+            class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100"
+            >Development</a
+          >
+        </li>
+        <li>
+          <a
+            href="./services/marketing.html"
+            class="text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100"
+            >Digital Marketing</a
+          >
+        </li>
+        <li>
+          <a
+            id="con-btn"
+            class="con-btn text-gray-500 hover:text-blue-600 transition-colors opacity-60 hover:opacity-100"
+            >Connect Now</a
+          >
+        </li>
+      </ul>
+    </div>
 
+    <!-- Scroll Progress Indicator -->
+    <div
+      id="scrollIndicator"
+      title="Scroll to top"
+      class="fixed right-2 bottom-1 lg:right-3 lg:bottom-8 flex aspect-square w-15 md:w-15 cursor-pointer items-center justify-center rounded-full bg-gradient-to-t from-blue-800 to-blue-500 shadow-lg transition-all hover:scale-110 z-[1000]"
+    >
+      <svg
+        class="absolute top-1.5 left-1/2 -translate-x-1/2 transform"
+        width="60"
+        height="60"
+        viewBox="0 0 60 60"
+      >
+        <path
+          d="M10,30 A20,20 0 1,1 50,30"
+          fill="transparent"
+          stroke="none"
+          id="curveTop"
+        />
+        <text fill="white" font-size="10" text-anchor="middle">
+          <textPath href="#curveTop" startOffset="50%">Get</textPath>
+        </text>
+      </svg>
+
+      <div
+        class="z-10 flex h-full w-full items-center justify-center rounded-full font-bold"
+      >
+        <span class="text-white text-xs md:text-xl text-center w-full"
+          >Set</span
+        >
+      </div>
+
+      <svg
+        class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 transform"
+        width="60"
+        height="60"
+        viewBox="0 0 60 60"
+      >
+        <path
+          d="M11,30 A20,20 0 0,0 50,30"
+          fill="transparent"
+          stroke="none"
+          id="curveBottom"
+        />
+        <text fill="white" font-size="10" text-anchor="middle">
+          <textPath
+            href="#curveBottom"
+            class="tracking-[0.2em]"
+            startOffset="50%"
+          >
+            Grow
+          </textPath>
+        </text>
+      </svg>
+    </div>
+
+    <script type="module" src="./src/script/home/header.js"></script>
+    <script type="module" src="./src/script/home/main.js"></script>
+    <script type="module" src="./src/script/home/banner.js"></script>
+    <script type="module" src="./src/script/home/intro.js"></script>
+    <script type="module" src="./src/script/home/etymology.js"></script>
+    <script type="module" src="./src/script/home/planToAct.js"></script>
+    <script type="module" src="./src/script/home/services.js"></script>
+    <script type="module" src="./src/script/home/contact.js"></script>
+    <script type="module" src="./src/script/home/scroller.js"></script>
+    <script type="module" src="./src/script/home/mouseTrail.js"></script>
+    <!-- <script type="module" src="./src/script/home/fadeInAnimation.js"></script> -->
+  </body>
 </html>
