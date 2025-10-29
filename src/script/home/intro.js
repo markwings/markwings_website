@@ -56,3 +56,31 @@ container.addEventListener("mouseleave", ()=>{
 food.addEventListener("mouseleave", () => {
   clearTimeout(resetTimeout);
 }); */
+
+import lottie from "lottie-web";
+
+let currentAnim;
+
+function loadLottie(path) {
+  if (currentAnim) currentAnim.destroy(); // remove old animation
+  currentAnim = lottie.loadAnimation({
+    container: document.getElementById("intro-bg-svg-container"),
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path,
+  });
+}
+
+function chooseAnimation() {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const isTab = window.matchMedia("(max-width: 1024px)").matches;
+
+  if (isMobile) loadLottie("/animations/marioMobile.json");
+  else if (isTab) loadLottie("/animations/marioTab.json");
+  else loadLottie("/animations/marioDesktop.json");
+}
+
+window.addEventListener("resize", chooseAnimation);
+document.addEventListener("DOMContentLoaded", chooseAnimation);
+chooseAnimation();
