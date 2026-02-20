@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #a174ce 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-text {
+            margin-top: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .loader-progress {
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        /* Hide content while loading */
+        body.is-loading #pdf-container,
+        body.is-loading #page-indicator {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        #rotate-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .phone-icon {
+            width: 60px;
+            height: 100px;
+            border: 5px solid white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            animation: rotate-device 2s ease-in-out infinite alternate;
+        }
+
+        .phone-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        @keyframes rotate-device {
+            0% {
+                transform: rotate(0deg);
+                width: 60px;
+                height: 100px;
+            }
+
+            100% {
+                transform: rotate(90deg);
+            }
+        }
+
+        #pdf-container {
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            display: none;
+        }
+
+        section {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            background: white;
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        canvas {
+            display: block;
+            object-fit: contain;
+        }
+
+        .page-action-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            z-index: 100;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .page-action-btn:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .page-action-btn:active {
+            transform: translateX(-50%) translateY(-1px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.5rem;
+        }
+
+        #page-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .page-action-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+                bottom: 15px;
+            }
+
+            #page-indicator {
+                bottom: 80px;
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: portrait) {
+            #pdf-container {
+                display: none !important;
+            }
+
+            #rotate-screen {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+            #pdf-container {
+                display: block !important;
+            }
+
+            #rotate-screen {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            #pdf-container {
+                display: block !important;
+            }
+
+            #rotate-screen {
+                display: none !important;
+            }
+        }
+
+        /* Loader used inside #preloader */
+        .loader {
+            --r1: 154%;
+            --r2: 68.5%;
+            width: 60px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background:
+                radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),
+                radial-gradient(var(--r1) var(--r2) at bottom, #269af2 79.5%, #0000 80%),
+                radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),
+                #ccc;
+            background-size: 50.5% 220%;
+            background-position: -100% 0%, 0% 0%, 100% 0%;
+            background-repeat: no-repeat;
+            animation: l9 2s infinite linear;
+        }
+
+        @keyframes l9 {
+            33% {
+                background-position: 0% 33%, 100% 33%, 200% 33%;
+            }
+
+            66% {
+                background-position: -100% 66%, 0% 66%, 100% 66%;
+            }
+
+            100% {
+                background-position: 0% 100%, 100% 100%, 200% 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="loader-text" id="loader-text">Loading Portfolio</div>
+    </div>
+
+    <div id="rotate-screen">
+        <div class="phone-icon"></div>
+        <p>Please rotate your device for best experience.</p>
+    </div>
+
+    <div id="pdf-container">
+        <div id="loading">Loading PDF...</div>
+    </div>
+
+    <div id="page-indicator" style="display: none;">Page 1</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let totalPages = 0;
+        let hasRenderedOnce = false;
+        let isRendering = false;
+        let currentOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+        let renderTimeout = null;
+        let currentRenderToken = 0; // for cancelling previous renders logically
+        let lastVisiblePage = 1;      // remembered page
+
+        const pageButtons = {
+            1: { label: 'View Projects', url: 'https://github.com/yourusername' },
+            2: { label: 'Contact Me', url: 'mailto:your@email.com' },
+            3: { label: 'Download Resume', url: '/resume.pdf' }
+        };
+
+        function createPageButton(pageNum) {
+            if (!pageButtons[pageNum]) return null;
+
+            const button = document.createElement('a');
+            button.href = pageButtons[pageNum].url;
+            button.target = pageButtons[pageNum].url.startsWith('mailto:') ? '_self' : '_blank';
+            button.className = 'page-action-btn';
+            button.textContent = pageButtons[pageNum].label;
+
+            return button;
+        }
+
+        async function renderPDF(url) {
+                const myToken = ++currentRenderToken;
+                isRendering = true;
+
+                try {
+                    const container = document.getElementById("pdf-container");
+                    const preloader = document.getElementById("preloader");
+                    const loaderText = document.getElementById("loader-text");
+
+                    if (!hasRenderedOnce) {
+                        preloader.classList.remove("hidden");
+                        document.body.classList.add("is-loading");
+                        if (loaderText) loaderText.textContent = 'Preparing your portfolio...';
+                    }
+
+                    const pdf = await pdfjsLib.getDocument(url).promise;
+                    if (myToken !== currentRenderToken) return;
+
+                    totalPages = pdf.numPages;
+                    container.innerHTML = '';
+
+                    // indicate that actual pages are starting to render
+                    if (!hasRenderedOnce && loaderText) {
+                        loaderText.textContent = 'Loading...';
+                    }
+
+                    for (let i = 1; i <= pdf.numPages; i++) {
+                        if (myToken !== currentRenderToken) return;
+
+                        const page = await pdf.getPage(i);
+                        const section = document.createElement("section");
+                        section.id = `page-${i}`;
+                        section.dataset.pageNumber = i;
+
+                        const canvas = document.createElement('canvas');
+
+                        const viewport = page.getViewport({ scale: 1 });
+                        const scaleX = (window.innerWidth * 0.9) / viewport.width;
+                        const scaleY = (window.innerHeight * 0.9) / viewport.height;
+                        const scale = Math.min(scaleX, scaleY);
+
+                        const outputScale = window.devicePixelRatio || 1;
+                        const scaledViewport = page.getViewport({ scale: scale });
+
+                        canvas.width = scaledViewport.width * outputScale;
+                        canvas.height = scaledViewport.height * outputScale;
+                        canvas.style.width = `${scaledViewport.width}px`;
+                        canvas.style.height = `${scaledViewport.height}px`;
+
+                        const ctx = canvas.getContext("2d");
+                        ctx.scale(outputScale, outputScale);
+                        ctx.imageSmoothingEnabled = true;
+                        ctx.imageSmoothingQuality = 'high';
+
+                        await page.render({
+                            canvasContext: ctx,
+                            viewport: scaledViewport
+                        }).promise;
+
+                        if (myToken !== currentRenderToken) return;
+
+                        const canvasWrapper = document.createElement('div');
+                        canvasWrapper.className = 'canvas-wrapper';
+                        canvasWrapper.style.cssText = `
+        position: relative;
+        width: ${scaledViewport.width}px;
+        height: ${scaledViewport.height}px;
+      `;
+
+                        canvasWrapper.appendChild(canvas);
+                        section.appendChild(canvasWrapper);
+
+                        const button = createPageButton(i);
+                        if (button) {
+                            section.appendChild(button);
+                        }
+
+                        container.appendChild(section);
+                    }
+
+                    if (myToken !== currentRenderToken) return;
+
+                    document.getElementById('page-indicator').style.display = 'block';
+
+                    const targetSection = document.querySelector(`#page-${lastVisiblePage}`);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: hasRenderedOnce ? 'auto' : 'smooth' });
+                    }
+
+                    updatePageIndicator();
+
+                    if (!hasRenderedOnce) {
+                        if (loaderText) loaderText.textContent = 'Ready';
+                        document.body.classList.remove("is-loading");
+                        setTimeout(() => {
+                            preloader.classList.add("hidden");
+                        }, 300);
+                        hasRenderedOnce = true;
+                    }
+
+                } catch (error) {
+                    console.error('Error loading PDF:', error);
+                    const container = document.getElementById("pdf-container");
+                    container.innerHTML =
+                        '<div style="color: red; padding: 20px;">Error loading PDF. Please check the console for details.</div>';
+
+                    const preloader = document.getElementById("preloader");
+                    preloader.classList.add("hidden");
+                    document.body.classList.remove("is-loading");
+                } finally {
+                    if (myToken === currentRenderToken) {
+                        isRendering = false;
+                    }
+                }
+            }
+
+
+        function updatePageIndicator() {
+            const container = document.getElementById("pdf-container");
+            const sections = document.querySelectorAll("section");
+            const viewportHeight = container.clientHeight;
+
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+
+                if (
+                    rect.top <= containerRect.top + viewportHeight / 2 &&
+                    rect.bottom >= containerRect.top + viewportHeight / 2
+                ) {
+                    const pageNumber = index + 1;
+                    lastVisiblePage = pageNumber; // remember
+                    document.getElementById('page-indicator').textContent =
+                        `Page ${pageNumber} of ${totalPages}`;
+                }
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            renderPDF("/portfolio.pdf");
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("pdf-container");
+            container.addEventListener("scroll", updatePageIndicator);
+        });
+
+        window.addEventListener("resize", () => {
+                const newOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+
+                if (newOrientation !== currentOrientation) {
+                    currentOrientation = newOrientation;
+
+                    if (renderTimeout) {
+                        clearTimeout(renderTimeout);
+                    }
+
+                    renderTimeout = setTimeout(() => {
+                        const container = document.getElementById("pdf-container");
+                        if (container.children.length > 0) {
+                            renderPDF("/portfolio.pdf");
+                        }
+                    }, 200);
+                }
+            });
+
+
+    </script>
+</body>
+
+</html>
