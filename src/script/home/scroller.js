@@ -12,10 +12,18 @@ function updateScrollProgress() {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
-  
 }
 
-window.addEventListener("scroll", updateScrollProgress);
+let isScrolling = false;
+window.addEventListener("scroll", () => {
+  if (!isScrolling) {
+    window.requestAnimationFrame(() => {
+      updateScrollProgress();
+      isScrolling = false;
+    });
+    isScrolling = true;
+  }
+});
 scrollIndicator.addEventListener("click", scrollToTop);
 
 // Initialize on load

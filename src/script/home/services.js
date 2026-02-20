@@ -65,8 +65,21 @@ const animationData = [
 
 window.addEventListener("DOMContentLoaded", () => {
   const animationContainers = Array.from(
-    document.querySelectorAll("#services .svg-container")
+    document.querySelectorAll("#services .svg-container"),
   ).reverse();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const anim = entry.target.lottieAnim;
+      if (anim) {
+        if (entry.isIntersecting) {
+          anim.play();
+        } else {
+          anim.pause();
+        }
+      }
+    });
+  });
 
   animationContainers.forEach((container, index) => {
     if (!animationData[index]) {
@@ -74,36 +87,42 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    Lottie.loadAnimation({
+    // Clone data and disable autoplay
+    const animationConfig = { ...animationData[index], autoplay: false };
+
+    const anim = Lottie.loadAnimation({
       container: container,
-      ...animationData[index],
+      ...animationConfig,
       onError: (error) => {
         console.error(`Error loading animation at index ${index}:`, error);
       },
-    });    
+    });
+
+    container.lottieAnim = anim;
+    observer.observe(container);
   });
 });
 
 // GSAP Scroll Timeline
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#services",
-      scroller: "body",
-      start: "top 0%",
-      end: "top -150%",
-      pin: true,
-      scrub: 1.5,
-    },
-  });
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#services",
+    scroller: "body",
+    start: "top 0%",
+    end: "top -150%",
+    pin: true,
+    scrub: 1.5,
+  },
+});
 
-  tl.to("#graphic-service", { y: "100%", }, "play1");
+tl.to("#graphic-service", { y: "100%" }, "play1");
 
-  tl.from("#video-service", { y: "-100%",}, "play1");
+tl.from("#video-service", { y: "-100%" }, "play1");
 
-  tl.to("#video-service", { scale: 5, opacity: 0 }, "play2");
+tl.to("#video-service", { scale: 5, opacity: 0 }, "play2");
 
-  tl.from("#dev-service", { scale: 0, opacity: 0 }, "play2");
+tl.from("#dev-service", { scale: 0, opacity: 0 }, "play2");
 
-  tl.to("#dev-service", { scale: 0, opacity: 0 }, "play3");
+tl.to("#dev-service", { scale: 0, opacity: 0 }, "play3");
 
-  tl.from("#smm-service", { scale: 5, opacity: 0 }, "play3");
+tl.from("#smm-service", { scale: 5, opacity: 0 }, "play3");

@@ -8,28 +8,40 @@ function dateTime() {
   let dateTimeContainer = document.getElementById("dateTime");
   let dateTimeContainer2 = document.getElementById("dateTime2");
 
-  dateTimeContainer.innerHTML = new Date()
-    .toLocaleString()
-    .replace(/,/g, "<br>");
-  setInterval(() => {
-    dateTimeContainer.innerHTML = new Date()
-      .toLocaleString()
-      .replace(/,/g, "<br>");
-  }, 1000);
+  const updateTime = (container) => {
+    container.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
+  };
 
-  dateTimeContainer2.innerHTML = new Date()
-    .toLocaleString()
-    .replace(/,/g, "<br>");
-  setInterval(() => {
-    dateTimeContainer2.innerHTML = new Date()
-      .toLocaleString()
-      .replace(/,/g, "<br>");
-  }, 1000);
+  updateTime(dateTimeContainer);
+  updateTime(dateTimeContainer2);
+
+  let intervalId1, intervalId2;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target === dateTimeContainer) {
+        if (entry.isIntersecting) {
+          intervalId1 = setInterval(() => updateTime(dateTimeContainer), 1000);
+        } else {
+          clearInterval(intervalId1);
+        }
+      } else if (entry.target === dateTimeContainer2) {
+        if (entry.isIntersecting) {
+          intervalId2 = setInterval(() => updateTime(dateTimeContainer2), 1000);
+        } else {
+          clearInterval(intervalId2);
+        }
+      }
+    });
+  });
+
+  if (dateTimeContainer) observer.observe(dateTimeContainer);
+  if (dateTimeContainer2) observer.observe(dateTimeContainer2);
 }
 dateTime();
 
-document.querySelectorAll(".fadeIn").forEach((item)=>{
-  gsap.from(item,{
+document.querySelectorAll(".fadeIn").forEach((item) => {
+  gsap.from(item, {
     y: 30,
     opacity: 0,
     duration: 1,
@@ -53,8 +65,15 @@ document.querySelectorAll(".threeD-element").forEach((item) => {
     item.style.setProperty("--rX", positionX + "deg");
     item.style.setProperty("--rY", positionY + "deg");
   }
+  let isTicking = false;
   item.addEventListener("mousemove", (e) => {
-    threeDAnimation(e.x, e.y);
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        threeDAnimation(e.x, e.y);
+        isTicking = false;
+      });
+      isTicking = true;
+    }
   });
   item.addEventListener("mouseout", () => {
     item.style.setProperty("--rX", "0deg");
@@ -80,13 +99,16 @@ function strings() {
   let initialPath = "M 10 200 Q 700 200 1390 200";
   let finalPath = "M 10 200 Q 700 200 1390 200";
   let el = document.getElementById("string");
+  let isStringTicking = false;
   el.addEventListener("mousemove", (e) => {
-    initialPath = `M 10 200 Q ${e.x} ${e.y - 200} 1390 200`;
-    gsap.set("#string path", {
-      attr: {
-        d: initialPath,
-      },
-    });
+    if (!isStringTicking) {
+      window.requestAnimationFrame(() => {
+        initialPath = `M 10 200 Q ${e.x} ${e.y - 200} 1390 200`;
+        gsap.set("#string path", { attr: { d: initialPath } });
+        isStringTicking = false;
+      });
+      isStringTicking = true;
+    }
   });
   el.addEventListener("mouseleave", () => {
     gsap.to("#string path", {

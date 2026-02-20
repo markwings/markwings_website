@@ -13,7 +13,7 @@ function setup3D() {
     75,
     window.innerWidth / window.innerHeight,
     5,
-    100
+    100,
   );
   scene.add(camera);
   camera.position.z = 15;
@@ -99,12 +99,28 @@ function setup3D() {
   controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2;
 
   // Animate Loop
+  let isIntersecting = true;
+  let animationId;
+
   function animate() {
-    requestAnimationFrame(animate);
+    if (!isIntersecting) return;
+    animationId = requestAnimationFrame(animate);
     controls.update();
     renderer.render(scene, camera);
   }
-  animate();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      isIntersecting = entry.isIntersecting;
+      if (isIntersecting) {
+        animate();
+      } else {
+        cancelAnimationFrame(animationId);
+      }
+    });
+  });
+
+  observer.observe(canvas);
 }
 
 setup3D();
