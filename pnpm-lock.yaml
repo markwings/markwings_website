@@ -17,6 +17,9 @@ importers:
       gsap:
         specifier: ^3.12.7
         version: 3.12.7
+      lenis:
+        specifier: ^1.3.25
+        version: 1.3.25
       lil-gui:
         specifier: ^0.20.0
         version: 0.20.0
@@ -613,6 +616,20 @@ packages:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
 
+  lenis@1.3.25:
+    resolution: {integrity: sha512-mOKxayErlaONK8fm4LN3XNd99Qu4plTpn9h9qf8wxzjGrJDzuD84FYzZ81HCd6ZsWp++VWVwOzL286Pf2s2u4A==}
+    peerDependencies:
+      '@nuxt/kit': '>=3.0.0'
+      react: '>=17.0.0'
+      vue: '>=3.0.0'
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      react:
+        optional: true
+      vue:
+        optional: true
+
   lightningcss-darwin-arm64@1.29.2:
     resolution: {integrity: sha512-cK/eMabSViKn/PG8U/a7aCorpeKLMlK0bQeNHmdb7qUnBkNPnL+oV5DjJUo0kqWsJUapZsM4jCfYItbqBDvlcA==}
     engines: {node: '>= 12.0.0'}
@@ -1185,6 +1202,8 @@ snapshots:
   is-number@7.0.0: {}
 
   jiti@2.4.2: {}
+
+  lenis@1.3.25: {}
 
   lightningcss-darwin-arm64@1.29.2:
     optional: true

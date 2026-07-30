@@ -1,12 +1,66 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Lenis from "lenis";
+import { initPreloader } from "./preloader.js";
+import { initCursor } from "./cursor.js";
+import { initHeroVideo } from "./heroVideo.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ─── Init visual layer ───
+initPreloader();
+initCursor();
+
+// ─── Lenis smooth scroll ───
+const lenis = new Lenis({ lerp: 0.15 });
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
+
+// Make lenis available globally for con-btn smooth scroll
+window.__lenis = lenis;
+
+// ─── Hero scroll-video ───
+initHeroVideo();
+
+// ─── Header scroll state ───
+const header = document.querySelector("header");
+if (header) {
+  lenis.on("scroll", ({ scroll }) => {
+    if (scroll > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+}
+
+// ─── Hide sidebar when footer is visible ───
+const sidebar = document.querySelector(".mw-sidebar");
+const footer  = document.querySelector(".mw-footer");
+if (sidebar && footer) {
+  new IntersectionObserver(([entry]) => {
+    sidebar.classList.toggle("mw-sidebar--hidden", entry.isIntersecting);
+  }, { threshold: 0.05 }).observe(footer);
+}
+
+// ─── Fit footer big word to full width ───
+function fitFooterWord() {
+  const el = document.querySelector(".mw-footer__bigword");
+  if (!el) return;
+  el.style.fontSize = "100px";
+  const ratio = el.parentElement.offsetWidth / el.scrollWidth;
+  el.style.fontSize = ratio * 100 + "px";
+}
+window.addEventListener("load", fitFooterWord);
+window.addEventListener("resize", fitFooterWord);
+
+// ─── Date / Time ───
 function dateTime() {
-  // Date and Time Display
-  let dateTimeContainer = document.getElementById("dateTime");
-  let dateTimeContainer2 = document.getElementById("dateTime2");
+  const dateTimeContainer = document.getElementById("dateTime");
+  const dateTimeContainer2 = document.getElementById("dateTime2");
 
   const updateTime = (container) => {
     container.innerHTML = new Date().toLocaleString().replace(/,/g, "<br>");
@@ -40,6 +94,7 @@ function dateTime() {
 }
 dateTime();
 
+// ─── Fade-in elements ───
 document.querySelectorAll(".fadeIn").forEach((item) => {
   gsap.from(item, {
     y: 30,
@@ -47,7 +102,6 @@ document.querySelectorAll(".fadeIn").forEach((item) => {
     duration: 1,
     scrollTrigger: {
       trigger: item,
-      scroller: "body",
       start: "top 90%",
       end: "top 75%",
       scrub: true,
@@ -55,16 +109,17 @@ document.querySelectorAll(".fadeIn").forEach((item) => {
   });
 });
 
+// ─── 3D tilt elements ───
 document.querySelectorAll(".threeD-element").forEach((item) => {
   function threeDAnimation(x, y) {
-    let positionPx = x - item.getBoundingClientRect().left;
-    let positionX = (50 - (positionPx / item.offsetWidth) * 100) / 3;
-    let positionPy = y - item.getBoundingClientRect().top;
-    let positionY = (50 - (positionPy / item.offsetHeight) * 100) / 3;
-
+    const positionPx = x - item.getBoundingClientRect().left;
+    const positionX = (50 - (positionPx / item.offsetWidth) * 100) / 3;
+    const positionPy = y - item.getBoundingClientRect().top;
+    const positionY = (50 - (positionPy / item.offsetHeight) * 100) / 3;
     item.style.setProperty("--rX", positionX + "deg");
     item.style.setProperty("--rY", positionY + "deg");
   }
+
   let isTicking = false;
   item.addEventListener("mousemove", (e) => {
     if (!isTicking) {
@@ -79,15 +134,15 @@ document.querySelectorAll(".threeD-element").forEach((item) => {
     item.style.setProperty("--rX", "0deg");
     item.style.setProperty("--rY", "0deg");
   });
-
   item.addEventListener("touchend", () => {
     item.style.setProperty("--rX", "0deg");
     item.style.setProperty("--rY", "0deg");
   });
 });
 
+// ─── Touch video reveal ───
 document.querySelectorAll(".threeD-video-element").forEach((item) => {
-  item.addEventListener("touchstart", (e) => {
+  item.addEventListener("touchstart", () => {
     document.getElementById("intro-bg-video").style.opacity = "1";
   });
   item.addEventListener("touchend", () => {
@@ -95,16 +150,19 @@ document.querySelectorAll(".threeD-video-element").forEach((item) => {
   });
 });
 
+// ─── Interactive string ───
 function strings() {
-  let initialPath = "M 10 200 Q 700 200 1390 200";
-  let finalPath = "M 10 200 Q 700 200 1390 200";
-  let el = document.getElementById("string");
+  const initialPath = "M 10 200 Q 700 200 1390 200";
+  const finalPath = "M 10 200 Q 700 200 1390 200";
+  const el = document.getElementById("string");
+  if (!el) return;
+
   let isStringTicking = false;
   el.addEventListener("mousemove", (e) => {
     if (!isStringTicking) {
       window.requestAnimationFrame(() => {
-        initialPath = `M 10 200 Q ${e.x} ${e.y - 200} 1390 200`;
-        gsap.set("#string path", { attr: { d: initialPath } });
+        const path = `M 10 200 Q ${e.x} ${e.y - 200} 1390 200`;
+        gsap.set("#string path", { attr: { d: path } });
         isStringTicking = false;
       });
       isStringTicking = true;
@@ -112,9 +170,7 @@ function strings() {
   });
   el.addEventListener("mouseleave", () => {
     gsap.to("#string path", {
-      attr: {
-        d: finalPath,
-      },
+      attr: { d: finalPath },
       duration: 1,
       ease: "elastic.out(1,0.2)",
     });
