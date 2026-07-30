@@ -102,12 +102,15 @@ export function initHeroVideo() {
     const videoScrollPx = Math.round(dur * 200);
     const totalScrollPx = Math.min(
       Math.round(videoScrollPx / 0.82),
-      Math.round(window.innerHeight * 10)
+      Math.round(window.innerHeight * 30)
     );
 
     // Set the wrapper height: 100vh (banner) + extra scroll for video
     // The sticky banner fills 100vh and sticks while the wrapper provides the scroll range
     videoSection.style.height = `calc(100vh + ${totalScrollPx}px)`;
+
+    // Refresh after resizing videoSection so all other ScrollTriggers recompute
+    ScrollTrigger.refresh();
 
     // No pin needed — CSS sticky on #banner handles it natively (Lenis-compatible)
     ScrollTrigger.create({
@@ -115,14 +118,28 @@ export function initHeroVideo() {
       start: "top top",
       end: "bottom bottom",
 
+      // Show UI when entering from above (page first load / scroll back to top)
+      onEnter()     { hideUI(); },
+      // User scrolled past the end of the video section — restore UI
+      onLeave()     { showUI(); },
+      // Scrolled back into the section from below
+      onEnterBack() { hideUI(); },
+      // Scrolled above the trigger start (overscroll / bounce back to top)
+      onLeaveBack() {
+        showUI();
+        gsap.set(videoWrap, { clearProps: "clipPath,opacity" });
+        if (!isNaN(video.duration)) video.currentTime = 0;
+      },
+
       onUpdate(self) {
         const p = self.progress;
         if (!measured) measureTarget();
 
-        // Phase 1 (0 → 0.82): scrub video through waypoints
+        // Phase 1 (0 → 0.82): scrub video through waypoints (lerped for smoothness)
         if (video.duration && !isNaN(video.duration)) {
           const phase1 = gsap.utils.clamp(0, 1, p / 0.82);
-          video.currentTime = mapProgress(phase1, waypoints) * video.duration;
+          const targetTime = mapProgress(phase1, waypoints) * video.duration;
+          gsap.to(video, { currentTime: targetTime, duration: 0.4, ease: "none", overwrite: "auto" });
         }
 
         // Phase 2 (0.82 → 1.0): clip-path shrinks to the i-dot
@@ -130,7 +147,7 @@ export function initHeroVideo() {
         const e = ease(raw);
 
         if (raw <= 0) {
-          gsap.set(videoWrap, { clipPath: "none", opacity: 1 });
+          gsap.set(videoWrap, { clearProps: "clipPath,opacity" });
           return;
         }
         if (raw >= 1) {
