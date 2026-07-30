@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behind the Wings | MarkWings — Our Agency Story</title>
+  <meta name="description" content="The story behind MarkWings — how India's most creative digital agency was built, what drives us, and why we do what we do." />
+  <link rel="canonical" href="https://www.markwings.com/behind-the-wings" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <script>history.scrollRestoration = "manual";</script>
+
+  <link rel="stylesheet" href="./src/index.css" />
+  <link rel="stylesheet" href="./src/animations.css" />
+  <link rel="stylesheet" href="./src/style/design.css" />
+</head>
+
+<body class="mw-body">
+
+  <!-- ─── Custom Cursor ─── -->
+  <div class="mw-cursor" style="display: none;" aria-hidden="true">
+    <div class="mw-cursor__dot"></div>
+    <div class="mw-cursor__ring"></div>
+  </div>
+
+  <!-- ─── Preloader ─── -->
+  <div class="mw-preloader" role="status" aria-label="Loading MarkWings">
+    <div class="mw-preloader__word" aria-hidden="true">
+      <span class="mw-preloader__letter">M</span>
+      <span class="mw-preloader__letter">A</span>
+      <span class="mw-preloader__letter">R</span>
+      <span class="mw-preloader__letter">K</span>
+      <span class="mw-preloader__letter mw-preloader__letter--gradient">W</span>
+      <span class="mw-preloader__letter mw-preloader__letter--gradient">I</span>
+      <span class="mw-preloader__letter mw-preloader__letter--gradient">N</span>
+      <span class="mw-preloader__letter mw-preloader__letter--gradient">G</span>
+      <span class="mw-preloader__letter mw-preloader__letter--gradient">S</span>
+    </div>
+    <div class="mw-preloader__bar-wrap">
+      <div class="mw-preloader__bar"></div>
+    </div>
+  </div>
+
+  <!-- ─── Header ─── -->
+  <header class="fixed top-0 left-0 w-full z-[10000] mw-header">
+    <nav class="container mx-auto flex justify-between items-center py-3.5 px-4 md:px-8 lg:px-16">
+      <a href="/" class="mw-nav__logo" aria-label="MarkWings Home">MarkWings</a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex items-center space-x-7 lg:space-x-9" role="list">
+        <li><a href="./services/marketing.html" class="mw-nav__link">Digital Marketing</a></li>
+        <li><a href="./services/development.html" class="mw-nav__link">Development</a></li>
+        <li><a href="./services/graphics.html" class="mw-nav__link">Graphic Design</a></li>
+        <li><a href="/behind-the-wings.html" class="mw-nav__link" aria-current="page" style="opacity:1;">Behind the Wings</a></li>
+        <li><a href="/#contact" id="con-btn" class="con-btn mw-nav__cta">Connect Now</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="lg:hidden focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden w-full px-4 pb-4 z-40" role="navigation" aria-label="Mobile navigation">
+      <ul class="flex flex-col space-y-3" role="list">
+        <li><a href="./services/marketing.html" class="block py-2 transition-colors border-b">Digital Marketing</a></li>
+        <li><a href="./services/development.html" class="block py-2 transition-colors border-b">Development</a></li>
+        <li><a href="./services/graphics.html" class="block py-2 transition-colors border-b">Graphic Design</a></li>
+        <li><a href="/behind-the-wings.html" class="block py-2 transition-colors border-b" aria-current="page">Behind the Wings</a></li>
+        <li><a href="/#contact" id="con-btn-mobile" class="con-btn block py-2 transition-colors">Connect Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero video — fullscreen, scroll-driven -->
+  <div id="heroVideoWrap" class="mw-hero__video-wrap" aria-hidden="true">
+    <video id="heroVideo" class="mw-hero__video" muted playsinline preload="auto" tabindex="-1">
+      <source src="/videos/MarkWings_Teaser.mp4" type="video/mp4">
+    </video>
+    <div class="mw-hero__video-ph" aria-hidden="true"></div>
+  </div>
+
+  <!-- ─── Main Content ─── -->
+  <main class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative" style="overflow-x: clip;">
+
+    <!-- ─── Hero / Video Section ─── -->
+    <div id="videoSection" style="width:100%;">
+      <section id="banner" class="mw-hero" aria-label="Behind the Wings — MarkWings Agency Story">
+        <!-- Ambient orbs -->
+        <div class="mw-orb mw-orb--violet" aria-hidden="true"></div>
+        <div class="mw-orb mw-orb--coral" aria-hidden="true"></div>
+        <div class="mw-orb mw-orb--lime" aria-hidden="true"></div>
+
+        <!-- Hero text -->
+        <div class="mw-hero__inner" style="z-index: 10;">
+          <div class="mw-hero__text">
+            <p class="mw-hero__eyebrow">The Agency Story</p>
+
+            <h1 class="mw-hero__headline" aria-label="Behind the Wings">
+              <span class="mw-hero__line mw-hero__line--outline">
+                <span class="mw-hero__line-inner">Behind</span>
+              </span>
+              <span class="mw-hero__line mw-hero__line--gradient">
+                <span class="mw-hero__line-inner">the</span>
+              </span>
+              <span class="mw-hero__line mw-hero__line--solid">
+                <span class="mw-hero__line-inner">Wings.</span>
+              </span>
+            </h1>
+
+            <div class="mw-hero__bottom">
+              <p class="mw-hero__sub">
+                The story of how a small team with big dreams became India's most creative digital agency.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marquee ticker -->
+        <div class="mw-marquee-wrap" aria-hidden="true">
+          <div class="mw-marquee-track">
+            <span class="mw-marquee-item">Our Story <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">The Agency <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">Our Values <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">What We Believe <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">Behind the Wings <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">India's Best <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">Our Story <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">The Agency <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">Our Values <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">What We Believe <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">Behind the Wings <span class="mw-dot"></span></span>
+            <span class="mw-marquee-item">India's Best <span class="mw-dot"></span></span>
+          </div>
+        </div>
+      </section>
+    </div><!-- /videoSection -->
+
+    <!-- ═══════════════════════════
+           ORIGIN STORY
+      ════════════════════════════ -->
+    <section class="mw-btw-section mw-btw-origin" aria-label="How MarkWings started">
+      <div class="mw-btw-section__inner fadeIn">
+        <p class="mw-hero__eyebrow">How it started</p>
+        <h2 class="mw-btw-heading">A small idea.<br>A massive dream.</h2>
+        <p class="mw-btw-body">
+          MarkWings began with a simple frustration: great brands were being let down by agencies
+          that thought in silos. Social here. Design there. Marketing somewhere else entirely.
+          We built MarkWings to be different — one roof, one voice, one vision for every brand we touch.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════
+           VALUES
+      ════════════════════════════ -->
+    <section class="mw-btw-section mw-btw-values" aria-label="What drives MarkWings">
+      <p class="mw-hero__eyebrow fadeIn" style="text-align:center;">What drives us</p>
+      <div class="mw-btw-values__grid">
+
+        <div class="mw-btw-value fadeIn">
+          <span class="mw-btw-value__num">01</span>
+          <h3 class="mw-btw-value__title">Craft First</h3>
+          <p class="mw-btw-value__desc">Every pixel, word, and line of code is deliberate. We don't cut corners — we cut through the noise.</p>
+        </div>
+
+        <div class="mw-btw-value fadeIn">
+          <span class="mw-btw-value__num">02</span>
+          <h3 class="mw-btw-value__title">Brands Over Trends</h3>
+          <p class="mw-btw-value__desc">We build identities that outlast the algorithm, not vanity metrics that disappear next quarter.</p>
+        </div>
+
+        <div class="mw-btw-value fadeIn">
+          <span class="mw-btw-value__num">03</span>
+          <h3 class="mw-btw-value__title">Results Are the Brief</h3>
+          <p class="mw-btw-value__desc">Beautiful work that doesn't convert is just art. We obsess over the intersection of both.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════
+           CTA
+      ════════════════════════════ -->
+    <section class="mw-btw-section mw-btw-cta fadeIn" aria-label="Work with MarkWings">
+      <h2 class="mw-btw-cta__title">Ready to fly?</h2>
+      <a href="/#contact" class="mw-btn-primary con-btn" aria-label="Start a project with MarkWings">
+        Start a Project
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="mw-footer" aria-label="Site footer">
+      <div class="mw-footer__bigword" aria-hidden="true">MARKWINGS</div>
+      <div class="mw-footer__inner">
+        <div class="mw-footer__grid">
+          <div class="mw-footer__brand">
+            <a href="/" class="mw-nav__logo" aria-label="MarkWings — back to home">MarkWings</a>
+            <p class="mw-footer__tagline">We Give Brands Wings</p>
+            <p class="mw-footer__desc">India's creative agency for brands that want to grow fast and look great doing it.</p>
+            <div class="mw-footer__socials">
+              <a href="#" class="mw-footer__social" aria-label="Instagram">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a href="#" class="mw-footer__social" aria-label="LinkedIn">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a href="#" class="mw-footer__social" aria-label="X / Twitter">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a href="#" class="mw-footer__social" aria-label="YouTube">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.53C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <nav class="mw-footer__col" aria-label="Services links">
+            <h4 class="mw-footer__col-head">Services</h4>
+            <ul class="mw-footer__links">
+              <li><a href="./services/marketing.html" class="mw-footer__link">Social Media</a></li>
+              <li><a href="./services/graphics.html" class="mw-footer__link">Graphic Design</a></li>
+              <li><a href="./services/videos.html" class="mw-footer__link">Video Editing</a></li>
+              <li><a href="./services/development.html" class="mw-footer__link">Development</a></li>
+              <li><a href="./services/marketing.html" class="mw-footer__link">Digital Marketing</a></li>
+            </ul>
+          </nav>
+
+          <nav class="mw-footer__col" aria-label="Company links">
+            <h4 class="mw-footer__col-head">Company</h4>
+            <ul class="mw-footer__links">
+              <li><a href="/" class="mw-footer__link">Home</a></li>
+              <li><a href="/behind-the-wings.html" class="mw-footer__link">Behind the Wings</a></li>
+              <li><a href="/#contact" class="mw-footer__link">Contact</a></li>
+              <li><a class="mw-footer__link mw-footer__link--cta con-btn">Start a Project ↗</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="mw-footer__bottom">
+          <span class="mw-footer__copy">© 2025 MarkWings. All rights reserved.</span>
+          <span class="mw-footer__made">Made with passion in India</span>
+          <div class="mw-footer__legal">
+            <a href="#" class="mw-footer__legal-link">Privacy</a>
+            <a href="#" class="mw-footer__legal-link">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ─── Fixed UI: DateTime Mobile ─── -->
+  <div id="dateTime" class="fixed bottom-0 left-0 w-max pl-6 pr-6 py-2 font-[PixPixls] z-[1000] lg:hidden" aria-live="polite" aria-label="Current date and time"></div>
+
+  <!-- ─── Fixed UI: DateTime Desktop ─── -->
+  <div id="dateTime2" class="fixed w-max pl-48 top-0 pr-8 py-2 font-[PixPixls] z-[1000] hidden lg:flex lg:rotate-90 lg:-right-8 pointer-events-none lg:pl-36" aria-hidden="true"></div>
+
+  <!-- ─── Sidebar Navigation ─── -->
+  <nav class="mw-sidebar fixed left-8 bottom-4 w-max h-max z-[1000]" aria-label="Quick navigation">
+    <ul class="hidden lg:block space-y-2 font-[PixPixls]">
+      <li><a href="/" class="transition-colors opacity-60 hover:opacity-100">Home</a></li>
+      <li><a href="/behind-the-wings.html" class="transition-colors opacity-100">Behind the Wings</a></li>
+      <li><a href="./services/graphics.html" class="transition-colors opacity-60 hover:opacity-100">Graphic Design</a></li>
+      <li><a href="./services/development.html" class="transition-colors opacity-60 hover:opacity-100">Development</a></li>
+      <li><a href="./services/marketing.html" class="transition-colors opacity-60 hover:opacity-100">Digital Marketing</a></li>
+      <li><a id="con-btn-sidebar" class="con-btn transition-colors opacity-60 hover:opacity-100">Connect Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── Scripts ─── -->
+  <script type="module" src="./src/script/home/header.js"></script>
+  <script type="module" src="./src/script/pages/behindTheWings.js"></script>
+  <script type="module" src="./src/script/home/scroller.js"></script>
+  <script type="module" src="./src/script/home/mobileMenu.js"></script>
+</body>
+
+</html>

@@ -1577,3 +1577,88 @@ header nav ul {
 .mw-footer__legal-link:hover {
   color: var(--mw-text-dim);
 }
+
+/* ─── Behind the Wings — Page Sections ─── */
+.mw-btw-section {
+  width: 100%;
+  padding: clamp(5rem, 12vw, 10rem) clamp(1.5rem, 8vw, 10rem);
+}
+
+.mw-btw-section__inner {
+  max-width: 780px;
+}
+
+.mw-btw-heading {
+  font-family: var(--mw-font-display);
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--mw-text);
+  margin: 1.25rem 0 2rem;
+}
+
+.mw-btw-body {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.75;
+  color: var(--mw-text-dim);
+  max-width: 620px;
+}
+
+/* Values grid */
+.mw-btw-values {
+  border-top: 1px solid rgba(240, 237, 230, 0.08);
+}
+
+.mw-btw-values__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3rem 4rem;
+  margin-top: 3.5rem;
+}
+
+.mw-btw-value {
+  border-top: 1px solid rgba(240, 237, 230, 0.12);
+  padding-top: 2rem;
+}
+
+.mw-btw-value__num {
+  font-family: var(--mw-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--mw-lime);
+  display: block;
+  margin-bottom: 1.1rem;
+}
+
+.mw-btw-value__title {
+  font-family: var(--mw-font-display);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--mw-text);
+  margin-bottom: 0.75rem;
+}
+
+.mw-btw-value__desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--mw-text-dim);
+}
+
+/* CTA */
+.mw-btw-cta {
+  text-align: center;
+  border-top: 1px solid rgba(240, 237, 230, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.mw-btw-cta__title {
+  font-family: var(--mw-font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--mw-text);
+}

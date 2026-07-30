@@ -3,7 +3,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { initPreloader } from "./preloader.js";
 import { initCursor } from "./cursor.js";
-import { initHeroVideo } from "./heroVideo.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +20,6 @@ gsap.ticker.lagSmoothing(0);
 
 // Make lenis available globally for con-btn smooth scroll
 window.__lenis = lenis;
-
-// ─── Hero scroll-video ───
-initHeroVideo();
 
 // ─── Header scroll state ───
 const header = document.querySelector("header");

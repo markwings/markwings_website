@@ -6,6 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),
+        behindTheWings: path.resolve(__dirname, "behind-the-wings.html"),
         marketing: path.resolve(__dirname, "services/marketing.html"),
         development: path.resolve(__dirname, "services/development.html"),
         graphics: path.resolve(__dirname, "services/graphics.html"),

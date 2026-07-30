@@ -144,6 +144,11 @@
           </a>
         </li>
         <li>
+          <a href="./behind-the-wings.html" class="mw-nav__link">
+            Behind the Wings
+          </a>
+        </li>
+        <li>
           <a href="#contact" id="con-btn" class="con-btn mw-nav__cta">
             Connect Now
           </a>
@@ -187,23 +192,12 @@
     </div>
   </header>
 
-  <!-- Hero video — fullscreen, scroll-driven (outside <main> so z:95 is at root level, above main z:90) -->
-  <div id="heroVideoWrap" class="mw-hero__video-wrap" aria-hidden="true">
-    <video id="heroVideo" class="mw-hero__video" muted playsinline preload="auto" tabindex="-1">
-      <source src="/videos/MarkWings_Teaser.mp4" type="video/mp4">
-    </video>
-    <div class="mw-hero__video-ph" aria-hidden="true"></div>
-  </div>
-
   <!-- ─── Main Content ─── -->
-  <!-- overflow-x:clip instead of hidden — clip doesn't create a scroll container so position:sticky works inside -->
   <main class="w-full z-[90] flex flex-col items-center justify-center min-h-screen relative" style="overflow-x: clip;">
 
     <!-- ═══════════════════════════
            HERO / BANNER
       ════════════════════════════ -->
-    <!-- videoSection height is set in JS to 100vh + totalScrollPx -->
-    <div id="videoSection" style="width:100%;">
     <section id="banner" class="mw-hero" aria-label="MarkWings — Digital Creative Agency">
       <!-- Ambient colour orbs -->
       <div class="mw-orb mw-orb--violet" aria-hidden="true"></div>
@@ -270,7 +264,6 @@
         </div>
       </div>
     </section>
-    </div><!-- /videoSection -->
 
     <!-- ═══════════════════════════
            STATS — Social Proof
