@@ -249,14 +249,18 @@ header nav ul {
 
 /* ─── Hero ─── */
 .mw-hero {
-  position: sticky;
-  top: 0;               /* sticks to viewport top while videoSection scrolls */
-  z-index: 50;          /* above agency-intro z:30 within main's stacking context */
+  position: relative;
+  z-index: 50;
   width: 100%;
   height: 100vh;
   min-height: 640px;
   overflow: hidden;
   background: var(--mw-bg);
+}
+
+#videoSection .mw-hero {
+  position: sticky;
+  top: 0;
 }
 
 /* ─── Hero video (scroll-driven fullscreen) ─── */
@@ -1661,4 +1665,108 @@ header nav ul {
   font-weight: 800;
   line-height: 1;
   color: var(--mw-text);
+}
+
+/* ─── Behind the Wings — Additional Section Styles ─── */
+.mw-btw-body--spaced {
+  margin-top: 1.5rem;
+}
+
+/* Manifesto */
+.mw-btw-manifesto {
+  width: 100%;
+  padding: clamp(5rem, 12vw, 9rem) clamp(1.5rem, 8vw, 10rem);
+  border-top: 1px solid rgba(240, 237, 230, 0.08);
+  border-bottom: 1px solid rgba(240, 237, 230, 0.08);
+}
+
+.mw-btw-manifesto__quote {
+  font-family: var(--mw-font-display);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  font-style: normal;
+  max-width: 860px;
+  background: var(--mw-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Services */
+.mw-btw-services__list {
+  margin-top: 3rem;
+}
+
+.mw-btw-service {
+  display: flex;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(240, 237, 230, 0.08);
+  align-items: flex-start;
+}
+
+.mw-btw-service:last-child {
+  border-bottom: 1px solid rgba(240, 237, 230, 0.08);
+}
+
+.mw-btw-service .mw-btw-value__num {
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+  min-width: 2.5rem;
+}
+
+.mw-btw-service__content {
+  flex: 1;
+}
+
+.mw-btw-service .mw-btw-value__title {
+  margin-bottom: 0.6rem;
+}
+
+/* Team */
+.mw-btw-team__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem 6rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .mw-btw-team__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.mw-btw-team__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+.mw-btw-team__tags span {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(240, 237, 230, 0.18);
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-family: var(--mw-font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mw-text-dim);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.mw-btw-team__tags span:hover {
+  border-color: var(--mw-lime);
+  color: var(--mw-lime);
+}
+
+/* CTA sub line */
+.mw-btw-cta__sub {
+  font-size: 1.05rem;
+  color: var(--mw-text-dim);
+  margin-top: -1rem;
 }

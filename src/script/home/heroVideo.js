@@ -100,9 +100,10 @@ export function initHeroVideo() {
   function createScrollTrigger() {
     const dur = video.duration || 10;
     const videoScrollPx = Math.round(dur * 200);
+    const vh = window.innerHeight || document.documentElement.clientHeight || 800;
     const totalScrollPx = Math.min(
       Math.round(videoScrollPx / 0.82),
-      Math.round(window.innerHeight * 30)
+      Math.round(vh * 30)
     );
 
     // Set the wrapper height: 100vh (banner) + extra scroll for video
@@ -164,13 +165,15 @@ export function initHeroVideo() {
     });
   }
 
-  if (video.readyState >= 1) {
+  function setup() {
     hidePlaceholder();
-    createScrollTrigger();
+    // Defer one rAF so window.innerHeight is guaranteed non-zero (matters when video is cached)
+    requestAnimationFrame(createScrollTrigger);
+  }
+
+  if (video.readyState >= 1) {
+    setup();
   } else {
-    video.addEventListener("loadedmetadata", () => {
-      hidePlaceholder();
-      createScrollTrigger();
-    }, { once: true });
+    video.addEventListener("loadedmetadata", setup, { once: true });
   }
 }
