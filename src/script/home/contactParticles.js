@@ -17,7 +17,7 @@ export function initContactParticles() {
   let W = 0, H = 0, mx = -9999, my = -9999;
 
   function resize() {
-    W = canvas.width  = section.offsetWidth;
+    W = canvas.width = section.offsetWidth;
     H = canvas.height = section.offsetHeight;
   }
   resize();
@@ -25,13 +25,13 @@ export function initContactParticles() {
 
   // Brand colours
   const PALETTE = [
-    { r: 190, g: 253, b: 0   },  // #befd00 lime
+    { r: 190, g: 253, b: 0 },  // #befd00 lime
     { r: 255, g: 255, b: 255 },  // white
     { r: 196, g: 181, b: 253 },  // soft violet
     { r: 255, g: 255, b: 255 },  // white (weighted up)
   ];
 
-  const COUNT = 90;
+  const COUNT = 250;
 
   function rnd(min, max) { return min + Math.random() * (max - min); }
 
@@ -46,8 +46,8 @@ export function initContactParticles() {
         : rnd(0, H),
       vx: rnd(-0.25, 0.25),
       vy: rnd(-0.35, -0.05),   // gentle upward drift
-      r:  rnd(0.6, 2.2),
-      alpha: rnd(0.25, 0.75),
+      r: rnd(0.6, 2.2),
+      alpha: rnd(0.50, 0.92),
       r_: c.r, g_: c.g, b_: c.b,
       life: rnd(0.3, 1),
       decay: rnd(0.0008, 0.0022),
@@ -60,28 +60,28 @@ export function initContactParticles() {
     // Mouse repulsion
     const dx = p.x - mx, dy = p.y - my;
     const d2 = dx * dx + dy * dy;
-    const R  = 140;
+    const R = 140;
     if (d2 < R * R && d2 > 0) {
-      const d     = Math.sqrt(d2);
+      const d = Math.sqrt(d2);
       const force = ((R - d) / R) * 0.9;
       p.vx += (dx / d) * force;
       p.vy += (dy / d) * force;
     }
     p.vx *= 0.96;
     p.vy *= 0.96;
-    p.x  += p.vx;
-    p.y  += p.vy;
+    p.x += p.vx;
+    p.y += p.vy;
     p.life -= p.decay;
   }
 
   function draw(p) {
     const a = p.alpha * Math.max(0, p.life);
     if (a <= 0) return;
-    const glow = p.r * 4;
+    const glow = p.r * 5;
     const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glow);
-    g.addColorStop(0,   `rgba(${p.r_},${p.g_},${p.b_},${a})`);
-    g.addColorStop(0.4, `rgba(${p.r_},${p.g_},${p.b_},${a * 0.4})`);
-    g.addColorStop(1,   `rgba(${p.r_},${p.g_},${p.b_},0)`);
+    g.addColorStop(0, `rgba(${p.r_},${p.g_},${p.b_},${a})`);
+    g.addColorStop(0.4, `rgba(${p.r_},${p.g_},${p.b_},${a * 0.5})`);
+    g.addColorStop(1, `rgba(${p.r_},${p.g_},${p.b_},0)`);
     ctx.fillStyle = g;
     ctx.beginPath();
     ctx.arc(p.x, p.y, glow, 0, Math.PI * 2);

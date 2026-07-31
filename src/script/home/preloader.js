@@ -94,7 +94,18 @@ function animateHeroIn() {
     // Split each line into word spans and animate with blur + stagger
     const allWords = [];
     lineInners.forEach((line) => {
+      const isGradient = line.parentElement?.classList.contains("mw-hero__line--gradient");
       const words = splitIntoWordSpans(line);
+      if (isGradient) {
+        // background-clip:text only clips direct text nodes, not child elements.
+        // After splitting, move the gradient onto each word span so it renders.
+        words.forEach((w) => {
+          w.style.background = "linear-gradient(135deg,#4F7BFF 0%,#7C3AED 50%,#F7295A 100%)";
+          w.style.webkitBackgroundClip = "text";
+          w.style.backgroundClip = "text";
+          w.style.webkitTextFillColor = "transparent";
+        });
+      }
       allWords.push(...words);
     });
 
