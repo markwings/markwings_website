@@ -13,19 +13,8 @@ export function initServices() {
 
   if (!track || !pin || !strip || !panels.length) return;
 
-  // ── Mobile: simple stacked reveals ──
-  if (window.innerWidth < 768) {
-    panels.forEach((panel) => {
-      const content = panel.querySelector(".mw-svc__content");
-      if (content) {
-        gsap.from(content, {
-          opacity: 0, y: 44, duration: 0.85, ease: "power3.out",
-          scrollTrigger: { trigger: panel, start: "top 78%", once: true },
-        });
-      }
-    });
-    return;
-  }
+  // ── Mobile: simple stacked layout ──
+  if (window.innerWidth < 768) return;
 
   // ── Desktop ──
   // CSS sticky fails here because <main> has overflow-x:hidden (Tailwind),
@@ -49,7 +38,6 @@ export function initServices() {
     pin.style.top      = "0";
     gsap.set(strip, { x: 0 });
 
-    const revealed = new Set();
     let lastIdx    = -1;
     let pinState   = "before"; // "before" | "active" | "after"
 
@@ -85,23 +73,6 @@ export function initServices() {
       pin.style.width    = "";
     }
 
-    function revealPanel(panel) {
-      if (!panel) return;
-      const bar = panel.querySelector(".mw-svc__bar");
-      const els = [".mw-svc__num", ".mw-svc__cat", ".mw-svc__title",
-                   ".mw-svc__desc", ".mw-svc__metrics", ".mw-svc__pills"]
-        .map((s) => panel.querySelector(s)).filter(Boolean);
-      if (bar) gsap.fromTo(bar,
-        { scaleY: 0, transformOrigin: "top center" },
-        { scaleY: 1, duration: 0.6, ease: "power3.out" }
-      );
-      if (els.length) gsap.fromTo(els,
-        { opacity: 0, y: 30, filter: "blur(8px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", clearProps: "filter",
-          duration: 0.7, stagger: 0.07, ease: "power3.out" }
-      );
-    }
-
     function onScroll({ scroll }) {
       // Re-measure trackTop on every tick while NOT pinned — handles font-swap
       // layout shifts (Syne loads after window.load and shifts track position).
@@ -123,7 +94,6 @@ export function initServices() {
         setPinAfter();
         gsap.set(strip, { x: -totalScroll });
         const last = panels.length - 1;
-        if (!revealed.has(last)) { revealed.add(last); revealPanel(panels[last]); }
         if (counter)     counter.textContent = `0${panels.length} / 0${panels.length}`;
         if (progressBar) gsap.set(progressBar, { scaleX: 1 });
         return;
@@ -146,7 +116,6 @@ export function initServices() {
       const idx = Math.min(Math.floor(p * panels.length), panels.length - 1);
       if (idx !== lastIdx) {
         lastIdx = idx;
-        if (!revealed.has(idx)) { revealed.add(idx); revealPanel(panels[idx]); }
       }
       if (counter)     counter.textContent = `0${idx + 1} / 0${panels.length}`;
       if (progressBar) gsap.set(progressBar, { scaleX: p });

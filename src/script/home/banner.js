@@ -11,7 +11,10 @@ function setup3D() {
   const isMobile = () => window.innerWidth < 1024;
 
   function getRenderSize() {
-    return { w: window.innerWidth, h: window.innerHeight };
+    const rect = canvas.parentElement?.getBoundingClientRect();
+    const w = (rect && rect.width > 0) ? rect.width : window.innerWidth * 0.44;
+    const h = (rect && rect.height > 0) ? rect.height : window.innerHeight;
+    return { w, h };
   }
 
   const { w, h } = getRenderSize();
@@ -27,7 +30,7 @@ function setup3D() {
   // ── Brand constellation: colored particles (violet/coral/blue/lime)
   const PARTICLE_COUNT = 220;
   const pPositions = new Float32Array(PARTICLE_COUNT * 3);
-  const pColors    = new Float32Array(PARTICLE_COUNT * 3);
+  const pColors = new Float32Array(PARTICLE_COUNT * 3);
   const brandColors = [
     [0.486, 0.227, 0.929], // violet
     [0.969, 0.161, 0.353], // coral
@@ -36,7 +39,7 @@ function setup3D() {
   ];
 
   for (let i = 0; i < PARTICLE_COUNT; i++) {
-    pPositions[i * 3]     = (Math.random() - 0.5) * 42;
+    pPositions[i * 3] = (Math.random() - 0.5) * 42;
     pPositions[i * 3 + 1] = (Math.random() - 0.5) * 26;
     pPositions[i * 3 + 2] = (Math.random() - 0.5) * 22;
     const c = brandColors[Math.floor(Math.random() * brandColors.length)];
@@ -45,7 +48,7 @@ function setup3D() {
 
   const pGeo = new THREE.BufferGeometry();
   pGeo.setAttribute("position", new THREE.BufferAttribute(pPositions, 3));
-  pGeo.setAttribute("color",    new THREE.BufferAttribute(pColors, 3));
+  pGeo.setAttribute("color", new THREE.BufferAttribute(pColors, 3));
   const pMat = new THREE.PointsMaterial({
     vertexColors: true,
     size: 0.07,
@@ -73,7 +76,7 @@ function setup3D() {
   const loader = new GLTFLoader();
 
   function getScalingFactor() { return Math.min(Math.max(window.innerWidth / 1000, 0.5), 1); }
-  function getLogoX()         { return isMobile() ? 0 : 4.5; }
+  function getLogoX() { return 0; }
 
   loader.load("/logo.glb", (model) => {
     logo = model.scene;
@@ -105,7 +108,7 @@ function setup3D() {
     new THREE.CylinderGeometry(5, 5, 1, 50),
     new THREE.MeshStandardMaterial({ color: 0x151520, opacity: 0.85, transparent: true, metalness: 0.6, roughness: 0.4 })
   );
-  pedestalMesh.position.set(getLogoX(), -7, 0);
+  pedestalMesh.position.set(getLogoX(), -8, 0);
   scene.add(pedestalMesh);
 
   // ── Lights
@@ -114,25 +117,25 @@ function setup3D() {
   const d2 = new THREE.DirectionalLight(0xffffff, 1.0); d2.position.set(-10, -10, -10); scene.add(d2);
 
   const pointViolet = new THREE.PointLight(0x7c3aed, 3.5, 28); pointViolet.position.set(-8, 6, 6); scene.add(pointViolet);
-  const pointCoral  = new THREE.PointLight(0xf7295a, 2.5, 22); pointCoral.position.set(8, -5, 5);  scene.add(pointCoral);
-  const pointBlue   = new THREE.PointLight(0x4f7bff, 1.8, 20); pointBlue.position.set(0, 0, -8);   scene.add(pointBlue);
+  const pointCoral = new THREE.PointLight(0xf7295a, 2.5, 22); pointCoral.position.set(8, -5, 5); scene.add(pointCoral);
+  const pointBlue = new THREE.PointLight(0x4f7bff, 1.8, 20); pointBlue.position.set(0, 0, -8); scene.add(pointBlue);
 
   // ── Controls
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.autoRotate      = true;
+  controls.autoRotate = true;
   controls.autoRotateSpeed = 4;
-  controls.enableDamping   = true;
-  controls.dampingFactor   = 0.05;
-  controls.enableZoom      = false;
-  controls.enablePan       = false;
-  controls.enableRotate    = false;
-  controls.minPolarAngle   = controls.maxPolarAngle = Math.PI / 2;
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.enableZoom = false;
+  controls.enablePan = false;
+  controls.enableRotate = false;
+  controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2;
 
   // ── Reactive lights (mouse)
   canvas.addEventListener("mw:mouse", (e) => {
     const { mx, my } = e.detail;
     pointViolet.position.x = -8 + mx * 4; pointViolet.position.y = 6 + my * -3;
-    pointCoral.position.x  =  8 + mx * 3; pointCoral.position.y  = -5 + my * 3;
+    pointCoral.position.x = 8 + mx * 3; pointCoral.position.y = -5 + my * 3;
   });
 
   // ── Scroll-driven rotation + camera drift

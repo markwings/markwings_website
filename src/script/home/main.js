@@ -3,10 +3,18 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { initPreloader } from "./preloader.js";
 import { initCursor } from "./cursor.js";
+import { initBgShader } from "./bgShader.js";
+import { initAgencyGrid } from "./agencyGrid.js";
+import { initLiquidDistortion } from "./liquidDistortion.js";
+import { initContactParticles } from "./contactParticles.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ─── Init visual layer ───
+initBgShader();
+initAgencyGrid();
+initLiquidDistortion();
+initContactParticles();
 initPreloader();
 initCursor();
 

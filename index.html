@@ -204,9 +204,10 @@
       <div class="mw-orb mw-orb--coral" aria-hidden="true"></div>
       <div class="mw-orb mw-orb--lime" aria-hidden="true"></div>
 
-      <!-- 3D Canvas — behind text on mobile, right side on desktop -->
-      <canvas id="3dCanvas" class="absolute top-0 left-0 pointer-events-none" style="z-index: 2;"
-        aria-hidden="true"></canvas>
+      <!-- 3D Canvas — right side on desktop -->
+      <div class="mw-hero__canvas-wrap" aria-hidden="true">
+        <canvas id="3dCanvas" class="pointer-events-none" style="display:block;width:100%;height:100%;"></canvas>
+      </div>
 
       <!-- Hero text content -->
       <div class="mw-hero__inner" style="z-index: 10;">
