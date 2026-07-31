@@ -851,22 +851,11 @@ header nav ul {
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
-  .mw-agency__body {
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 3rem;
-  }
-}
-
 .mw-agency__desc {
   font-size: clamp(0.88rem, 1.6vw, 1rem);
   color: var(--mw-text-dim);
   line-height: 1.82;
-  flex: 1 1 260px;
-  max-width: 460px;
-  min-width: 0;
+  max-width: 560px;
   opacity: 0;
   transform: translateY(24px);
 }
@@ -875,8 +864,8 @@ header nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  flex: 0 1 auto;
-  min-width: 0;
+  justify-content: center;
+  width: 100%;
   opacity: 0;
   transform: translateY(24px);
 }
