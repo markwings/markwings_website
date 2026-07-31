@@ -75,7 +75,7 @@ const FRAG = `
     vec3 violet = vec3(0.486, 0.227, 0.929);
     vec3 coral  = vec3(0.969, 0.161, 0.353);
     vec3 blue   = vec3(0.310, 0.482, 1.000);
-    vec3 lime   = vec3(0.745, 1.000, 0.000);
+    vec3 lime   = vec3(0.020, 0.047, 0.878);
 
     // ── Paint aurora bands (wider smoothstep ranges = more coverage)
     float n1 = smoothstep(0.05, 0.48, n);

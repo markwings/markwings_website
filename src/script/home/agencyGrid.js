@@ -43,7 +43,7 @@ export function initAgencyGrid() {
   // ── Lime floor — exposed through gaps when cubes lift ─────────────────────────
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(COLS * SPACING, ROWS * SPACING),
-    new THREE.MeshBasicMaterial({ color: 0xbefd00 })
+    new THREE.MeshBasicMaterial({ color: 0x050ce0 })
   );
   floor.rotation.x = -Math.PI / 2;
   floor.position.y  = -CH * 0.5 - 0.01;
@@ -135,7 +135,7 @@ export function initAgencyGrid() {
   topLight.position.set(4, 20, 6);
   scene.add(topLight);
 
-  const floorLight = new THREE.PointLight(0xbefd00, 0, 32);
+  const floorLight = new THREE.PointLight(0x050ce0, 0, 32);
   floorLight.position.y = -0.5;
   scene.add(floorLight);
 
@@ -184,11 +184,30 @@ export function initAgencyGrid() {
   window.addEventListener("resize", resize);
 
   // ── Content texture builder ───────────────────────────────────────────────────
+  // Temporarily override GSAP initial-state transforms/opacity so the snapshot
+  // captures elements at their final (animated-in) positions, not the hidden ones.
+  function withFinalPositions(fn) {
+    if (!inner) return fn();
+    const snapEls = [
+      ...inner.querySelectorAll(".js-agency-line"),
+      inner.querySelector(".mw-agency__desc"),
+      inner.querySelector(".mw-agency__tags"),
+    ].filter(Boolean);
+    const saved = snapEls.map(el => ({ el, t: el.style.transform, o: el.style.opacity }));
+    snapEls.forEach(el => { el.style.transform = "none"; el.style.opacity = "1"; });
+    void inner.offsetHeight; // force reflow
+    fn();
+    saved.forEach(({ el, t, o }) => { el.style.transform = t; el.style.opacity = o; });
+  }
+
   function rebuildContentTex() {
-    requestAnimationFrame(() => {
-      const cvs = buildContentCanvas(section, inner);
-      contentTex.image = cvs;
-      contentTex.needsUpdate = true;
+    if (!inner) return;
+    withFinalPositions(() => {
+      requestAnimationFrame(() => {
+        const cvs = buildContentCanvas(section, inner);
+        contentTex.image = cvs;
+        contentTex.needsUpdate = true;
+      });
     });
   }
 
@@ -197,9 +216,11 @@ export function initAgencyGrid() {
     document.fonts.ready.then(() => {
       // Two rAFs: past current paint + one more so GSAP initial states settle
       requestAnimationFrame(() => requestAnimationFrame(() => {
-        const cvs = buildContentCanvas(section, inner);
-        contentTex.image = cvs;
-        contentTex.needsUpdate = true;
+        withFinalPositions(() => {
+          const cvs = buildContentCanvas(section, inner);
+          contentTex.image = cvs;
+          contentTex.needsUpdate = true;
+        });
         // Fade DOM text out — cubes carry the text from here
         inner.style.transition = "opacity 0.7s ease";
         inner.style.opacity    = "0";

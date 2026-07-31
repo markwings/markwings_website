@@ -832,7 +832,7 @@ header nav ul {
 .mw-agency__line {
   display: block;
   font-family: var(--mw-font-display);
-  font-size: clamp(3rem, 7.5vw, 7rem);
+  font-size: clamp(2.5rem, 6.5vw, 5.8rem);
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.035em;
@@ -855,7 +855,8 @@ header nav ul {
   .mw-agency__body {
     flex-direction: row;
     align-items: flex-start;
-    gap: 5rem;
+    flex-wrap: wrap;
+    gap: 3rem;
   }
 }
 
@@ -863,7 +864,9 @@ header nav ul {
   font-size: clamp(0.88rem, 1.6vw, 1rem);
   color: var(--mw-text-dim);
   line-height: 1.82;
+  flex: 1 1 260px;
   max-width: 460px;
+  min-width: 0;
   opacity: 0;
   transform: translateY(24px);
 }
@@ -872,7 +875,8 @@ header nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  flex-shrink: 0;
+  flex: 0 1 auto;
+  min-width: 0;
   opacity: 0;
   transform: translateY(24px);
 }

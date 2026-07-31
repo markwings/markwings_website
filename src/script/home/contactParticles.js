@@ -25,7 +25,7 @@ export function initContactParticles() {
 
   // Brand colours
   const PALETTE = [
-    { r: 190, g: 253, b: 0 },  // #befd00 lime
+    { r: 5, g: 12, b: 224 },    // #050ce0 blue
     { r: 255, g: 255, b: 255 },  // white
     { r: 196, g: 181, b: 253 },  // soft violet
     { r: 255, g: 255, b: 255 },  // white (weighted up)
