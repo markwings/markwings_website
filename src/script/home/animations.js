@@ -47,39 +47,44 @@ function initCounters() {
 }
 
 // ─── Scroll-reactive marquee ───
-// JS-driven: velocity from Lenis controls speed + direction.
-// Scroll down → faster leftward. Scroll up → reverses rightward. Idle → slow leftward drift.
+// Wheel/touch driven: scroll up → left-to-right; scroll down → right-to-left; idle → left-to-right.
 function initMarqueeScroll() {
   const track = document.querySelector(".mw-marquee-track");
   if (!track) return;
 
-  // Hand off from CSS animation to JS-controlled transform
   track.style.animation = "none";
 
   const halfWidth = track.scrollWidth / 2;
   let x = 0;
-  let vel = -0.5;       // px/frame at 60fps; negative = leftward
-  let targetVel = -0.5; // decays back here when scroll stops
+  let vel = 0.5;        // positive = left-to-right (default)
+  let targetVel = 0.5;
 
-  const lenis = window.__lenis;
-  if (lenis) {
-    lenis.on("scroll", ({ velocity, direction }) => {
-      // direction: 1=down → right-to-left; -1=up → left-to-right
-      const mag = Math.min(8, Math.abs(velocity) * 0.025);
-      targetVel = -direction * mag;
-    });
-  }
+  // Use raw wheel events — reliable regardless of scroll library internals
+  window.addEventListener("wheel", (e) => {
+    const mag = Math.min(8, Math.abs(e.deltaY) * 0.04);
+    // deltaY > 0 = scroll down → right-to-left (negative)
+    // deltaY < 0 = scroll up  → left-to-right (positive)
+    targetVel = e.deltaY > 0 ? -mag : mag;
+  }, { passive: true });
+
+  // Touch support
+  let _lastTouchY = 0;
+  window.addEventListener("touchstart", (e) => {
+    _lastTouchY = e.touches[0].clientY;
+  }, { passive: true });
+  window.addEventListener("touchmove", (e) => {
+    const dy = _lastTouchY - e.touches[0].clientY; // positive = scrolling down
+    const mag = Math.min(8, Math.abs(dy) * 0.08);
+    targetVel = dy > 0 ? -mag : mag;
+    _lastTouchY = e.touches[0].clientY;
+  }, { passive: true });
 
   function tick() {
-    // Smoothly decay target back to default drift when scroll stops
-    targetVel += (-0.5 - targetVel) * 0.04;
-    // Lerp velocity for smooth acceleration / deceleration
+    targetVel += (0.5 - targetVel) * 0.04;  // decay toward left-to-right default
     vel += (targetVel - vel) * 0.1;
-
     x += vel;
     if (x < -halfWidth) x += halfWidth;
     if (x > 0) x -= halfWidth;
-
     track.style.transform = `translateX(${x}px)`;
     requestAnimationFrame(tick);
   }
