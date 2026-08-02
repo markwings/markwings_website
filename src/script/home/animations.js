@@ -56,14 +56,14 @@ function initMarqueeScroll() {
 
   const halfWidth = track.scrollWidth / 2;
   let x = 0;
-  let vel = 0.5;        // positive = left-to-right (default)
-  let targetVel = 0.5;
+  let vel = -0.5;        // negative = right-to-left (default, matches CSS)
+  let targetVel = -0.5;
 
   // Use raw wheel events — reliable regardless of scroll library internals
   window.addEventListener("wheel", (e) => {
     const mag = Math.min(8, Math.abs(e.deltaY) * 0.04);
-    // deltaY > 0 = scroll down → right-to-left (negative)
-    // deltaY < 0 = scroll up  → left-to-right (positive)
+    // deltaY > 0 = scroll down → right-to-left (negative, same as default)
+    // deltaY < 0 = scroll up  → left-to-right (positive, reverse)
     targetVel = e.deltaY > 0 ? -mag : mag;
   }, { passive: true });
 
@@ -80,7 +80,7 @@ function initMarqueeScroll() {
   }, { passive: true });
 
   function tick() {
-    targetVel += (0.5 - targetVel) * 0.04;  // decay toward left-to-right default
+    targetVel += (-0.5 - targetVel) * 0.04;  // decay toward right-to-left default
     vel += (targetVel - vel) * 0.1;
     x += vel;
     if (x < -halfWidth) x += halfWidth;
