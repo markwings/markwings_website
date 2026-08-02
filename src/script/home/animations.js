@@ -46,23 +46,45 @@ function initCounters() {
   });
 }
 
-// ─── Scroll-linked marquee speed boost ───
+// ─── Scroll-reactive marquee ───
+// JS-driven: velocity from Lenis controls speed + direction.
+// Scroll down → faster leftward. Scroll up → reverses rightward. Idle → slow leftward drift.
 function initMarqueeScroll() {
   const track = document.querySelector(".mw-marquee-track");
   if (!track) return;
 
-  let speed = 28;
+  // Hand off from CSS animation to JS-controlled transform
+  track.style.animation = "none";
 
-  ScrollTrigger.create({
-    trigger: ".mw-hero",
-    start: "top top",
-    end: "bottom top",
-    onUpdate(self) {
-      // Faster as you scroll away from hero
-      const newSpeed = 28 - self.progress * 18;
-      track.style.animationDuration = `${Math.max(10, newSpeed)}s`;
-    },
-  });
+  const halfWidth = track.scrollWidth / 2;
+  let x = 0;
+  let vel = -0.5;       // px/frame at 60fps; negative = leftward
+  let targetVel = -0.5; // decays back here when scroll stops
+
+  const lenis = window.__lenis;
+  if (lenis) {
+    lenis.on("scroll", ({ velocity }) => {
+      // Lenis velocity: +ve = scrolling down, -ve = scrolling up
+      // Cap influence so fast flings don't over-shoot
+      targetVel = -Math.max(-8, Math.min(8, velocity * 0.025));
+    });
+  }
+
+  function tick() {
+    // Smoothly decay target back to default drift when scroll stops
+    targetVel += (-0.5 - targetVel) * 0.04;
+    // Lerp velocity for smooth acceleration / deceleration
+    vel += (targetVel - vel) * 0.1;
+
+    x += vel;
+    if (x < -halfWidth) x += halfWidth;
+    if (x > 0) x -= halfWidth;
+
+    track.style.transform = `translateX(${x}px)`;
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
 }
 
 // ─── Parallax on ambient orbs ───
