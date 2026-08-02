@@ -63,10 +63,10 @@ function initMarqueeScroll() {
 
   const lenis = window.__lenis;
   if (lenis) {
-    lenis.on("scroll", ({ velocity }) => {
-      // velocity is signed: positive=down (leftward marquee), negative=up (rightward marquee)
-      const signed = velocity * 0.025;
-      targetVel = -Math.max(-8, Math.min(8, signed));
+    lenis.on("scroll", ({ velocity, direction }) => {
+      // direction: 1=down → right-to-left; -1=up → left-to-right
+      const mag = Math.min(8, Math.abs(velocity) * 0.025);
+      targetVel = -direction * mag;
     });
   }
 
