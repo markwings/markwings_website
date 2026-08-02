@@ -832,7 +832,7 @@ header nav ul {
 .mw-agency__line {
   display: block;
   font-family: var(--mw-font-display);
-  font-size: clamp(2.5rem, 6.5vw, 5.8rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.035em;
