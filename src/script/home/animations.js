@@ -64,9 +64,9 @@ function initMarqueeScroll() {
   const lenis = window.__lenis;
   if (lenis) {
     lenis.on("scroll", ({ velocity }) => {
-      // Lenis velocity: +ve = scrolling down, -ve = scrolling up
-      // Cap influence so fast flings don't over-shoot
-      targetVel = -Math.max(-8, Math.min(8, velocity * 0.025));
+      // velocity is signed: positive=down (leftward marquee), negative=up (rightward marquee)
+      const signed = velocity * 0.025;
+      targetVel = -Math.max(-8, Math.min(8, signed));
     });
   }
 
